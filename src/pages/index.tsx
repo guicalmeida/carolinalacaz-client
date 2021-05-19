@@ -1,5 +1,9 @@
-import Main from 'components/Main'
+import Home from '../templates/home'
 
-export default function Home() {
-  return <Main />
+export default function Inicial() {
+  return (
+    <div>
+      <Home />
+    </div>
+  )
 }
