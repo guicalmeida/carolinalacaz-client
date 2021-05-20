@@ -1,6 +1,6 @@
 import Ensaios from '../templates/ensaios'
 
-export default function ensaios() {
+export default function arquitetura() {
   return (
     <div>
       <Ensaios />

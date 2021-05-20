@@ -1,3 +1,4 @@
+import CustomThemeProvider from 'hooks/theme'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
@@ -5,7 +6,7 @@ import GlobalStyles from 'styles/global'
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <CustomThemeProvider>
       <Head>
         <title>Carolina Lacaz | Fotografia</title>
         <link rel="shortcut icon" href="" />
@@ -25,7 +26,7 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />
-    </>
+    </CustomThemeProvider>
   )
 }
 

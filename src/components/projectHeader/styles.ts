@@ -4,12 +4,6 @@ export const Container = styled.div`
   padding-top: 10rem;
 `
 
-export const Ico = styled.span`
-  width: 2.5rem;
-  height: 2.5rem;
-  margin-right: 1rem;
-  cursor: pointer;
-`
 export const ProjectsInfosDiv = styled.div`
   display: flex;
   justify-content: space-between;

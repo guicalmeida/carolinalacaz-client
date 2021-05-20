@@ -17,12 +17,6 @@ const ProjectHeader = ({
     <S.Container>
       <S.ProjectsInfosDiv>
         <S.ProjectInfosLeft>
-          <S.Ico
-            className="iconify"
-            data-icon="dashicons:arrow-left-alt2"
-            data-inline="false"
-          />
-
           <div>
             <S.ProjectTitle>{titulo}</S.ProjectTitle>
             <i>

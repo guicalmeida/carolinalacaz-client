@@ -13,7 +13,7 @@ export const Item = styled.li`
   text-transform: uppercase;
   cursor: pointer;
   padding: 0 3rem;
-  color: #373435;
+  color: ${(props) => props.theme.colors.txt};
   display: flex;
   flex-direction: column;
 `
@@ -21,7 +21,7 @@ export const Item = styled.li`
 export const ArrowDown = styled.span`
   height: 1rem;
   width: 3rem;
-  color: #373435;
+  color: ${(props) => props.theme.colors.txt};
 `
 
 export const ItemContainer = styled.div`
@@ -36,8 +36,8 @@ export const FilterContainer = styled.div`
 export const FilterBy = styled.div`
   width: 14rem;
   height: 4rem;
-  background: #fff;
-  border: 1px solid #373435;
+  background: ${(props) => props.theme.colors.bg};
+  border: 1px solid ${(props) => props.theme.colors.txt};
   border-radius: 50px;
   display: flex;
   align-items: center;
@@ -47,7 +47,7 @@ export const FilterBy = styled.div`
 export const Ico = styled.span`
   width: 3.1rem;
   height: 3rem;
-  color: #373435;
+  color: ${(props) => props.theme.colors.txt};
 `
 
 export const List = styled.ul`
@@ -70,7 +70,7 @@ export const Dropdown = styled.div`
     content: '';
     height: 1px;
     width: 8rem;
-    background-color: #373435;
+    background-color: ${(props) => props.theme.colors.txt};
     position: absolute;
     transform: translateY(-20px);
   }

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Nav = styled.nav`
   background-color: white;
-  color: #fafafa;
+  background-color: inherit;
   height: 10rem;
   position: fixed;
   display: flex;
@@ -11,6 +11,9 @@ export const Nav = styled.nav`
   justify-content: space-evenly;
   z-index: 5;
   width: 100vw;
+  background-color: ${(props) => props.theme.colors.bg};
+  color: ${(props) => props.theme.colors.txt};
+  transition: 300ms;
 `
 export const List = styled.ul`
   display: flex;
@@ -20,9 +23,11 @@ export const List = styled.ul`
   list-style-type: none;
 `
 
-export const Logotipo = styled.img`
+export const LogoWrapper = styled.div`
   width: 20rem;
   cursor: pointer;
+  stroke: ${(props) => props.theme.colors.txt};
+  transition: 300ms;
 `
 export const Option = styled.li`
   font-size: 1.7rem;
@@ -31,25 +36,45 @@ export const Option = styled.li`
 `
 
 export const Link = styled.a`
-  color: #373435;
+  color: ${(props) => props.theme.colors.txt};
+  transition: 300ms;
 `
 
 export const Busca = styled.input`
   border: none;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid ${(props) => props.theme.colors.txt};
   width: 25rem;
   height: 3rem;
   margin-right: 3rem;
   margin-left: 1rem;
+  background-color: ${(props) => props.theme.colors.bg};
+  color: ${(props) => props.theme.colors.txt};
+  transition: 300ms;
 
   &:focus {
     outline: none;
   }
 `
 
-export const Ico = styled.span`
-  color: #373435;
-  font-size: 25px;
+export const Ico = styled.div`
+  color: ${(props) => props.theme.colors.txt};
+  transition: 300ms;
+  width: 25px;
+  height: 25px;
+
+  & > .lupa {
+    width: 100%;
+    height: 100%;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  & > .igIco {
+    fill: ${(props) => props.theme.colors.txt};
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export const MenuHolder = styled.div`

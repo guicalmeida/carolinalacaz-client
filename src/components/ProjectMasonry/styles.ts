@@ -13,6 +13,7 @@ export const MasonryGrid = styled(Masonry)`
   &.masonryGrid {
     display: flex;
     margin-top: 7rem;
+    margin-bottom: 5rem;
     width: auto;
     justify-content: center;
   }

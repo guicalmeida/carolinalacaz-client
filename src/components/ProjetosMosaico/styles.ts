@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const FichaTecnica = styled.div`
   display: flex;
   flex-direction: column;
-  color: #fafafa;
+  color: ${(props) => props.theme.colors.overlayTxt};
   margin: 0 auto 2em 2rem;
 `
 export const Titulo = styled.h2`
@@ -24,7 +24,7 @@ export const Dados = styled.div`
 `
 
 export const Overlay = styled.div`
-  background: linear-gradient(0deg, #373435 0%, rgba(196, 196, 196, 0) 100%);
+  background: ${(props) => props.theme.colors.overlayGradient};
   position: absolute;
   width: 35rem;
   height: 35rem;

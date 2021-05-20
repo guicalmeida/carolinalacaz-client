@@ -11,11 +11,27 @@ const GlobalStyles = createGlobalStyle`
   html{
     font-size: 62.5%;
     overflow-x: hidden;
-    color: #373435
   }
 
   body{
     min-height: 100vh;
+    color: ${(props) => props.theme.colors.txt};
+    background-color: ${(props) => props.theme.colors.bg};
+    transition: 300ms;
+
+  }
+
+  a, a:active, a:focus, a:visited{
+    text-decoration: none;
+    color: ${(props) => props.theme.colors.txt};
+    transition: 300ms;
+
+  }
+
+  path{
+    stroke: ${(props) => props.theme.colors.txt};
+    transition: 300ms;
+
   }
 `
 
