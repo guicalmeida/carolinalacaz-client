@@ -9,8 +9,6 @@ export const Container = styled.div`
   background-attachment: fixed;
   z-index: 0;
   background-position: bottom;
-  height: 100vh;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;

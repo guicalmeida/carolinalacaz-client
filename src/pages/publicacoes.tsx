@@ -1,9 +1,9 @@
-import Ensaios from '../templates/ensaios'
+import Publicacoes from '../templates/publicacoes/publicacoes'
 
-export default function arquitetura() {
+export default function publicacoes() {
   return (
     <div>
-      <Ensaios />
+      <Publicacoes />
     </div>
   )
 }

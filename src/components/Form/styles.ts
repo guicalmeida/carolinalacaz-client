@@ -23,3 +23,13 @@ export const Input = styled.input`
     outline: none;
   }
 `
+export const Submit = styled.button`
+  background-color: ${(props) => props.theme.colors.button};
+  color: ${(props) => props.theme.colors.buttonTxt};
+  font-weight: 300;
+  border-radius: 7.46612px;
+  width: 8.5rem;
+  height: 3rem;
+  outline: none;
+  border: none;
+`

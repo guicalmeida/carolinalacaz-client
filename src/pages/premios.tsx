@@ -1,9 +1,9 @@
-import Ensaios from '../templates/ensaios'
+import Premios from '../templates/premios/premios'
 
-export default function ensaios() {
+export default function premios() {
   return (
     <div>
-      <Ensaios />
+      <Premios />
     </div>
   )
 }

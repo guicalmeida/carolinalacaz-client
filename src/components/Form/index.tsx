@@ -43,7 +43,7 @@ const Form = ({ formName, fields }: FormProps) => {
           })}
         </div>
         <div data-netlify-recaptcha="true"></div>
-        <button type="submit"> Enviar</button>
+        <S.Submit type="submit"> Enviar</S.Submit>
       </form>
     </S.Container>
   )
