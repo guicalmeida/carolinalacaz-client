@@ -1,13 +1,17 @@
 import Link from 'next/link'
 import * as S from './styles'
 
-type FotoProps = {
+export type FotoProps = {
   titulo: string
-  estudio: string
+  estudio?: string
   cidade: string
   ano: number
   imgSrc: string
-  projectLink: string
+  projectLink?: string
+}
+
+export type MosaicoProps = {
+  fotos: FotoProps[]
 }
 
 const Foto = ({
@@ -19,7 +23,7 @@ const Foto = ({
   imgSrc
 }: FotoProps) => {
   return (
-    <Link href={projectLink}>
+    <Link href={projectLink ? projectLink : ''}>
       <S.FotoContainer>
         <S.Overlay>
           <S.FichaTecnica>
@@ -39,83 +43,22 @@ const Foto = ({
   )
 }
 
-const ProjetosMosaico = () => {
+export const Mosaico = ({ fotos }: MosaicoProps) => {
   return (
     <S.Container>
-      <Foto
-        projectLink="/projeto"
-        ano={2020}
-        cidade="Osasco"
-        estudio="Yellow Arquitetura"
-        titulo="HBR Hangar"
-        imgSrc="./img/capa_arq.jpg"
-      />
-      <Foto
-        projectLink=""
-        ano={2020}
-        cidade="Osasco"
-        estudio="Yellow Arquitetura"
-        titulo="HBR Hangar"
-        imgSrc="./img/capa_arq.jpg"
-      />
-      <Foto
-        projectLink=""
-        ano={2020}
-        cidade="Osasco"
-        estudio="Yellow Arquitetura"
-        titulo="HBR Hangar"
-        imgSrc="./img/capa_arq.jpg"
-      />
-      <Foto
-        projectLink=""
-        ano={2020}
-        cidade="Osasco"
-        estudio="Yellow Arquitetura"
-        titulo="HBR Hangar"
-        imgSrc="./img/capa_arq.jpg"
-      />
-      <Foto
-        projectLink=""
-        ano={2020}
-        cidade="Osasco"
-        estudio="Yellow Arquitetura"
-        titulo="HBR Hangar"
-        imgSrc="./img/capa_arq.jpg"
-      />
-      <Foto
-        projectLink=""
-        ano={2020}
-        cidade="Osasco"
-        estudio="Yellow Arquitetura"
-        titulo="HBR Hangar"
-        imgSrc="./img/capa_arq.jpg"
-      />
-      <Foto
-        projectLink=""
-        ano={2020}
-        cidade="Osasco"
-        estudio="Yellow Arquitetura"
-        titulo="HBR Hangar"
-        imgSrc="./img/capa_arq.jpg"
-      />
-      <Foto
-        projectLink=""
-        ano={2020}
-        cidade="Osasco"
-        estudio="Yellow Arquitetura"
-        titulo="HBR Hangar"
-        imgSrc="./img/capa_arq.jpg"
-      />
-      <Foto
-        projectLink=""
-        ano={2020}
-        cidade="Osasco"
-        estudio="Yellow Arquitetura"
-        titulo="HBR Hangar"
-        imgSrc="./img/capa_arq.jpg"
-      />
+      {fotos.map((foto) => {
+        return (
+          <Foto
+            titulo={foto.titulo}
+            ano={foto.ano}
+            cidade={foto.cidade}
+            estudio={foto.estudio}
+            imgSrc={foto.imgSrc}
+            projectLink={foto.projectLink}
+            key={foto.titulo}
+          />
+        )
+      })}
     </S.Container>
   )
 }
-
-export default ProjetosMosaico

@@ -1,9 +1,9 @@
-import Ensaios from '../templates/ensaios'
+import Arquitetura from '../templates/arquitetura'
 
 export default function ensaios() {
   return (
     <div>
-      <Ensaios />
+      <Arquitetura />
     </div>
   )
 }

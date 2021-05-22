@@ -6,6 +6,8 @@ import { Theme } from '../../styled-components'
 
 interface ThemeContextData {
   toggleTheme(): void
+  turnDark(): void
+  turnLight(): void
   theme: Theme
 }
 
@@ -20,16 +22,12 @@ export const CustomThemeProvider: React.FC = ({ children }) => {
     theme.title == 'light' ? setTheme(dark) : setTheme(light)
   }, [theme])
 
-  const turnDark = useCallback(() => {
-    setTheme(dark)
-  }, [theme])
+  const turnDark = () => setTheme(dark)
 
-  const turnLight = useCallback(() => {
-    setTheme(dark)
-  }, [theme])
+  const turnLight = () => setTheme(light)
 
   return (
-    <ThemeContext.Provider value={{ toggleTheme, theme }}>
+    <ThemeContext.Provider value={{ toggleTheme, turnLight, turnDark, theme }}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   )

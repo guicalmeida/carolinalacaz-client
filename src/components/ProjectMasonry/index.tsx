@@ -1,36 +1,52 @@
 import * as S from './styles'
 
-type PicProps = {
-  src: string
+export type PicProps = {
+  titulo?: string
+  cidade?: string
+  ano?: number
+  imgSrc?: string
 }
 
-const ProjectPic = ({ src }: PicProps) => {
-  return <S.Pic src={src} loading="lazy" />
+type MasonryProps = {
+  fotos: PicProps[]
+  overlay: boolean
 }
 
-const ProjectMasonry = () => {
+export type OverlayProps = {
+  overlay: boolean
+}
+
+const ProjectPic = ({ imgSrc }: PicProps) => {
+  return <S.Pic src={imgSrc} loading="lazy" />
+}
+
+export const Masonry = ({ fotos, overlay }: MasonryProps) => {
   return (
-    <S.Container>
+    <div>
       <S.MasonryGrid
         breakpointCols={2}
         className="masonryGrid"
         columnClassName="MasonryColumn"
       >
-        <ProjectPic src="img/ensaioAna/1.jpg" />
-        <ProjectPic src="img/ensaioAna/2.jpg" />
-        <ProjectPic src="img/ensaioAna/3.jpg" />
-        <ProjectPic src="img/ensaioAna/4.jpg" />
-        <ProjectPic src="img/ensaioAna/5.jpg" />
-        <ProjectPic src="img/ensaioAna/6.jpg" />
-        <ProjectPic src="img/ensaioAna/7.jpg" />
-        <ProjectPic src="img/ensaioAna/8.jpg" />
-        <ProjectPic src="img/ensaioAna/9.jpg" />
-        <ProjectPic src="img/ensaioAna/10.jpg" />
-        <ProjectPic src="img/ensaioAna/11.jpg" />
-        <ProjectPic src="img/ensaioAna/12.jpg" />
+        {fotos.map((foto) => {
+          return (
+            <S.PicWrapper key={foto.titulo} overlay={overlay}>
+              <ProjectPic imgSrc={foto.imgSrc} />
+              <S.Overlay>
+                <S.FichaTecnica>
+                  <S.Titulo>{foto.titulo}</S.Titulo>
+                  <S.Dados>
+                    <S.Texto>{foto.cidade}</S.Texto> <p> · </p>
+                    <S.Texto>{foto.ano}</S.Texto>
+                  </S.Dados>
+                </S.FichaTecnica>
+              </S.Overlay>
+            </S.PicWrapper>
+          )
+        })}
       </S.MasonryGrid>
-    </S.Container>
+    </div>
   )
 }
 
-export default ProjectMasonry
+export default Masonry

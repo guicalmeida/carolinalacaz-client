@@ -30,10 +30,11 @@ export const Overlay = styled.div`
   height: 35rem;
   display: none;
 `
+
 export const Foto = styled.img`
-  width: 35rem;
-  height: 35rem;
+  width: 100%;
   object-fit: cover;
+  height: 100%;
 `
 export const FotoContainer = styled.div`
   width: 35rem;

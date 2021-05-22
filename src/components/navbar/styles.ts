@@ -21,6 +21,7 @@ export const List = styled.ul`
   align-items: center;
   justify-content: center;
   list-style-type: none;
+  transition: 300ms;
 `
 
 export const LogoWrapper = styled.div`
@@ -80,4 +81,5 @@ export const Ico = styled.div`
 export const MenuHolder = styled.div`
   display: flex;
   align-items: center;
+  transition: 300ms;
 `

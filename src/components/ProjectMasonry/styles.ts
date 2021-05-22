@@ -1,14 +1,35 @@
 import styled from 'styled-components'
 import Masonry from 'react-masonry-css'
+import { OverlayProps } from '.'
 
-export const Container = styled.div``
-
-export const Pic = styled.img`
-  width: 30vw;
-  object-fit: contain;
-  padding: 0.5rem;
+export const Overlay = styled.div`
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 4px;
+  right: 0;
+  width: 98%;
+  opacity: 0;
+  transition: 300ms;
+  background: ${(props) => props.theme.colors.overlayGradient};
+  display: flex;
+  align-items: flex-end;
 `
 
+export const Pic = styled.img`
+  width: 100%;
+  object-fit: contain;
+  display: block;
+`
+export const PicWrapper = styled.div<OverlayProps>`
+  position: relative;
+  padding: 0.5rem;
+  width: 100%;
+  object-fit: contain;
+  &:hover ${Overlay} {
+    opacity: ${(props) => (props.overlay ? '1' : 'none')};
+  }
+`
 export const MasonryGrid = styled(Masonry)`
   &.masonryGrid {
     display: flex;
@@ -21,5 +42,28 @@ export const MasonryGrid = styled(Masonry)`
   & > .MasonryColumn {
     width: 30vw !important;
     margin: 0 0.5rem;
+  }
+`
+
+export const FichaTecnica = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: ${(props) => props.theme.colors.overlayTxt};
+  margin: 0 auto 2em 2rem;
+`
+export const Titulo = styled.h2`
+  font-weight: 600;
+  font-size: 1.8rem;
+`
+export const Texto = styled.p`
+  font-size: 16px;
+`
+
+export const Dados = styled.div`
+  display: flex;
+  align-items: center;
+
+  & > * {
+    margin: 0 2px;
   }
 `

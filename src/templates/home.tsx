@@ -1,11 +1,11 @@
 import { ContentContainer } from 'components/contentContainer'
 import { HomeContent } from 'components/HomeContent'
-import Navbar from 'components/navbar'
+import { NavArq } from 'components/navbar'
 
 const Home = () => {
   return (
     <div>
-      <Navbar />
+      <NavArq />
       <ContentContainer>
         <HomeContent />
       </ContentContainer>

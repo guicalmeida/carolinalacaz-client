@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-export const OtherTxt = styled.h3`
+export const ChangePage = styled.h2`
   text-align: center;
-  font-size: 1.5rem;
-  margin: 0 auto;
+  font-size: 2.5rem;
+  margin: 0 auto 2rem auto;
   font-weight: 600;
   & > a {
     font-weight: 600;
-    color: ${(props) => props.theme.colors.txt};
+    color: #373435;
     cursor: pointer;
     text-decoration: underline;
   }

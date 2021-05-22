@@ -1,16 +1,27 @@
 import { ContentContainer } from 'components/contentContainer'
-import Navbar from 'components/navbar'
+import { NavArq } from 'components/navbar'
 import ArqCover from 'components/ArqCover'
 import FilterBar from 'components/FilterBar'
-import ProjetosMosaico from 'components/ProjetosMosaico'
+import { Mosaico } from 'components/ProjetosMosaico'
+
+const fotos = [
+  {
+    projectLink: '/projeto',
+    ano: 2020,
+    cidade: 'Osasco',
+    estudio: 'Yellow Arquitetura',
+    titulo: 'HBR Hangar',
+    imgSrc: './img/capa_arq.jpg'
+  }
+]
 
 const Arquitetura = () => (
   <section>
-    <Navbar />
+    <NavArq />
     <ArqCover />
     <ContentContainer>
       <FilterBar />
-      <ProjetosMosaico />
+      <Mosaico fotos={fotos} />
     </ContentContainer>
   </section>
 )

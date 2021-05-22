@@ -1,10 +1,11 @@
+import { ReactNode } from 'react'
 import * as S from './styles'
 
 type TxtProps = {
-  txt: string
+  children: ReactNode
 }
-const OtherProjectsTxt = ({ txt }: TxtProps) => {
-  return <S.OtherTxt>{txt}</S.OtherTxt>
+const OtherProjectsTxt = ({ children }: TxtProps) => {
+  return <S.OtherTxt>{children}</S.OtherTxt>
 }
 
 export default OtherProjectsTxt
