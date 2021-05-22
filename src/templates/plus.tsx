@@ -2,6 +2,7 @@ import ChangePage from 'components/ChangePage'
 import { ContentContainer } from 'components/contentContainer'
 import Divider from 'components/Divider'
 import EnsTitle from 'components/EnsTitle'
+import InternalLink from 'components/InternalLink'
 import { NavEns } from 'components/navbar'
 import Spacer from 'components/NavbarSpacer'
 import OtherProjectsTxt from 'components/OtherProjectsTxt'
@@ -57,7 +58,10 @@ const Plus = () => (
       <EnsTitle>+++</EnsTitle>
       <Masonry fotos={projeto} overlay={true} />
       <OtherProjectsTxt>
-        interessado? Entre em <a href="/contato">contato</a>
+        interessado? Entre em{' '}
+        <InternalLink page="/contato" useDark={true}>
+          contato
+        </InternalLink>
       </OtherProjectsTxt>
       <Divider />
       <ChangePage>

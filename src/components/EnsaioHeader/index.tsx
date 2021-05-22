@@ -14,7 +14,7 @@ const EnsaioHeader = ({ titulo, ano, cidade, children }: EnsaioProps) => {
     <S.Container>
       <EnsTitle>{titulo}</EnsTitle>
       <S.Subtitle>
-        {ano},{cidade}
+        {cidade}, {ano}
       </S.Subtitle>
       <S.Description>{children}</S.Description>
     </S.Container>

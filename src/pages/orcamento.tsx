@@ -1,9 +1,9 @@
-import Ensaios from '../templates/ensaios'
+import Orcamento from '../templates/orcamento/orcamento'
 
-export default function arquitetura() {
+export default function orcamento() {
   return (
     <div>
-      <Ensaios />
+      <Orcamento />
     </div>
   )
 }

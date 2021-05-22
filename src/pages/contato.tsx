@@ -1,9 +1,9 @@
-import Ensaios from '../templates/ensaios'
+import Contato from '../templates/contato/contato'
 
-export default function arquitetura() {
+export default function contato() {
   return (
     <div>
-      <Ensaios />
+      <Contato />
     </div>
   )
 }

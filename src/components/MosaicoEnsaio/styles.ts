@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Foto = styled.img`
-  width: 80rem;
+  width: 30vw;
 `
 
 export const Container = styled.div`

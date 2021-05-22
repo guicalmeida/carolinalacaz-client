@@ -1,6 +1,6 @@
 import Projeto from '../templates/projeto'
 
-export default function arquitetura() {
+export default function projeto() {
   return (
     <div>
       <Projeto />

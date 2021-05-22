@@ -1,6 +1,6 @@
 import Plus from '../templates/plus'
 
-export default function arquitetura() {
+export default function plus() {
   return (
     <div>
       <Plus />

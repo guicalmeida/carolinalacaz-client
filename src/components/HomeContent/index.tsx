@@ -8,13 +8,11 @@ export type ContainerProps = {
 }
 
 export const HomeContent = () => {
-  const { toggleTheme, turnDark, turnLight } = useTheme()
+  const { turnDark, turnLight } = useTheme()
   const handleToDark = () => {
     turnDark()
   }
-  const handleToToggle = () => {
-    toggleTheme()
-  }
+
   const handleToLight = () => {
     turnLight()
   }
@@ -25,8 +23,8 @@ export const HomeContent = () => {
         <S.Card
           align="left"
           className="card arquiteturaCard"
-          onMouseEnter={handleToToggle}
-          onMouseLeave={handleToToggle}
+          onMouseEnter={handleToLight}
+          onMouseLeave={handleToLight}
           onClick={handleToLight}
         >
           <S.Title>Arquitetura</S.Title>
@@ -37,8 +35,8 @@ export const HomeContent = () => {
         <S.Card
           align="right"
           className="card ensaiosCard"
-          onMouseEnter={handleToToggle}
-          onMouseLeave={handleToToggle}
+          onMouseEnter={handleToDark}
+          onMouseLeave={handleToLight}
           onClick={handleToDark}
         >
           <S.Photo src="img/capa_ensaios.jpg" alt="img" className="EnsPhoto" />

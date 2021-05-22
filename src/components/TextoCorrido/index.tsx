@@ -6,7 +6,7 @@ type TextCorridoProps = {
 }
 
 const TextoCorrido = ({ children }: TextCorridoProps) => {
-  return <S.Container>{children}</S.Container>
+  return <S.TextoCorrido>{children}</S.TextoCorrido>
 }
 
 export default TextoCorrido
