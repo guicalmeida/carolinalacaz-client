@@ -1,4 +1,5 @@
 import { useTheme } from 'hooks/theme'
+import Link from 'next/link'
 import { ReactNode } from 'react'
 import * as S from './styles'
 
@@ -17,12 +18,11 @@ const InternalLink = ({ children, page, useDark }: ILinkProps) => {
     turnLight()
   }
   return (
-    <S.InternalLink
-      href={page}
-      onClick={useDark ? handleToDark : handleToLight}
-    >
-      {children}
-    </S.InternalLink>
+    <Link href={page}>
+      <S.InternalLink onClick={useDark ? handleToDark : handleToLight}>
+        {children}
+      </S.InternalLink>
+    </Link>
   )
 }
 

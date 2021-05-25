@@ -5,11 +5,15 @@ type BackgroundProps = {
 }
 
 export const IndiceWrapper = styled.div`
-  margin: auto;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 10rem);
 
   & > h1 {
     text-align: center;
-    margin-bottom: 2rem;
   }
 `
 export const Background = styled.div<BackgroundProps>`
@@ -40,8 +44,19 @@ export const Background = styled.div<BackgroundProps>`
   }
 `
 
-export const ToPublicacoes = styled.div`
+export const ToPremios = styled.div`
   align-self: flex-end;
   padding-bottom: 1.5rem;
   font-size: 1.5rem;
+`
+export const DigitalTxt = styled.h2`
+  font-weight: 600;
+  font-size: 3rem;
+  padding-right: 2rem;
+`
+
+export const DigitalLink = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `

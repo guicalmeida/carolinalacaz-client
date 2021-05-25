@@ -1,16 +1,15 @@
 import * as S from './styles'
 import Slider from 'react-slick'
 
-type SlideProps = {
-  imgSrc: string
-  title: string
-}
-
 type SliderProps = {
-  slides: SlideProps[]
+  slides: {
+    imgSrc: string
+    title: string
+  }[]
+  dark: boolean
 }
 
-const ReactSlider = ({ slides }: SliderProps) => {
+const ImageSlider = ({ slides, dark }: SliderProps) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -19,7 +18,7 @@ const ReactSlider = ({ slides }: SliderProps) => {
     slidesToScroll: 1
   }
   return (
-    <S.Container>
+    <S.Container dark={dark}>
       <Slider {...settings}>
         {slides.map((slide) => {
           return (
@@ -33,4 +32,4 @@ const ReactSlider = ({ slides }: SliderProps) => {
   )
 }
 
-export default ReactSlider
+export default ImageSlider

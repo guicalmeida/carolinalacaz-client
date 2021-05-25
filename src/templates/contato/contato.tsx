@@ -31,7 +31,7 @@ const Contato = () => {
         <TituloSemibold>CONSULTA DE DISPONIBILIDADE DE OBRAS</TituloSemibold>
         <TextoCorrido>
           Buscando orçamento para ensaio de arquitetura?{' '}
-          <InternalLink page="/orcamento" useDark={true}>
+          <InternalLink page="/orcamento" useDark={false}>
             Clique aqui
           </InternalLink>
         </TextoCorrido>

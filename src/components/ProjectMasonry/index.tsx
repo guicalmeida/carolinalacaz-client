@@ -1,23 +1,17 @@
 import * as S from './styles'
 
-export type PicProps = {
-  titulo?: string
-  cidade?: string
-  ano?: number
-  imgSrc?: string
-}
-
 type MasonryProps = {
-  fotos: PicProps[]
+  fotos: {
+    titulo?: string
+    cidade?: string
+    ano?: number
+    imgSrc?: string
+  }[]
   overlay: boolean
 }
 
 export type OverlayProps = {
   overlay: boolean
-}
-
-const ProjectPic = ({ imgSrc }: PicProps) => {
-  return <S.Pic src={imgSrc} loading="lazy" />
 }
 
 export const Masonry = ({ fotos, overlay }: MasonryProps) => {
@@ -31,7 +25,7 @@ export const Masonry = ({ fotos, overlay }: MasonryProps) => {
         {fotos.map((foto) => {
           return (
             <S.PicWrapper key={foto.titulo} overlay={overlay}>
-              <ProjectPic imgSrc={foto.imgSrc} />
+              <S.Pic src={foto.imgSrc} loading="lazy" />
               <S.Overlay>
                 <S.FichaTecnica>
                   <S.Titulo>{foto.titulo}</S.Titulo>
