@@ -1,22 +1,15 @@
 import EnsTitle from 'components/EnsTitle'
-import { ReactNode } from 'react'
+import { EnsaioUnitProps } from 'types/api'
 import * as S from './styles'
 
-type EnsaioProps = {
-  titulo: string
-  ano: number
-  cidade: string
-  children: ReactNode
-}
-
-const EnsaioHeader = ({ titulo, ano, cidade, children }: EnsaioProps) => {
+const EnsaioHeader = ({ EnsaioUnit }: EnsaioUnitProps) => {
   return (
     <S.Container>
-      <EnsTitle>{titulo}</EnsTitle>
+      <EnsTitle>{EnsaioUnit.Nome}</EnsTitle>
       <S.Subtitle>
-        {cidade}, {ano}
+        {EnsaioUnit.Cidade.Cidade}, {EnsaioUnit.Ano.Ano}
       </S.Subtitle>
-      <S.Description>{children}</S.Description>
+      <S.Description>{EnsaioUnit.descricao_curta}</S.Description>
     </S.Container>
   )
 }

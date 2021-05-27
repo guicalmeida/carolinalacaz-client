@@ -17,10 +17,11 @@ export const Subtitle = styled.h2`
 `
 
 export const Description = styled.p`
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 300;
   line-height: 27px;
-  text-align: center;
-  width: 63rem;
+  text-align: justify;
+  text-align-last: center;
+  max-width: 45vw;
   margin: 2rem auto;
 `

@@ -2,26 +2,19 @@ import { ContentContainer } from 'components/contentContainer'
 import { NavArq } from 'components/navbar'
 import ArqCover from 'components/ArqCover'
 import FilterBar from 'components/FilterBar'
-import { Mosaico } from 'components/ProjetosMosaico'
+import ProjetosMosaico from 'components/ProjetosMosaico'
+import { ProjetosProps } from 'types/api'
 
-const fotos = [
-  {
-    projectLink: '/projeto',
-    ano: 2020,
-    cidade: 'Osasco',
-    estudio: 'Yellow Arquitetura',
-    titulo: 'HBR Hangar',
-    imgSrc: './img/capa_arq.jpg'
-  }
-]
-
-const Arquitetura = () => (
+const Arquitetura = ({ arquiteturaProjetos }: ProjetosProps) => (
   <section>
     <NavArq />
     <ArqCover />
     <ContentContainer>
       <FilterBar />
-      <Mosaico fotos={fotos} />
+      <ProjetosMosaico
+        arquiteturaProjetos={arquiteturaProjetos}
+        project={false}
+      />
     </ContentContainer>
   </section>
 )

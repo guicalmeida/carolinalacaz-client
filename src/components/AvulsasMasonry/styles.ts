@@ -1,16 +1,34 @@
 import styled from 'styled-components'
 import Masonry from 'react-masonry-css'
+import { OverlayProps } from '.'
+
+export const Overlay = styled.div`
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 4px;
+  right: 0;
+  width: 98%;
+  opacity: 0;
+  transition: 300ms;
+  background: ${(props) => props.theme.colors.overlayGradient};
+  display: flex;
+  align-items: flex-end;
+`
 
 export const Pic = styled.img`
   width: 100%;
   object-fit: contain;
   display: block;
 `
-export const PicWrapper = styled.div`
+export const PicWrapper = styled.div<OverlayProps>`
   position: relative;
   padding: 0.5rem;
   width: 100%;
   object-fit: contain;
+  &:hover ${Overlay} {
+    opacity: ${(props) => (props.overlay ? '1' : 'none')};
+  }
 `
 export const MasonryGrid = styled(Masonry)`
   &.masonryGrid {

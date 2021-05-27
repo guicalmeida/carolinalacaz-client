@@ -1,64 +1,42 @@
 import Link from 'next/link'
+import { ProjetosProps } from 'types/api'
 import * as S from './styles'
 
-export type FotoProps = {
-  titulo: string
-  estudio?: string
-  cidade: string
-  ano: number
-  imgSrc: string
-  projectLink?: string
+type OnProjectProps = {
+  project: boolean
 }
 
-export type MosaicoProps = {
-  fotos: FotoProps[]
-}
-
-const Foto = ({
-  projectLink,
-  titulo,
-  ano,
-  cidade,
-  estudio,
-  imgSrc
-}: FotoProps) => {
-  return (
-    <Link href={projectLink ? projectLink : ''}>
-      <S.FotoContainer>
-        <S.Overlay>
-          <S.FichaTecnica>
-            <S.Titulo>{titulo}</S.Titulo>
-            <i>
-              <S.Texto id="estudio">{estudio}</S.Texto>
-            </i>
-            <S.Dados>
-              <S.Texto id="cidade">{cidade}</S.Texto> <p> · </p>
-              <S.Texto id="ano">{ano}</S.Texto>
-            </S.Dados>
-          </S.FichaTecnica>
-        </S.Overlay>
-        <S.Foto src={imgSrc} />
-      </S.FotoContainer>
-    </Link>
-  )
-}
-
-export const Mosaico = ({ fotos }: MosaicoProps) => {
+const ProjetosMosaico = ({
+  project,
+  arquiteturaProjetos
+}: ProjetosProps & OnProjectProps) => {
   return (
     <S.Container>
-      {fotos.map((foto) => {
+      {arquiteturaProjetos.map((projeto) => {
         return (
-          <Foto
-            titulo={foto.titulo}
-            ano={foto.ano}
-            cidade={foto.cidade}
-            estudio={foto.estudio}
-            imgSrc={foto.imgSrc}
-            projectLink={foto.projectLink}
-            key={foto.titulo}
-          />
+          <Link
+            href={project ? projeto.slug : 'arquitetura/' + projeto.slug}
+            key={projeto.slug}
+          >
+            <S.FotoContainer>
+              <S.Overlay>
+                <S.FichaTecnica>
+                  <S.Titulo>{projeto.Nome}</S.Titulo>
+                  <S.Texto>{projeto.Escritorio.Escritorio}</S.Texto>
+                  <S.Dados>
+                    <S.Texto id="cidade">{projeto.Cidade.Cidade}</S.Texto>{' '}
+                    <p> · </p>
+                    <S.Texto id="ano">{projeto.Ano.Ano}</S.Texto>
+                  </S.Dados>
+                </S.FichaTecnica>
+              </S.Overlay>
+              <S.Foto src={`http://localhost:1337${projeto.Capa.url}`} />
+            </S.FotoContainer>
+          </Link>
         )
       })}
     </S.Container>
   )
 }
+
+export default ProjetosMosaico

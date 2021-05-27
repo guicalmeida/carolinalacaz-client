@@ -1,22 +1,18 @@
+import { EnsaioUnitProps } from 'types/api'
 import * as S from './styles'
 
-export type EnsaioFotosProps = {
-  imgSrc: string
+export type MosaicoEnsaioProps = {
+  fotos: {
+    imgSrc: string
+  }[]
 }
-
-export type MosaicoEnsaioPrios = {
-  fotos: EnsaioFotosProps[]
-}
-
-const EnsaioFoto = ({ imgSrc }: EnsaioFotosProps) => {
-  return <S.Foto src={imgSrc} />
-}
-
-const MosaicoEnsaio = ({ fotos }: MosaicoEnsaioPrios) => {
+const MosaicoEnsaio = ({ EnsaioUnit }: EnsaioUnitProps) => {
   return (
     <S.Container>
-      {fotos.map((foto) => {
-        return <EnsaioFoto imgSrc={foto.imgSrc} key={foto.imgSrc} />
+      {EnsaioUnit.Galeria.map((foto) => {
+        return (
+          <S.Foto src={'http://localhost:1337' + foto.url} key={foto.name} />
+        )
       })}
     </S.Container>
   )

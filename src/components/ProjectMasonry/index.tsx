@@ -1,20 +1,11 @@
+import { ProjetoUnitProps } from 'types/api'
 import * as S from './styles'
-
-type MasonryProps = {
-  fotos: {
-    titulo?: string
-    cidade?: string
-    ano?: number
-    imgSrc?: string
-  }[]
-  overlay: boolean
-}
 
 export type OverlayProps = {
   overlay: boolean
 }
 
-export const Masonry = ({ fotos, overlay }: MasonryProps) => {
+export const ProjectMasonry = ({ ProjetoUnit }: ProjetoUnitProps) => {
   return (
     <div>
       <S.MasonryGrid
@@ -22,19 +13,10 @@ export const Masonry = ({ fotos, overlay }: MasonryProps) => {
         className="masonryGrid"
         columnClassName="MasonryColumn"
       >
-        {fotos.map((foto) => {
+        {ProjetoUnit.Galeria.map((foto) => {
           return (
-            <S.PicWrapper key={foto.titulo} overlay={overlay}>
-              <S.Pic src={foto.imgSrc} loading="lazy" />
-              <S.Overlay>
-                <S.FichaTecnica>
-                  <S.Titulo>{foto.titulo}</S.Titulo>
-                  <S.Dados>
-                    <S.Texto>{foto.cidade}</S.Texto> <p> · </p>
-                    <S.Texto>{foto.ano}</S.Texto>
-                  </S.Dados>
-                </S.FichaTecnica>
-              </S.Overlay>
+            <S.PicWrapper key={foto.name}>
+              <S.Pic src={'http://localhost:1337' + foto.url} loading="lazy" />
             </S.PicWrapper>
           )
         })}
@@ -43,4 +25,4 @@ export const Masonry = ({ fotos, overlay }: MasonryProps) => {
   )
 }
 
-export default Masonry
+export default ProjectMasonry
