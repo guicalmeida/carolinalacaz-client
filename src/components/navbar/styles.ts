@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export const Nav = styled.nav`
-  background-color: white;
-  background-color: inherit;
   height: 10rem;
   position: fixed;
   display: flex;

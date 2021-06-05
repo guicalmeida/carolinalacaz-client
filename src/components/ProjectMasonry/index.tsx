@@ -1,3 +1,4 @@
+import Foto from 'components/Foto'
 import { ProjetoUnitProps } from 'types/api'
 import * as S from './styles'
 
@@ -16,7 +17,7 @@ export const ProjectMasonry = ({ ProjetoUnit }: ProjetoUnitProps) => {
         {ProjetoUnit.Galeria.map((foto) => {
           return (
             <S.PicWrapper key={foto.name}>
-              <S.Pic src={'http://localhost:1337' + foto.url} loading="lazy" />
+              <Foto url={foto.url} />
             </S.PicWrapper>
           )
         })}

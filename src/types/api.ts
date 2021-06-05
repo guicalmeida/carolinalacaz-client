@@ -4,11 +4,7 @@ export type AnoProps = {
 export type CidadeProps = {
   Cidade: string
 }
-export type GaleriaProps = {
-  name: string
-  url: string
-}
-export type CapaProps = {
+export type ImagemProps = {
   name: string
   url: string
 }
@@ -25,8 +21,8 @@ export type EnsaioUnitProps = {
     slug: string
     Ano: AnoProps
     Cidade: CidadeProps
-    Galeria: GaleriaProps[]
-    Capa: CapaProps
+    Galeria: ImagemProps[]
+    Capa: ImagemProps
     Tags: TagsProps
   }
 }
@@ -39,8 +35,8 @@ export type EnsaiosProps = {
     slug: string
     Ano: AnoProps
     Cidade: CidadeProps
-    Galeria: GaleriaProps[]
-    Capa: CapaProps
+    Galeria: ImagemProps[]
+    Capa: ImagemProps
     Tags: TagsProps
   }[]
 }
@@ -52,8 +48,8 @@ export type ProjetoUnitProps = {
     slug: string
     Ano: AnoProps
     Cidade: CidadeProps
-    Galeria: GaleriaProps[]
-    Capa: CapaProps
+    Galeria: ImagemProps[]
+    Capa: ImagemProps
     Tags: TagsProps
     Escritorio: {
       Escritorio: string
@@ -68,11 +64,19 @@ export type ProjetosProps = {
     slug: string
     Ano: AnoProps
     Cidade: CidadeProps
-    Galeria: GaleriaProps[]
-    Capa: CapaProps
+    Galeria: ImagemProps[]
+    Capa: ImagemProps
     Tags: TagsProps
     Escritorio: {
       Escritorio: string
     }
   }[]
+}
+
+export type SobreProps = {
+  sobre: {
+    Nome: string
+    Sobre: string
+    Foto: ImagemProps
+  }
 }

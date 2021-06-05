@@ -6,7 +6,7 @@ export const BioWrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   & > * {
     text-align: left;
     width: 62rem;
@@ -18,12 +18,12 @@ export const PerfilWrapper = styled.div`
   height: 85vh;
   width: 35vw;
   margin: auto auto 0 auto;
-`
 
-export const Foto = styled.img`
-  object-fit: contain;
-  width: 100%;
-  overflow: none;
+  & > img {
+    object-fit: contain;
+    width: 100%;
+    overflow: none;
+  }
 `
 
 export const Container = styled.div`

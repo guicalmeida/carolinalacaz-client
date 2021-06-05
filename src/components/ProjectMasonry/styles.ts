@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 import Masonry from 'react-masonry-css'
 
-export const Pic = styled.img`
-  width: 100%;
-  object-fit: contain;
-  display: block;
-`
 export const PicWrapper = styled.div`
   position: relative;
   padding: 0.5rem;
   width: 100%;
   object-fit: contain;
+
+  & > img {
+    object-fit: contain;
+    display: block;
+  }
 `
 export const MasonryGrid = styled(Masonry)`
   &.masonryGrid {

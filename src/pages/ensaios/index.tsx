@@ -14,7 +14,6 @@ export default function ensaios({ autoralEnsaios }: EnsaiosProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const { autoralEnsaios } = await client.request(GET_ENSAIOS)
-  console.log(autoralEnsaios)
   return {
     props: {
       autoralEnsaios

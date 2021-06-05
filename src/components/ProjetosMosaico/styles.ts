@@ -31,11 +31,6 @@ export const Overlay = styled.div`
   display: none;
 `
 
-export const Foto = styled.img`
-  width: 100%;
-  object-fit: cover;
-  height: 100%;
-`
 export const FotoContainer = styled.div`
   width: 35rem;
   height: 35rem;
@@ -45,6 +40,10 @@ export const FotoContainer = styled.div`
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+  }
+
+  & > img {
+    object-fit: cover;
   }
 `
 export const Container = styled.div`

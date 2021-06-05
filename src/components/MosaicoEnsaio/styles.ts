@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
-export const Foto = styled.img`
-  width: 30vw;
-`
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  & > ${Foto} {
+  & > img {
     margin-bottom: 4rem;
+    height: 85vh;
+    object-fit: contain;
+    max-width: 100%;
   }
 `

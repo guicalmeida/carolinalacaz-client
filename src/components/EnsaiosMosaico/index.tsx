@@ -1,3 +1,4 @@
+import Foto from 'components/Foto'
 import Link from 'next/link'
 import { EnsaiosProps } from 'types/api'
 import * as S from './styles'
@@ -29,7 +30,7 @@ const EnsaiosMosaico = ({
                   </S.Dados>
                 </S.FichaTecnica>
               </S.Overlay>
-              <S.Foto src={`http://localhost:1337${ensaio.Capa.url}`} />
+              <Foto url={ensaio.Capa.url} />
             </S.FotoContainer>
           </Link>
         )

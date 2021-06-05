@@ -1,3 +1,4 @@
+import Foto from 'components/Foto'
 import Link from 'next/link'
 import { ProjetosProps } from 'types/api'
 import * as S from './styles'
@@ -30,7 +31,7 @@ const ProjetosMosaico = ({
                   </S.Dados>
                 </S.FichaTecnica>
               </S.Overlay>
-              <S.Foto src={`http://localhost:1337${projeto.Capa.url}`} />
+              <Foto url={projeto.Capa.url} />
             </S.FotoContainer>
           </Link>
         )
