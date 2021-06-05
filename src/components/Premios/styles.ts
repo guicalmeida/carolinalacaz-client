@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 45rem;
+  width: 60rem;
 `
 export const PremioWrapper = styled.div`
   display: flex;
@@ -25,4 +25,5 @@ export const PremioDesc = styled.p`
   text-align: center;
   font-size: 2rem;
   font-weight: 300;
+  overflow-wrap: break-word;
 `

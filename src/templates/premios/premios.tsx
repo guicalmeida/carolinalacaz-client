@@ -6,35 +6,19 @@ import TituloLight from 'components/TituloLight'
 import Premios from 'components/Premios'
 import Spacer from 'components/NavbarSpacer'
 import InternalLink from 'components/InternalLink'
+import { PremioProps } from 'types/api'
 
-const premio = [
-  {
-    titulo: 'Lorem ipsum dolor sit amet',
-    descricao: 'consectetur adipiscing elit ut aliquam, purus sit amet'
-  },
-  {
-    titulo: 'Lorem ipsum dolor sit amet',
-    descricao: 'consectetur adipiscing elit ut aliquam, purus sit amet'
-  },
-  {
-    titulo: 'Lorem ipsum dolor sit amet',
-    descricao: 'consectetur adipiscing elit ut aliquam, purus sit amet'
-  },
-  {
-    titulo: 'Lorem ipsum dolor sit amet',
-    descricao: 'consectetur adipiscing elit ut aliquam, purus sit amet'
-  }
-]
-
-const Premio = () => (
+const Premio = ({ premio }: PremioProps) => (
   <section>
     <NavEns />
-    <S.Background imgSrc="img/capa_arq.jpg">
+    <S.Background
+      imgSrc={process.env.NEXT_PUBLIC_IMAGE_HOST + premio.imagemDeFundo.url}
+    >
       <ContentContainer>
         <Spacer />
         <S.PremiosWrapper>
           <TituloLight>PRÊMIOS</TituloLight>
-          <Premios premios={premio} />
+          <Premios premio={premio} />
         </S.PremiosWrapper>
         <S.ToPublicacoes>
           <InternalLink page="/publicacoes" useDark={false}>

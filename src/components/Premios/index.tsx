@@ -1,33 +1,17 @@
+import { PremioProps } from 'types/api'
 import * as S from './styles'
 
-type PremioProps = {
-  titulo: string
-  descricao: string
-}
-
-type PremiosProps = {
-  premios: PremioProps[]
-}
-
-const Premio = ({ titulo, descricao }: PremioProps) => {
-  return (
-    <S.PremioWrapper>
-      <S.PremioTitulo>{titulo}</S.PremioTitulo>
-      <S.PremioDesc>{descricao}</S.PremioDesc>
-    </S.PremioWrapper>
-  )
-}
-
-const Premios = ({ premios }: PremiosProps) => {
+const Premios = ({ premio }: PremioProps) => {
   return (
     <S.Container>
-      {premios.map((premio) => {
+      {premio.Premio.map((premio) => {
         return (
-          <Premio
-            descricao={premio.descricao}
-            titulo={premio.titulo}
-            key={premio.titulo}
-          />
+          <S.PremioWrapper key={premio.Titulo}>
+            <S.PremioTitulo>
+              {premio.Titulo} - {premio.ano.Ano}
+            </S.PremioTitulo>
+            <S.PremioDesc>{premio.Descricao}</S.PremioDesc>
+          </S.PremioWrapper>
         )
       })}
     </S.Container>

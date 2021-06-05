@@ -94,6 +94,7 @@ export type PlusProps = {
 
 export type PremioProps = {
   premio: {
+    imagemDeFundo: ImagemProps
     Premio: {
       Titulo: string
       Descricao: string
