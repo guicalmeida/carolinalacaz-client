@@ -80,3 +80,24 @@ export type SobreProps = {
     Foto: ImagemProps
   }
 }
+
+export type PlusProps = {
+  fotosAvulsa: {
+    FotoAvulsa: {
+      Titulo: string
+      ano: AnoProps
+      cidade: CidadeProps
+      foto: ImagemProps
+    }[]
+  }
+}
+
+export type PremioProps = {
+  premio: {
+    Premio: {
+      Titulo: string
+      Descricao: string
+      ano: AnoProps
+    }[]
+  }
+}
