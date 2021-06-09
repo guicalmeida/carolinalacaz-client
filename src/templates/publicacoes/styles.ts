@@ -25,6 +25,7 @@ export const Background = styled.div<BackgroundProps>`
   background-attachment: fixed;
   z-index: 0;
   background-position: bottom;
+  position: relative;
 
   & * {
     z-index: 2;
@@ -45,9 +46,11 @@ export const Background = styled.div<BackgroundProps>`
 `
 
 export const ToPremios = styled.div`
-  align-self: flex-end;
-  padding-bottom: 1.5rem;
+  padding-bottom: 2rem;
   font-size: 1.5rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 `
 export const DigitalTxt = styled.h2`
   font-weight: 600;
@@ -59,4 +62,5 @@ export const DigitalLink = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 2rem;
 `

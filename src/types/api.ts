@@ -102,3 +102,28 @@ export type PremioProps = {
     }[]
   }
 }
+
+export type PublicacoesProps = {
+  publicacaos: {
+    nome: string
+    slug: string
+    url: string
+    ano: AnoProps
+    arquitetura_projeto: {
+      slug: string
+    }
+    veiculo: {
+      nome: string
+    }
+    Meio: string
+    galeria: ImagemProps[]
+    Capa: ImagemProps
+  }[]
+}
+
+export type HomeProps = {
+  paginaInicial: {
+    Arquitetura: ImagemProps
+    Ensaios: ImagemProps
+  }
+}

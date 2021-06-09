@@ -6,7 +6,7 @@ import { useTheme } from 'hooks/theme'
 type ItemProps = {
   link: string
   text: string
-  onClick?: () => void
+  onClick: () => void
 }
 
 type NavProps = {

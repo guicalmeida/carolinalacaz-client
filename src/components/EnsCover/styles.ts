@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  background-image: url('img/capa_ensaios.jpg');
+export type BGProps = {
+  imgSrc: string
+}
+
+export const Container = styled.div<BGProps>`
+  background-image: url(${(props) => props.imgSrc});
   height: 100vh;
   width: 100vw;
   background-size: cover;

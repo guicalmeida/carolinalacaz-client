@@ -2,12 +2,15 @@ import Link from 'next/link'
 import * as S from './style'
 
 import { useTheme } from '../../hooks/theme'
+import { HomeProps } from 'types/api'
 
 export type ContainerProps = {
   align: 'left' | 'right'
 }
 
-export const HomeContent = () => {
+export const HomeContent = ({ paginaInicial }: HomeProps) => {
+  console.log(paginaInicial)
+
   const { turnDark, turnLight } = useTheme()
   const handleToDark = () => {
     turnDark()
@@ -28,7 +31,12 @@ export const HomeContent = () => {
           onClick={handleToLight}
         >
           <S.Title>Arquitetura</S.Title>
-          <S.Photo src="img/capa_arq.jpg" alt="img" />
+          <S.Photo
+            src={
+              process.env.NEXT_PUBLIC_IMAGE_HOST + paginaInicial.Arquitetura.url
+            }
+            alt="img"
+          />
         </S.Card>
       </Link>
       <Link href="/ensaios">
@@ -39,7 +47,11 @@ export const HomeContent = () => {
           onMouseLeave={handleToLight}
           onClick={handleToDark}
         >
-          <S.Photo src="img/capa_ensaios.jpg" alt="img" className="EnsPhoto" />
+          <S.Photo
+            src={process.env.NEXT_PUBLIC_IMAGE_HOST + paginaInicial.Ensaios.url}
+            alt="img"
+            className="EnsPhoto"
+          />
           <S.Title>Ensaios</S.Title>
         </S.Card>
       </Link>

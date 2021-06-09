@@ -1,31 +1,37 @@
+import { PublicacoesProps } from 'types/api'
 import * as S from './styles'
 
-type PbDigitaisProps = {
-  sites: string[]
-  projetos: {
-    titulo: string
-    link: string
-    site: string
-  }[]
-}
+const PbDigitais = ({ publicacaos }: PublicacoesProps) => {
+  const digitalPub = publicacaos.filter((publicacao) => {
+    return publicacao.Meio == 'Digital'
+  })
 
-const PbDigitais = ({ projetos, sites }: PbDigitaisProps) => {
+  const veiculosUnicos = Array.from(
+    new Set(
+      digitalPub.map((pub) => {
+        return pub.veiculo.nome
+      })
+    )
+  )
+
   return (
     <S.Container id="digitalLink">
-      {sites.map((site) => {
+      {veiculosUnicos.map((veiculo) => {
         return (
-          <S.SiteColumn key={site}>
-            <S.SiteTitle>{site}</S.SiteTitle>
+          <S.SiteColumn key={veiculo}>
+            <S.SiteTitle>{veiculo}</S.SiteTitle>
             <S.SiteLinkDiv>
-              {projetos.map((projeto) => {
+              {digitalPub.map((publicacao) => {
                 return (
                   <S.SiteLink
-                    href={projeto.link}
+                    href={publicacao.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    key={projeto.titulo}
+                    key={publicacao.slug}
                   >
-                    {projeto.site == site ? projeto.titulo : undefined}
+                    {publicacao.veiculo.nome == veiculo
+                      ? publicacao.nome
+                      : null}
                   </S.SiteLink>
                 )
               })}

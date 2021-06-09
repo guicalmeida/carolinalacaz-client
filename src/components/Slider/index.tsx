@@ -3,8 +3,8 @@ import Slider from 'react-slick'
 
 type SliderProps = {
   slides: {
-    imgSrc: string
-    title: string
+    url: string
+    name: string
   }[]
   dark: boolean
 }
@@ -22,8 +22,8 @@ const ImageSlider = ({ slides, dark }: SliderProps) => {
       <Slider {...settings}>
         {slides.map((slide) => {
           return (
-            <div key={slide.title}>
-              <S.Image src={slide.imgSrc} />
+            <div key={slide.name}>
+              <S.Image src={process.env.NEXT_PUBLIC_IMAGE_HOST + slide.url} />
             </div>
           )
         })}

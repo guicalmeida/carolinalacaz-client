@@ -71,11 +71,12 @@ export const TxtWrapper = styled.div`
 export const ContentWrapper = styled.div`
   margin: auto;
   max-width: 130rem;
-  padding-top: 10rem;
+  padding-top: 3rem;
 `
 
 export const ToProject = styled.div`
   align-self: flex-end;
   padding: 0 3rem 1.5rem 0;
   font-size: 1.5rem;
+  padding-bottom: 2rem;
 `

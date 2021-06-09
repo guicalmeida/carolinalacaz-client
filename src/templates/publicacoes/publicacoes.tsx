@@ -8,212 +8,9 @@ import InternalLink from 'components/InternalLink'
 import Publicacao from 'components/Publicacao'
 import PublicacaoIndex from 'components/PublicacaoIndex'
 import PbDigitais from 'components/PbDigitais'
+import { PublicacoesProps } from 'types/api'
 
-const publicacoes = [
-  {
-    imgSrc: 'img/capa_arq.jpg',
-    titulo: 'Teste1',
-    arquiteto: 'GUI MATTOS',
-    publicacao: 'bamboodecora',
-    projectLink: '',
-    ano: 2016,
-    slides: [
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto1'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto5'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto2'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto3'
-      }
-    ]
-  },
-  {
-    imgSrc: 'img/capa_ensaios.jpg',
-    titulo: 'Teste2',
-    arquiteto: 'GUI MATTOS',
-    publicacao: 'bamboodecora',
-    ano: 2016,
-    projectLink: '',
-    slides: [
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto1'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto5'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto2'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto3'
-      }
-    ]
-  },
-  {
-    imgSrc: 'img/capa_arq.jpg',
-    titulo: 'Teste3',
-    arquiteto: 'GUI MATTOS',
-    publicacao: 'bamboodecora',
-    ano: 2016,
-    projectLink: '',
-    slides: [
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto1'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto5'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto2'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto3'
-      }
-    ]
-  },
-  {
-    imgSrc: 'img/capa_ensaios.jpg',
-    titulo: 'Teste4',
-    arquiteto: 'GUI MATTOS',
-    publicacao: 'bamboodecora',
-    ano: 2016,
-    projectLink: '',
-    slides: [
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto1'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto5'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto2'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto3'
-      }
-    ]
-  },
-  {
-    imgSrc: 'img/capa_ensaios.jpg',
-    titulo: 'Teste5',
-    arquiteto: 'GUI MATTOS',
-    publicacao: 'bamboodecora',
-    ano: 2016,
-    projectLink: '',
-    slides: [
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto1'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto5'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto2'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto3'
-      }
-    ]
-  },
-  {
-    imgSrc: 'img/capa_ensaios.jpg',
-    titulo: 'Teste6',
-    arquiteto: 'GUI MATTOS',
-    publicacao: 'bamboodecora',
-    ano: 2016,
-    projectLink: '',
-    slides: [
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto1'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto5'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto2'
-      },
-      {
-        imgSrc: 'img/capa_arq.jpg',
-        title: 'foto3'
-      }
-    ]
-  }
-]
-
-const revistas = ['Casa e Jardim', 'Casa Vogue', 'Archdaily', 'Dezeem']
-
-const publicacoesDigitais = [
-  {
-    titulo: 'teste1',
-    link: 'www.uol.com.br',
-    site: 'Casa Vogue'
-  },
-  {
-    titulo: 'teste2',
-    link: 'www.uol.com.br',
-    site: 'Casa e Jardim'
-  },
-  {
-    titulo: 'teste3',
-    link: 'www.uol.com.br',
-    site: 'Archdaily'
-  },
-  {
-    titulo: 'teste4',
-    link: 'www.uol.com.br',
-    site: 'Casa Vogue'
-  },
-  {
-    titulo: 'teste5',
-    link: 'www.uol.com.br',
-    site: 'Dezeem'
-  },
-  {
-    titulo: 'teste6',
-    link: 'www.uol.com.br',
-    site: 'Dezeem'
-  },
-  {
-    titulo: 'teste7',
-    link: 'www.uol.com.br',
-    site: 'Casa e Jardim'
-  },
-  {
-    titulo: 'teste8',
-    link: 'www.uol.com.br',
-    site: 'Archdaily'
-  }
-]
-
-const Publicacoes = () => (
+const Publicacoes = ({ publicacaos }: PublicacoesProps) => (
   <section>
     <NavArq />
     <div>
@@ -221,7 +18,7 @@ const Publicacoes = () => (
         <Spacer />
         <S.IndiceWrapper>
           <TituloLight>Publicações</TituloLight>
-          <PublicacaoIndex publicacoes={publicacoes} />
+          <PublicacaoIndex publicacaos={publicacaos} />
           <S.DigitalLink href="#digitalLink">
             <S.DigitalTxt>Publicações digitais</S.DigitalTxt>
             <svg
@@ -237,15 +34,15 @@ const Publicacoes = () => (
               />
             </svg>
           </S.DigitalLink>
-          <S.ToPremios>
-            <InternalLink page="/premios" useDark={true}>
-              ou clique aqui para ver prêmios
-            </InternalLink>
-          </S.ToPremios>
         </S.IndiceWrapper>
+        <S.ToPremios>
+          <InternalLink page="/premios" useDark={true}>
+            ou clique aqui para ver prêmios
+          </InternalLink>
+        </S.ToPremios>
       </ContentContainer>
-      <Publicacao publicacoes={publicacoes} />
-      <PbDigitais sites={revistas} projetos={publicacoesDigitais} />
+      <Publicacao publicacaos={publicacaos} />
+      <PbDigitais publicacaos={publicacaos} />
     </div>
   </section>
 )

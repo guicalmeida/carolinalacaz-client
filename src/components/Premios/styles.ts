@@ -23,6 +23,7 @@ export const PremioTitulo = styled.h2`
 
 export const PremioDesc = styled.p`
   text-align: center;
+  width: 60rem;
   font-size: 2rem;
   font-weight: 300;
   overflow-wrap: break-word;

@@ -1,5 +1,7 @@
 import CustomThemeProvider from 'hooks/theme'
 import type { AppProps } from 'next/app'
+import NextNprogress from 'nextjs-progressbar'
+
 import Head from 'next/head'
 
 import GlobalStyles from 'styles/global'
@@ -25,6 +27,12 @@ function App({ Component, pageProps }: AppProps) {
         <script src="https://code.iconify.design/1/1.0.7/iconify.min.js" />
       </Head>
       <GlobalStyles />
+      <NextNprogress
+        color="#29D"
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={3}
+      />
       <Component {...pageProps} />
     </CustomThemeProvider>
   )
