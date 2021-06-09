@@ -50,6 +50,7 @@ export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 3rem;
   & > ${FotoContainer} {
     margin: 10px;
   }

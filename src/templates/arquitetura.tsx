@@ -1,7 +1,6 @@
 import { ContentContainer } from 'components/contentContainer'
 import { NavArq } from 'components/navbar'
 import ArqCover from 'components/ArqCover'
-import FilterBar from 'components/FilterBar'
 import ProjetosMosaico from 'components/ProjetosMosaico'
 import { HomeProps, ProjetosProps } from 'types/api'
 
@@ -13,7 +12,7 @@ const Arquitetura = ({
     <NavArq />
     <ArqCover paginaInicial={paginaInicial} />
     <ContentContainer>
-      <FilterBar />
+      {/* <FilterBar /> */}
       <ProjetosMosaico
         arquiteturaProjetos={arquiteturaProjetos}
         project={false}

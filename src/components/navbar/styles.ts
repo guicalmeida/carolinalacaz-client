@@ -6,12 +6,14 @@ export const Nav = styled.nav`
   display: flex;
   text-align: center;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   z-index: 5;
   width: 100vw;
   background-color: ${(props) => props.theme.colors.bg};
   color: ${(props) => props.theme.colors.txt};
   transition: 300ms;
+  box-sizing: border-box;
+  padding: 0 2%;
 `
 export const List = styled.ul`
   display: flex;
@@ -55,7 +57,7 @@ export const Busca = styled.input`
   }
 `
 
-export const Ico = styled.div`
+export const Ico = styled.a`
   color: ${(props) => props.theme.colors.txt};
   transition: 300ms;
   width: 25px;

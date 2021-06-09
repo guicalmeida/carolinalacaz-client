@@ -9,8 +9,6 @@ export type ContainerProps = {
 }
 
 export const HomeContent = ({ paginaInicial }: HomeProps) => {
-  console.log(paginaInicial)
-
   const { turnDark, turnLight } = useTheme()
   const handleToDark = () => {
     turnDark()
