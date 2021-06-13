@@ -22,9 +22,13 @@ export const CustomThemeProvider: React.FC = ({ children }) => {
     theme.title == 'light' ? setTheme(dark) : setTheme(light)
   }, [theme])
 
-  const turnDark = () => setTheme(dark)
+  const turnDark = () => {
+    setTheme(dark)
+  }
 
-  const turnLight = () => setTheme(light)
+  const turnLight = () => {
+    setTheme(light)
+  }
 
   return (
     <ThemeContext.Provider value={{ toggleTheme, turnLight, turnDark, theme }}>

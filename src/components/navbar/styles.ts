@@ -55,8 +55,9 @@ export const Busca = styled.input`
   }
 `
 
-export const Ico = styled.div`
+export const Ico = styled.a`
   color: ${(props) => props.theme.colors.txt};
+  cursor: pointer;
   transition: 300ms;
   width: 25px;
   height: 25px;

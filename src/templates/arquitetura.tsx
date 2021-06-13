@@ -10,7 +10,7 @@ const Arquitetura = ({ projetos, home }: ProjetosProps & HomeProps) => (
     <NavArq />
     <ArqCover home={home} />
     <ContentContainer>
-      <FilterBar />
+      {/*<FilterBar />*/}
       <ProjetosMosaico projetos={projetos} project={false} />
     </ContentContainer>
   </section>

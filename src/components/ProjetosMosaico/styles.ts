@@ -47,6 +47,7 @@ export const FotoContainer = styled.div`
   }
 `
 export const Container = styled.div`
+  margin-top: 5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

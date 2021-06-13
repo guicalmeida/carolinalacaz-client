@@ -40,6 +40,7 @@ const Nav = ({ items }: NavProps) => {
         ))}
       </S.List>
       <S.MenuHolder>
+        {/*
         <S.Ico>
           <svg
             className="lupa"
@@ -58,7 +59,13 @@ const Nav = ({ items }: NavProps) => {
           </svg>
         </S.Ico>
         <S.Busca />
-        <S.Ico>
+
+      */}
+        <S.Ico
+          href="https://www.instagram.com/carolina.lacaz"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <svg
             className="igIco"
             xmlns="http://www.w3.org/2000/svg"
