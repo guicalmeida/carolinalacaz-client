@@ -13,11 +13,11 @@ const Sobre = ({ sobre }: SobreProps) => {
       <NavArq />
       <S.BioWrapper>
         <Spacer />
-        <TituloLight>{sobre.Nome}</TituloLight>
-        <TextoCorrido>{parse(`${sobre.Sobre}`)}</TextoCorrido>
+        <TituloLight>{sobre.nome}</TituloLight>
+        <TextoCorrido>{parse(`${sobre.descricao}`)}</TextoCorrido>
       </S.BioWrapper>
       <S.PerfilWrapper>
-        <Foto url={sobre.Foto.url} />
+        <Foto url={sobre.foto.url} />
       </S.PerfilWrapper>
     </S.Container>
   )

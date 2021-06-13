@@ -6,27 +6,24 @@ import { HomeProps, ProjetosProps } from 'types/api'
 import Arquitetura from '../../templates/arquitetura'
 
 export default function arquitetura({
-  arquiteturaProjetos,
-  paginaInicial
+  projetos,
+  home
 }: ProjetosProps & HomeProps) {
   return (
     <>
-      <Arquitetura
-        arquiteturaProjetos={arquiteturaProjetos}
-        paginaInicial={paginaInicial}
-      />
+      <Arquitetura projetos={projetos} home={home} />
     </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { arquiteturaProjetos } = await client.request(GET_PROJETOS)
-  const { paginaInicial } = await client.request(GET_HIGHLIGHTS)
+  const { projetos } = await client.request(GET_PROJETOS)
+  const { home } = await client.request(GET_HIGHLIGHTS)
 
   return {
     props: {
-      arquiteturaProjetos,
-      paginaInicial
+      projetos,
+      home
     }
   }
 }

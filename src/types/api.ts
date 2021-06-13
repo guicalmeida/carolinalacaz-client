@@ -1,92 +1,92 @@
-export type AnoProps = {
-  Ano: number
+export type anoProps = {
+  ano: number
 }
-export type CidadeProps = {
-  Cidade: string
+export type cidadeProps = {
+  nome: string
 }
 export type ImagemProps = {
   name: string
   url: string
 }
 
-export type TagsProps = {
-  Tag: string
+export type tagsProps = {
+  nome: string
 }
 
 export type EnsaioUnitProps = {
   EnsaioUnit: {
-    Nome: string
+    nome: string
     descricao_curta: string
     descricao: string
     slug: string
-    Ano: AnoProps
-    Cidade: CidadeProps
-    Galeria: ImagemProps[]
-    Capa: ImagemProps
-    Tags: TagsProps
+    ano: anoProps
+    cidade: cidadeProps
+    galeria: ImagemProps[]
+    capa: ImagemProps
+    tags: tagsProps
   }
 }
 
 export type EnsaiosProps = {
-  autoralEnsaios: {
-    Nome: string
-    descricao_curta: string
+  ensaios: {
+    nome: string
+    descricaoCurta: string
     descricao: string
     slug: string
-    Ano: AnoProps
-    Cidade: CidadeProps
-    Galeria: ImagemProps[]
-    Capa: ImagemProps
-    Tags: TagsProps
+    ano: anoProps
+    cidade: cidadeProps
+    galeria: ImagemProps[]
+    capa: ImagemProps
+    tags: tagsProps
   }[]
 }
 
 export type ProjetoUnitProps = {
   ProjetoUnit: {
-    Nome: string
+    nome: string
     descricao: string
     slug: string
-    Ano: AnoProps
-    Cidade: CidadeProps
-    Galeria: ImagemProps[]
-    Capa: ImagemProps
-    Tags: TagsProps
-    Escritorio: {
-      Escritorio: string
+    ano: anoProps
+    cidade: cidadeProps
+    galeria: ImagemProps[]
+    capa: ImagemProps
+    tags: tagsProps
+    escritorio: {
+      nome: string
     }
   }
 }
 
 export type ProjetosProps = {
-  arquiteturaProjetos: {
-    Nome: string
+  projetos: {
+    nome: string
     descricao: string
     slug: string
-    Ano: AnoProps
-    Cidade: CidadeProps
-    Galeria: ImagemProps[]
-    Capa: ImagemProps
-    Tags: TagsProps
-    Escritorio: {
-      Escritorio: string
+    ano: anoProps
+    cidade: cidadeProps
+    galeria: ImagemProps[]
+    capa: ImagemProps
+    tags: tagsProps
+    escritorio: {
+      nome: string
     }
   }[]
 }
 
 export type SobreProps = {
   sobre: {
-    Nome: string
-    Sobre: string
-    Foto: ImagemProps
+    nome: string
+    descricao: string
+    foto: ImagemProps
   }
 }
 
 export type PlusProps = {
-  fotosAvulsa: {
-    FotoAvulsa: {
-      Titulo: string
-      ano: AnoProps
-      cidade: CidadeProps
+  foto: {
+    foto: {
+      nome: string
+      ano: anoProps
+      cidade: cidadeProps
       foto: ImagemProps
     }[]
   }
@@ -94,11 +94,11 @@ export type PlusProps = {
 
 export type PremioProps = {
   premio: {
-    imagemDeFundo: ImagemProps
-    Premio: {
-      Titulo: string
-      Descricao: string
-      ano: AnoProps
+    background: ImagemProps
+    itens: {
+      nome: string
+      descricao: string
+      ano: anoProps
     }[]
   }
 }
@@ -108,22 +108,22 @@ export type PublicacoesProps = {
     nome: string
     slug: string
     url: string
-    ano: AnoProps
-    arquitetura_projeto: {
+    ano: anoProps
+    projeto: {
       slug: string
     }
     veiculo: {
       nome: string
     }
-    Meio: string
+    meio: string
     galeria: ImagemProps[]
-    Capa: ImagemProps
+    capa: ImagemProps
   }[]
 }
 
 export type HomeProps = {
-  paginaInicial: {
-    Arquitetura: ImagemProps
-    Ensaios: ImagemProps
+  home: {
+    arquitetura: ImagemProps
+    ensaio: ImagemProps
   }
 }

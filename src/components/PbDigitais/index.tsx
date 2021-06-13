@@ -3,7 +3,7 @@ import * as S from './styles'
 
 const PbDigitais = ({ publicacaos }: PublicacoesProps) => {
   const digitalPub = publicacaos.filter((publicacao) => {
-    return publicacao.Meio == 'Digital'
+    return publicacao.meio == 'Digital'
   })
 
   const veiculosUnicos = Array.from(

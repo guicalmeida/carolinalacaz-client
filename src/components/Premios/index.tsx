@@ -4,13 +4,13 @@ import * as S from './styles'
 const Premios = ({ premio }: PremioProps) => {
   return (
     <S.Container>
-      {premio.Premio.map((premio) => {
+      {premio.itens.map((premio) => {
         return (
-          <S.PremioWrapper key={premio.Titulo}>
+          <S.PremioWrapper key={premio.nome}>
             <S.PremioTitulo>
-              {premio.Titulo} - {premio.ano.Ano}
+              {premio.nome} - {premio.ano.ano}
             </S.PremioTitulo>
-            <S.PremioDesc>{premio.Descricao}</S.PremioDesc>
+            <S.PremioDesc>{premio.descricao}</S.PremioDesc>
           </S.PremioWrapper>
         )
       })}

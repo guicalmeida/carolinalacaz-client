@@ -9,7 +9,7 @@ import { ProjetosProps, ProjetoUnitProps } from 'types/api'
 import ProjectHeader from '../components/projectHeader'
 
 const Projeto = ({
-  arquiteturaProjetos,
+  projetos,
   ProjetoUnit
 }: ProjetosProps & ProjetoUnitProps) => (
   <section>
@@ -20,7 +20,7 @@ const Projeto = ({
       <ProjectMasonry ProjetoUnit={ProjetoUnit} />
       <OtherProjectsTxt>Veja outros projetos:</OtherProjectsTxt>
       <FilterBar />
-      <ProjetoMosaico arquiteturaProjetos={arquiteturaProjetos} project />
+      <ProjetoMosaico projetos={projetos} project />
     </ContentContainer>
   </section>
 )

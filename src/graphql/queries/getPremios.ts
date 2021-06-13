@@ -1,15 +1,15 @@
 const GET_PREMIOS = /* GraphQL */ `
   query GET_PREMIOS {
     premio {
-      imagemDeFundo {
+      background {
         name
         url
       }
-      Premio {
-        Titulo
-        Descricao
+      itens {
+        nome
+        descricao
         ano {
-          Ano
+          ano
         }
       }
     }

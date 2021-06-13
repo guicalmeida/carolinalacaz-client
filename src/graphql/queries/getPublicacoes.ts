@@ -5,7 +5,7 @@ const GET_PUBLICACOES = /* GraphQL */ `
       slug
       url
       ano {
-        Ano
+        ano
       }
       arquitetura_projeto {
         slug
@@ -13,8 +13,8 @@ const GET_PUBLICACOES = /* GraphQL */ `
       veiculo {
         nome
       }
-      Meio
-      Capa {
+      meio
+      capa {
         name
         url
       }

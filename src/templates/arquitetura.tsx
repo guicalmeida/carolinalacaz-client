@@ -5,19 +5,13 @@ import FilterBar from 'components/FilterBar'
 import ProjetosMosaico from 'components/ProjetosMosaico'
 import { HomeProps, ProjetosProps } from 'types/api'
 
-const Arquitetura = ({
-  arquiteturaProjetos,
-  paginaInicial
-}: ProjetosProps & HomeProps) => (
+const Arquitetura = ({ projetos, home }: ProjetosProps & HomeProps) => (
   <section>
     <NavArq />
-    <ArqCover paginaInicial={paginaInicial} />
+    <ArqCover home={home} />
     <ContentContainer>
       <FilterBar />
-      <ProjetosMosaico
-        arquiteturaProjetos={arquiteturaProjetos}
-        project={false}
-      />
+      <ProjetosMosaico projetos={projetos} project={false} />
     </ContentContainer>
   </section>
 )

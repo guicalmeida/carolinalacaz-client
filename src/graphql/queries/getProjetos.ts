@@ -1,27 +1,27 @@
 const GET_PROJETOS = /* GraphQL */ `
   query GET_PROJETOS {
-    arquiteturaProjetos {
-      Nome
-      Ano {
-        Ano
+    projetos {
+      nome
+      ano {
+        ano
       }
-      Cidade {
-        Cidade
+      cidade {
+        nome
       }
       slug
-      Galeria {
+      galeria {
         name
         url
       }
-      Capa {
+      capa {
         name
         url
       }
       tags {
-        Tag
+        tag
       }
-      Escritorio {
-        Escritorio
+      escritorio {
+        nome
       }
     }
   }

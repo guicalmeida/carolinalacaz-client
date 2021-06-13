@@ -1,11 +1,11 @@
 const GET_HIGHLIGHTS = /* GraphQL */ `
-  query GET_HIGHLIGHTS {
-    paginaInicial {
-      Arquitetura {
+  query GET_HOME {
+    home {
+      arquitetura {
         name
         url
       }
-      Ensaios {
+      ensaio {
         name
         url
       }

@@ -1,26 +1,19 @@
 const GET_ENSAIOS = /* GraphQL */ `
   query GET_ENSAIOS {
-    autoralEnsaios {
-      Nome
-      descricao_curta
-      descricao
-      Ano {
-        Ano
-      }
-      Cidade {
-        Cidade
-      }
+    ensaios {
+      nome
       slug
-      Galeria {
+      descricao
+      descricaoCurta
+      capa {
         name
         url
       }
-      Capa {
-        name
-        url
+      cidade {
+        nome
       }
-      Tags {
-        Tag
+      ano {
+        ano
       }
     }
   }

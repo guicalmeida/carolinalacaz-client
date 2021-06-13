@@ -4,16 +4,13 @@ import EnsCover from 'components/EnsCover'
 import { EnsaiosProps, HomeProps } from 'types/api'
 import EnsaiosMosaico from 'components/EnsaiosMosaico'
 
-const Ensaios = ({
-  autoralEnsaios,
-  paginaInicial
-}: EnsaiosProps & HomeProps) => {
+const Ensaios = ({ ensaios, home }: EnsaiosProps & HomeProps) => {
   return (
     <section>
       <NavEns />
-      <EnsCover paginaInicial={paginaInicial} />
+      <EnsCover home={home} />
       <ContentContainer>
-        <EnsaiosMosaico autoralEnsaios={autoralEnsaios} project={false} />
+        <EnsaiosMosaico ensaios={ensaios} project={false} />
       </ContentContainer>
     </section>
   )

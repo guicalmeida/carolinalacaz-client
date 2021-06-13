@@ -5,14 +5,14 @@ const PublicacaoIndex = ({ publicacaos }: PublicacoesProps) => {
   return (
     <S.Container>
       {publicacaos.map((publicacao) => {
-        if (publicacao.Meio == 'Impresso') {
+        if (publicacao.meio == 'Impresso') {
           return (
             <a href={'#' + publicacao.slug} key={publicacao.slug}>
               <S.ItemWrapper>
                 <S.TxtDiv>
                   <S.Title>{publicacao.nome}</S.Title>
                   <S.Info>
-                    {publicacao.veiculo.nome} - {publicacao.ano.Ano}
+                    {publicacao.veiculo.nome} - {publicacao.ano.ano}
                   </S.Info>
                 </S.TxtDiv>
                 <svg

@@ -5,25 +5,20 @@ import { ProjetosProps, ProjetoUnitProps } from 'types/api'
 import Projeto from '../../templates/projeto'
 
 export default function projeto({
-  arquiteturaProjetos,
+  projetos,
   ProjetoUnit
 }: ProjetosProps & ProjetoUnitProps) {
   return (
     <div>
-      <Projeto
-        arquiteturaProjetos={arquiteturaProjetos}
-        ProjetoUnit={ProjetoUnit}
-      />
+      <Projeto projetos={projetos} ProjetoUnit={ProjetoUnit} />
     </div>
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { arquiteturaProjetos } = await client.request<ProjetosProps>(
-    GET_PROJETOS
-  )
+  const { projetos } = await client.request<ProjetosProps>(GET_PROJETOS)
 
-  const paths = arquiteturaProjetos.map((projeto) => {
+  const paths = projetos.map((projeto) => {
     return {
       params: { slug: projeto.slug }
     }
@@ -32,18 +27,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { arquiteturaProjetos } = await client.request<ProjetosProps>(
-    GET_PROJETOS
-  )
+  const { projetos } = await client.request<ProjetosProps>(GET_PROJETOS)
 
-  const ProjetoUnit = arquiteturaProjetos.find(
-    (projeto) => params!.slug == projeto.slug
-  )
+  const ProjetoUnit = projetos.find((projeto) => params!.slug == projeto.slug)
 
   return {
     props: {
       ProjetoUnit,
-      arquiteturaProjetos
+      projetos
     }
   }
 }

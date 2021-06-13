@@ -6,19 +6,19 @@ import Ensaio from '../../templates/ensaio/ensaio'
 
 export default function ensaio({
   EnsaioUnit,
-  autoralEnsaios
+  ensaios
 }: EnsaioUnitProps & EnsaiosProps) {
   return (
     <div>
-      <Ensaio autoralEnsaios={autoralEnsaios} EnsaioUnit={EnsaioUnit} />
+      <Ensaio ensaios={ensaios} EnsaioUnit={EnsaioUnit} />
     </div>
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { autoralEnsaios } = await client.request<EnsaiosProps>(GET_ENSAIOS)
+  const { ensaios } = await client.request<EnsaiosProps>(GET_ENSAIOS)
 
-  const paths = autoralEnsaios.map((ensaio) => {
+  const paths = ensaios.map((ensaio) => {
     return {
       params: { slug: ensaio.slug }
     }
@@ -27,16 +27,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { autoralEnsaios } = await client.request<EnsaiosProps>(GET_ENSAIOS)
+  const { ensaios } = await client.request<EnsaiosProps>(GET_ENSAIOS)
 
-  const EnsaioUnit = autoralEnsaios.find(
-    (ensaio) => params!.slug == ensaio.slug
-  )
+  const EnsaioUnit = ensaios.find((ensaio) => params!.slug == ensaio.slug)
 
   return {
     props: {
       EnsaioUnit,
-      autoralEnsaios
+      ensaios
     }
   }
 }

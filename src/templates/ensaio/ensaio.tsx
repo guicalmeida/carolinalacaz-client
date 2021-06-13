@@ -13,10 +13,7 @@ import OtherProjectsTxt from 'components/OtherProjectsTxt'
 import TextoCorrido from 'components/TextoCorrido'
 import EnsaiosMosaico from 'components/EnsaiosMosaico'
 
-const Ensaio = ({
-  EnsaioUnit,
-  autoralEnsaios
-}: EnsaioUnitProps & EnsaiosProps) => {
+const Ensaio = ({ EnsaioUnit, ensaios }: EnsaioUnitProps & EnsaiosProps) => {
   return (
     <section>
       <NavEns />
@@ -34,7 +31,7 @@ const Ensaio = ({
           interessado? Entre em <a href="/contato">contato</a>
         </OtherProjectsTxt>
         <Divider />
-        <EnsaiosMosaico autoralEnsaios={autoralEnsaios} project />
+        <EnsaiosMosaico ensaios={ensaios} project />
         <Spacer />
       </ContentContainer>
     </section>

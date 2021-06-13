@@ -1,9 +1,9 @@
 const GET_SOBRE = /* GraphQL */ `
   query GET_SOBRE {
     sobre {
-      Nome
-      Sobre
-      Foto {
+      nome
+      descricao
+      foto {
         name
         url
       }

@@ -10,12 +10,12 @@ const Publicacao = ({ publicacaos }: PublicacoesProps) => {
     <S.PublicacoesWrapper>
       {publicacaos.map((publicacao) => {
         color = !color
-        if (publicacao.Meio == 'Impresso') {
+        if (publicacao.meio == 'Impresso') {
           return (
             <S.Background
               imgSrc={
-                publicacao.Capa
-                  ? process.env.NEXT_PUBLIC_IMAGE_HOST + publicacao.Capa.url
+                publicacao.capa
+                  ? process.env.NEXT_PUBLIC_IMAGE_HOST + publicacao.capa.url
                   : 'https://source.unsplash.com/random'
               }
               key={publicacao.slug}
@@ -26,7 +26,7 @@ const Publicacao = ({ publicacaos }: PublicacoesProps) => {
                 <S.TxtWrapper>
                   <S.PublicacaoTitle>{publicacao.nome}</S.PublicacaoTitle>
                   <S.PublicacaoDesc>
-                    {publicacao.veiculo.nome} - {publicacao.ano.Ano}
+                    {publicacao.veiculo.nome} - {publicacao.ano.ano}
                   </S.PublicacaoDesc>
                 </S.TxtWrapper>
                 <S.SliderWrapper>
@@ -39,13 +39,13 @@ const Publicacao = ({ publicacaos }: PublicacoesProps) => {
               <S.ToProject>
                 <InternalLink
                   page={
-                    publicacao.arquitetura_projeto
-                      ? 'arquitetura/' + publicacao.arquitetura_projeto.slug
+                    publicacao.projeto
+                      ? 'arquitetura/' + publicacao.projeto.slug
                       : ''
                   }
                   useDark={false}
                 >
-                  {publicacao.arquitetura_projeto
+                  {publicacao.projeto
                     ? 'clique aqui para ver as fotos do projeto'
                     : ''}
                 </InternalLink>

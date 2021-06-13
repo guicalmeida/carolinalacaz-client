@@ -12,7 +12,7 @@ const Premio = ({ premio }: PremioProps) => (
   <section>
     <NavEns />
     <S.Background
-      imgSrc={process.env.NEXT_PUBLIC_IMAGE_HOST + premio.imagemDeFundo.url}
+      imgSrc={process.env.NEXT_PUBLIC_IMAGE_HOST + premio.background.url}
     >
       <ContentContainer>
         <Spacer />

@@ -5,25 +5,22 @@ import { GetStaticProps } from 'next'
 import { EnsaiosProps, HomeProps } from 'types/api'
 import Ensaios from '../../templates/ensaios'
 
-export default function ensaios({
-  autoralEnsaios,
-  paginaInicial
-}: EnsaiosProps & HomeProps) {
+export default function ensaios({ ensaios, home }: EnsaiosProps & HomeProps) {
   return (
     <>
-      <Ensaios autoralEnsaios={autoralEnsaios} paginaInicial={paginaInicial} />
+      <Ensaios ensaios={ensaios} home={home} />
     </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { autoralEnsaios } = await client.request(GET_ENSAIOS)
-  const { paginaInicial } = await client.request(GET_HIGHLIGHTS)
+  const { ensaios } = await client.request(GET_ENSAIOS)
+  const { home } = await client.request(GET_HIGHLIGHTS)
 
   return {
     props: {
-      autoralEnsaios,
-      paginaInicial
+      ensaios,
+      home
     }
   }
 }
