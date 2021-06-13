@@ -6,7 +6,7 @@ export type OverlayProps = {
   overlay: boolean
 }
 
-export const AvulsasMasonry = ({ foto, overlay }: PlusProps & OverlayProps) => {
+export const AvulsasMasonry = ({ plus, overlay }: PlusProps & OverlayProps) => {
   return (
     <div>
       <S.MasonryGrid
@@ -14,7 +14,7 @@ export const AvulsasMasonry = ({ foto, overlay }: PlusProps & OverlayProps) => {
         className="masonryGrid"
         columnClassName="MasonryColumn"
       >
-        {foto.foto.map((fotoUnit) => {
+        {plus.fotografia.map((fotoUnit) => {
           return (
             <S.PicWrapper key={fotoUnit.nome} overlay={overlay}>
               <Foto url={fotoUnit.foto.url} />

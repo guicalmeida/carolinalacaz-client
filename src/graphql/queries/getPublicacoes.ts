@@ -7,7 +7,7 @@ const GET_PUBLICACOES = /* GraphQL */ `
       ano {
         ano
       }
-      arquitetura_projeto {
+      projeto {
         slug
       }
       veiculo {

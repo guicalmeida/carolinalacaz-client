@@ -3,12 +3,12 @@ import { HomeContent } from 'components/HomeContent'
 import { NavArq } from 'components/navbar'
 import { HomeProps } from 'types/api'
 
-const Home = ({ paginaInicial }: HomeProps) => {
+const Home = ({ home }: HomeProps) => {
   return (
     <div>
       <NavArq />
       <ContentContainer>
-        <HomeContent paginaInicial={paginaInicial} />
+        <HomeContent home={home} />
       </ContentContainer>
     </div>
   )

@@ -7,19 +7,19 @@ const ProjectHeader = ({ ProjetoUnit }: ProjetoUnitProps) => {
       <S.ProjectsInfosDiv>
         <S.ProjectInfosLeft>
           <div>
-            <S.ProjectTitle>{ProjetoUnit.Nome}</S.ProjectTitle>
+            <S.ProjectTitle>{ProjetoUnit.nome}</S.ProjectTitle>
             <i>
               <S.ProjectText id="estudio">
-                {ProjetoUnit.Escritorio.Escritorio}
+                {ProjetoUnit.escritorio.nome}
               </S.ProjectText>
             </i>
           </div>
         </S.ProjectInfosLeft>
         <S.ProjectInfosRight>
           <S.ProjectText id="cidade">
-            {ProjetoUnit.Cidade.Cidade} ·{' '}
+            {ProjetoUnit.cidade.nome} ·{' '}
           </S.ProjectText>
-          <S.ProjectText id="ano"> {ProjetoUnit.Ano.Ano}</S.ProjectText>
+          <S.ProjectText id="ano"> {ProjetoUnit.ano.ano}</S.ProjectText>
         </S.ProjectInfosRight>
       </S.ProjectsInfosDiv>
     </S.Container>

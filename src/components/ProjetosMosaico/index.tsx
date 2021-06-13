@@ -31,7 +31,7 @@ const ProjetosMosaico = ({
                   </S.Dados>
                 </S.FichaTecnica>
               </S.Overlay>
-              <Foto url={projeto.capa.url} />
+              <Foto url={projeto.capa ? projeto.capa.url : ''} />
             </S.FotoContainer>
           </Link>
         )

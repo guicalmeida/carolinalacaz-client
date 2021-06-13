@@ -4,19 +4,19 @@ import { GetStaticProps } from 'next'
 import { PlusProps } from 'types/api'
 import Plus from '../templates/plus'
 
-export default function plus({ foto }: PlusProps) {
+export default function plus({ plus }: PlusProps) {
   return (
     <div>
-      <Plus foto={foto} />
+      <Plus plus={plus} />
     </div>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { foto } = await client.request(GET_PLUS)
+  const { plus } = await client.request(GET_PLUS)
   return {
     props: {
-      foto
+      plus
     }
   }
 }

@@ -8,9 +8,7 @@ export type ContainerProps = {
   align: 'left' | 'right'
 }
 
-export const HomeContent = ({ paginaInicial }: HomeProps) => {
-  console.log(paginaInicial)
-
+export const HomeContent = ({ home }: HomeProps) => {
   const { turnDark, turnLight } = useTheme()
   const handleToDark = () => {
     turnDark()
@@ -32,9 +30,7 @@ export const HomeContent = ({ paginaInicial }: HomeProps) => {
         >
           <S.Title>Arquitetura</S.Title>
           <S.Photo
-            src={
-              process.env.NEXT_PUBLIC_IMAGE_HOST + paginaInicial.Arquitetura.url
-            }
+            src={process.env.NEXT_PUBLIC_IMAGE_HOST + home.arquitetura.url}
             alt="img"
           />
         </S.Card>
@@ -48,7 +44,7 @@ export const HomeContent = ({ paginaInicial }: HomeProps) => {
           onClick={handleToDark}
         >
           <S.Photo
-            src={process.env.NEXT_PUBLIC_IMAGE_HOST + paginaInicial.Ensaios.url}
+            src={process.env.NEXT_PUBLIC_IMAGE_HOST + home.ensaio.url}
             alt="img"
             className="EnsPhoto"
           />

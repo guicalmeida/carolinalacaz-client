@@ -10,7 +10,7 @@ const Publicacao = ({ publicacaos }: PublicacoesProps) => {
     <S.PublicacoesWrapper>
       {publicacaos.map((publicacao) => {
         color = !color
-        if (publicacao.meio == 'Impresso') {
+        if (publicacao.meio == 'impresso') {
           return (
             <S.Background
               imgSrc={

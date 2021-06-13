@@ -11,12 +11,13 @@ export type ImagemProps = {
 
 export type tagsProps = {
   nome: string
+  slug: string
 }
 
 export type EnsaioUnitProps = {
   EnsaioUnit: {
     nome: string
-    descricao_curta: string
+    descricaoCurta: string
     descricao: string
     slug: string
     ano: anoProps
@@ -82,8 +83,8 @@ export type SobreProps = {
 }
 
 export type PlusProps = {
-  foto: {
-    foto: {
+  plus: {
+    fotografia: {
       nome: string
       ano: anoProps
       cidade: cidadeProps

@@ -5,7 +5,7 @@ const PublicacaoIndex = ({ publicacaos }: PublicacoesProps) => {
   return (
     <S.Container>
       {publicacaos.map((publicacao) => {
-        if (publicacao.meio == 'Impresso') {
+        if (publicacao.meio == 'impresso') {
           return (
             <a href={'#' + publicacao.slug} key={publicacao.slug}>
               <S.ItemWrapper>

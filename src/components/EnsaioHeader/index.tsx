@@ -5,11 +5,11 @@ import * as S from './styles'
 const EnsaioHeader = ({ EnsaioUnit }: EnsaioUnitProps) => {
   return (
     <S.Container>
-      <EnsTitle>{EnsaioUnit.Nome}</EnsTitle>
+      <EnsTitle>{EnsaioUnit.nome}</EnsTitle>
       <S.Subtitle>
-        {EnsaioUnit.Cidade.Cidade}, {EnsaioUnit.Ano.Ano}
+        {EnsaioUnit.cidade.nome}, {EnsaioUnit.ano.ano}
       </S.Subtitle>
-      <S.Description>{EnsaioUnit.descricao_curta}</S.Description>
+      <S.Description>{EnsaioUnit.descricaoCurta}</S.Description>
     </S.Container>
   )
 }

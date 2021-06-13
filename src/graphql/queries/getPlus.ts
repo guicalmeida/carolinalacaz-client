@@ -1,13 +1,13 @@
 const GET_PLUS = /* GraphQL */ `
   query GET_PLUS {
-    foto {
-      foto {
+    plus {
+      fotografia {
         nome
+        cidade {
+          nome
+        }
         ano {
           ano
-        }
-        cidade {
-          cidade
         }
         foto {
           name

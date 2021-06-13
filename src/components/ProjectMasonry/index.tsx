@@ -14,7 +14,7 @@ export const ProjectMasonry = ({ ProjetoUnit }: ProjetoUnitProps) => {
         className="masonryGrid"
         columnClassName="MasonryColumn"
       >
-        {ProjetoUnit.Galeria.map((foto) => {
+        {ProjetoUnit.galeria.map((foto) => {
           return (
             <S.PicWrapper key={foto.name}>
               <Foto url={foto.url} />

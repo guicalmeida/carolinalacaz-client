@@ -4,19 +4,19 @@ import { GetStaticProps } from 'next'
 import { HomeProps } from 'types/api'
 import Home from '../templates/home'
 
-export default function Inicial({ paginaInicial }: HomeProps) {
+export default function Inicial({ home }: HomeProps) {
   return (
     <div>
-      <Home paginaInicial={paginaInicial} />
+      <Home home={home} />
     </div>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { paginaInicial } = await client.request(GET_HIGHLIGHTS)
+  const { home } = await client.request(GET_HIGHLIGHTS)
   return {
     props: {
-      paginaInicial
+      home
     }
   }
 }

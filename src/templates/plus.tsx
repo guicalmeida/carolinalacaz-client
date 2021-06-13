@@ -9,14 +9,14 @@ import Spacer from 'components/NavbarSpacer'
 import OtherProjectsTxt from 'components/OtherProjectsTxt'
 import { PlusProps } from 'types/api'
 
-const Plus = ({ foto }: PlusProps) => {
+const Plus = ({ plus }: PlusProps) => {
   return (
     <section>
       <NavEns />
       <ContentContainer>
         <Spacer />
         <EnsTitle>+++</EnsTitle>
-        <AvulsasMasonry overlay={true} foto={foto} />
+        <AvulsasMasonry overlay={true} plus={plus} />
         <OtherProjectsTxt>
           interessado? Entre em{' '}
           <InternalLink page="/contato" useDark={true}>
