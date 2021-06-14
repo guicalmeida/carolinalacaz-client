@@ -14,13 +14,15 @@ export const ProjectMasonry = ({ ProjetoUnit }: ProjetoUnitProps) => {
         className="masonryGrid"
         columnClassName="MasonryColumn"
       >
-        {ProjetoUnit.galeria.map((foto) => {
-          return (
-            <S.PicWrapper key={foto.name}>
-              <Foto url={foto.url} />
-            </S.PicWrapper>
-          )
-        })}
+        {ProjetoUnit.galeria
+          ? ProjetoUnit.galeria.map((foto) => {
+              return (
+                <S.PicWrapper key={foto.name ? foto.name : ''}>
+                  <Foto url={foto.url ? foto.url : ''} />
+                </S.PicWrapper>
+              )
+            })
+          : ''}
       </S.MasonryGrid>
     </div>
   )
