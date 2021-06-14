@@ -37,7 +37,7 @@ const Contato = () => {
         </TextoCorrido>
       </S.HeaderWrapper>
       <S.FormWrapper>
-        <Form fields={campos} formName="Orçamento" />
+        <Form fields={campos} formName="contato" />
       </S.FormWrapper>
     </S.Container>
   )
