@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin: 0 auto;
   & > img {
     margin-bottom: 4rem;
-    height: 85vh;
+    max-height: 85vh;
     object-fit: contain;
     max-width: 100%;
   }
