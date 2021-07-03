@@ -28,7 +28,7 @@ export const HomeContent = ({ home }: HomeProps) => {
           onMouseLeave={handleToLight}
           onClick={handleToLight}
         >
-          <S.Title>Arquitetura</S.Title>
+          <S.Title className="arqTitle">Arquitetura</S.Title>
           <S.Photo
             src={process.env.NEXT_PUBLIC_IMAGE_HOST + home.arquitetura.url}
             alt="img"
@@ -48,7 +48,7 @@ export const HomeContent = ({ home }: HomeProps) => {
             alt="img"
             className="EnsPhoto"
           />
-          <S.Title>Ensaios</S.Title>
+          <S.Title className="ensaioTitle">Ensaios</S.Title>
         </S.Card>
       </Link>
     </S.Container>

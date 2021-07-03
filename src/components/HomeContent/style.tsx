@@ -6,9 +6,14 @@ export const Card = styled.div<ContainerProps>`
     text-align: ${align};
     display: flex;
     flex-direction: column;
-    width: 55rem;
-    height: 51rem;
-    padding: 0 4rem;
+    max-width: 55rem;
+    min-width: 30rem;
+    width: 41vw;
+    max-height: 40rem;
+    min-height: 30rem;
+    height: 50vh;
+    padding: 0 2vw;
+    position: relative;
   `}
   cursor: pointer;
   pointer-events: auto;
@@ -19,6 +24,7 @@ export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: auto;
+  padding-top: 4rem;
 
   &:hover .card {
     transform: scale(0.9);
@@ -26,7 +32,9 @@ export const Container = styled.div`
     filter: blur(5px);
   }
 
-  .card:hover {
+  .card:hover,
+  .card:focus,
+  .card:active {
     transform: scale(1.1);
     opacity: 1;
     filter: blur(0);
@@ -34,13 +42,9 @@ export const Container = styled.div`
 `
 
 export const Photo = styled.img`
-  height: 37rem;
-  width: 55rem;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
-
-  &.EnsPhoto {
-    margin-top: 7.1rem;
-  }
 `
 
 export const Title = styled.h1`
@@ -49,4 +53,13 @@ export const Title = styled.h1`
   text-transform: uppercase;
   line-height: 7.2rem;
   color: ${(props) => props.theme.colors.txt};
+  position: absolute;
+
+  &.arqTitle {
+    top: -7rem;
+  }
+
+  &.ensaioTitle {
+    bottom: -7rem;
+  }
 `
