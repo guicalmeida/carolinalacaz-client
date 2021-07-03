@@ -4,10 +4,6 @@ import * as S from './style'
 import { useTheme } from '../../hooks/theme'
 import { HomeProps } from 'types/api'
 
-export type ContainerProps = {
-  align: 'left' | 'right'
-}
-
 export const HomeContent = ({ home }: HomeProps) => {
   const { turnDark, turnLight } = useTheme()
   const handleToDark = () => {
@@ -22,7 +18,6 @@ export const HomeContent = ({ home }: HomeProps) => {
     <S.Container>
       <Link href="/arquitetura">
         <S.Card
-          align="left"
           className="card arquiteturaCard"
           onMouseEnter={handleToLight}
           onMouseLeave={handleToLight}
@@ -37,7 +32,6 @@ export const HomeContent = ({ home }: HomeProps) => {
       </Link>
       <Link href="/ensaios">
         <S.Card
-          align="right"
           className="card ensaiosCard"
           onMouseEnter={handleToDark}
           onMouseLeave={handleToLight}
