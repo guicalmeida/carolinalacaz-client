@@ -1,6 +1,6 @@
+import EnsNav from 'components/EnsNav'
 import Form from 'components/Form'
 import InternalLink from 'components/InternalLink'
-import { NavEns } from 'components/navbar'
 import TextoCorrido from 'components/TextoCorrido'
 import TituloSemibold from 'components/TituloSemibold'
 import * as S from './style'
@@ -26,7 +26,7 @@ const campos = [
 const Contato = () => {
   return (
     <S.Container>
-      <NavEns />
+      <EnsNav />
       <S.HeaderWrapper>
         <TituloSemibold>CONSULTA DE DISPONIBILIDADE DE OBRAS</TituloSemibold>
         <TextoCorrido>

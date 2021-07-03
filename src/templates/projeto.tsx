@@ -1,7 +1,7 @@
+import ArqNav from 'components/ArqNav'
 import BackArrow from 'components/BackArrow'
 import { ContentContainer } from 'components/contentContainer'
 import FilterBar from 'components/FilterBar'
-import { NavArq } from 'components/navbar'
 import OtherProjectsTxt from 'components/OtherProjectsTxt'
 import ProjectMasonry from 'components/ProjectMasonry'
 import ProjetoMosaico from 'components/ProjetosMosaico'
@@ -13,7 +13,7 @@ const Projeto = ({
   ProjetoUnit
 }: ProjetosProps & ProjetoUnitProps) => (
   <section>
-    <NavArq />
+    <ArqNav />
     <ContentContainer>
       <BackArrow linkTo="/arquitetura" />
       <ProjectHeader ProjetoUnit={ProjetoUnit} />

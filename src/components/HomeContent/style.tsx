@@ -53,7 +53,6 @@ export const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin: auto;
-  padding-top: 4rem;
   @media (max-width: 767px) {
     padding-top: 6rem;
   }

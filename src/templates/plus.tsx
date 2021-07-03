@@ -2,9 +2,9 @@ import AvulsasMasonry from 'components/AvulsasMasonry'
 import ChangePage from 'components/ChangePage'
 import { ContentContainer } from 'components/contentContainer'
 import Divider from 'components/Divider'
+import EnsNav from 'components/EnsNav'
 import EnsTitle from 'components/EnsTitle'
 import InternalLink from 'components/InternalLink'
-import { NavEns } from 'components/navbar'
 import Spacer from 'components/NavbarSpacer'
 import OtherProjectsTxt from 'components/OtherProjectsTxt'
 import { PlusProps } from 'types/api'
@@ -12,7 +12,7 @@ import { PlusProps } from 'types/api'
 const Plus = ({ plus }: PlusProps) => {
   return (
     <section>
-      <NavEns />
+      <EnsNav />
       <ContentContainer>
         <Spacer />
         <EnsTitle>+++</EnsTitle>

@@ -1,4 +1,5 @@
 import * as S from './styles'
+import { slide as Menu } from 'react-burger-menu'
 import Link from 'next/link'
 import Logo from 'components/Logo'
 
@@ -10,43 +11,24 @@ type ItemProps = {
   }[]
 }
 
-const Nav = ({ items }: ItemProps) => {
+const MobileNav = ({ items }: ItemProps) => {
   return (
-    <S.Nav>
-      <Link href="/">
-        <S.LogoWrapper>
-          <Logo />
-        </S.LogoWrapper>
-      </Link>
-      <S.List>
+    <S.MobileContainer>
+      <Menu>
         {items.map((item) => (
-          <S.Option onClick={item.onClick} key={item.text}>
+          <span onClick={item.onClick} key={item.text}>
             <Link href={item.link}>{item.text}</Link>
-          </S.Option>
+          </span>
         ))}
-      </S.List>
-      <S.MenuHolder>
-        {/*
-        <S.Ico>
-          <svg
-            className="lupa"
-            width="114"
-            height="114"
-            viewBox="0 0 114 114"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M3.5 106C3.5 106 23.308 86.1921 36 73.5M36 73.5C51.9468 89.3093 77.5532 89.3093 93.5 73.5C109.585 57.5533 109.585 31.4468 93.5 15.5C77.5532 -0.309259 51.9468 -0.309259 36 15.5C19.9146 31.4468 19.9146 57.5533 36 73.5Z"
-              strokeWidth="6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </S.Ico>
-        <S.Busca />
+      </Menu>
+      <S.MenuBar>
+        <S.BurgerPlaceholder />
+        <Link href="/">
+          <S.LogoWrapper>
+            <Logo />
+          </S.LogoWrapper>
+        </Link>
 
-      */}
         <S.Ico
           href="https://www.instagram.com/carolina.lacaz"
           rel="noopener noreferrer"
@@ -64,9 +46,9 @@ const Nav = ({ items }: ItemProps) => {
             <path d="M335.9 447.9a112 112 0 110-224 112 112 0 010 224zm0-284.5a172.5 172.5 0 100 345 172.5 172.5 0 000-345m219.6-6.8a40.3 40.3 0 11-80.6 0 40.3 40.3 0 0180.6 0" />
           </svg>
         </S.Ico>
-      </S.MenuHolder>
-    </S.Nav>
+      </S.MenuBar>
+    </S.MobileContainer>
   )
 }
 
-export default Nav
+export default MobileNav

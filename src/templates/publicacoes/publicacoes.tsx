@@ -1,7 +1,6 @@
 import * as S from './styles'
 
 import { ContentContainer } from 'components/contentContainer'
-import { NavArq } from 'components/navbar'
 import TituloLight from 'components/TituloLight'
 import Spacer from 'components/NavbarSpacer'
 import InternalLink from 'components/InternalLink'
@@ -9,10 +8,11 @@ import Publicacao from 'components/Publicacao'
 import PublicacaoIndex from 'components/PublicacaoIndex'
 import PbDigitais from 'components/PbDigitais'
 import { PublicacoesProps } from 'types/api'
+import ArqNav from 'components/ArqNav'
 
 const Publicacoes = ({ publicacaos }: PublicacoesProps) => (
   <section>
-    <NavArq />
+    <ArqNav />
     <div>
       <ContentContainer>
         <Spacer />

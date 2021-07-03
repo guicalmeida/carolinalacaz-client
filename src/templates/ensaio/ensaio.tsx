@@ -7,16 +7,16 @@ import { ContentContainer } from 'components/contentContainer'
 import Divider from 'components/Divider'
 import EnsaioHeader from 'components/EnsaioHeader'
 import MosaicoEnsaio from 'components/MosaicoEnsaio'
-import { NavEns } from 'components/navbar'
 import Spacer from 'components/NavbarSpacer'
 import OtherProjectsTxt from 'components/OtherProjectsTxt'
 import TextoCorrido from 'components/TextoCorrido'
 import EnsaiosMosaico from 'components/EnsaiosMosaico'
+import EnsNav from 'components/EnsNav'
 
 const Ensaio = ({ EnsaioUnit, ensaios }: EnsaioUnitProps & EnsaiosProps) => {
   return (
     <section>
-      <NavEns />
+      <EnsNav />
       <ContentContainer>
         <BackArrow linkTo="/ensaios" />
         <Spacer />

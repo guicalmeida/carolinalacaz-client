@@ -1,12 +1,12 @@
+import ArqNav from 'components/ArqNav'
 import { ContentContainer } from 'components/contentContainer'
 import { HomeContent } from 'components/HomeContent'
-import { NavArq } from 'components/navbar'
 import { HomeProps } from 'types/api'
 
 const Home = ({ home }: HomeProps) => {
   return (
     <div>
-      <NavArq />
+      <ArqNav />
       <ContentContainer>
         <HomeContent home={home} />
       </ContentContainer>

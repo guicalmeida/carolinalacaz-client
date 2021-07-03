@@ -3,15 +3,19 @@ import styled from 'styled-components'
 export const Nav = styled.nav`
   height: 10rem;
   position: fixed;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: space-evenly;
+  display: none;
   z-index: 5;
   width: 100vw;
   background-color: ${(props) => props.theme.colors.bg};
   color: ${(props) => props.theme.colors.txt};
   transition: 300ms;
+
+  @media (min-width: 768px) {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+  }
 `
 export const List = styled.ul`
   display: flex;
