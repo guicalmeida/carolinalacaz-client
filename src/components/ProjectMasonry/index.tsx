@@ -7,10 +7,15 @@ export type OverlayProps = {
 }
 
 export const ProjectMasonry = ({ ProjetoUnit }: ProjetoUnitProps) => {
+  const breakpointColumnsObj = {
+    default: 2,
+    500: 1
+  }
+
   return (
     <div>
       <S.MasonryGrid
-        breakpointCols={2}
+        breakpointCols={breakpointColumnsObj}
         className="masonryGrid"
         columnClassName="MasonryColumn"
       >

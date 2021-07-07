@@ -5,6 +5,6 @@ export const Ico = styled.span`
   height: 2.5rem;
   margin-right: 1rem;
   cursor: pointer;
-  position: fixed;
-  transform: translate(7rem, 15rem) !important;
+  position: absolute;
+  transform: translate(15%, 13rem) !important;
 `
