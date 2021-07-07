@@ -5,6 +5,16 @@ export const FichaTecnica = styled.div`
   flex-direction: column;
   color: ${(props) => props.theme.colors.overlayTxt};
   margin: 0 auto 2em 2rem;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 10;
+
+  @media (max-width: 767px) {
+    opacity: 1;
+  }
 `
 export const Titulo = styled.h2`
   font-weight: 600;
@@ -23,27 +33,52 @@ export const Dados = styled.div`
   }
 `
 
-export const Overlay = styled.div`
-  background: ${(props) => props.theme.colors.overlayGradient};
-  position: absolute;
-  width: 35rem;
-  height: 35rem;
-  display: none;
-`
-
 export const FotoContainer = styled.div`
   width: 35rem;
   height: 35rem;
   cursor: pointer;
+  position: relative;
 
-  &:hover ${Overlay} {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      0deg,
+      rgb(55, 52, 53) 0%,
+      rgba(196, 196, 196, 0) 100%
+    );
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+
+    @media (max-width: 767px) {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    & ${FichaTecnica} {
+      opacity: 1;
+    }
+
+    &:after {
+      opacity: 1;
+    }
+    transition: opacity 0.2s linear;
   }
 
   & > img {
     object-fit: cover;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
   }
 `
 export const Container = styled.div`

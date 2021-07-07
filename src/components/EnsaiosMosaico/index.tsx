@@ -20,16 +20,13 @@ const EnsaiosMosaico = ({
             key={ensaio.slug}
           >
             <S.FotoContainer>
-              <S.Overlay>
-                <S.FichaTecnica>
-                  <S.Titulo>{ensaio.nome}</S.Titulo>
-                  <S.Dados>
-                    <S.Texto id="cidade">{ensaio.cidade.nome}</S.Texto>{' '}
-                    <p> · </p>
-                    <S.Texto id="ano">{ensaio.ano.ano}</S.Texto>
-                  </S.Dados>
-                </S.FichaTecnica>
-              </S.Overlay>
+              <S.FichaTecnica>
+                <S.Titulo>{ensaio.nome}</S.Titulo>
+                <S.Dados>
+                  <S.Texto id="cidade">{ensaio.cidade.nome}</S.Texto> <p> · </p>
+                  <S.Texto id="ano">{ensaio.ano.ano}</S.Texto>
+                </S.Dados>
+              </S.FichaTecnica>
               <Foto url={ensaio.capa.url} />
             </S.FotoContainer>
           </Link>

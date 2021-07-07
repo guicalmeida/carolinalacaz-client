@@ -29,7 +29,7 @@ export const Container = styled.div<BGProps>`
     background-color: #ffffff60;
   }
   & > h1 {
-    font-size: clamp(5rem, 5vw, 8rem);
+    font-size: clamp(4.5rem, 14vw, 8rem);
     text-transform: uppercase;
     line-height: 7.2rem;
     z-index: 1;
