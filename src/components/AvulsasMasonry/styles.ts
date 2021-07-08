@@ -26,6 +26,7 @@ export const PicWrapper = styled.div<OverlayProps>`
   padding: 0.5rem;
   width: 100%;
   object-fit: contain;
+  max-height: calc(100vh - 10rem);
   &:hover ${Overlay} {
     opacity: ${(props) => (props.overlay ? '1' : 'none')};
   }
@@ -40,8 +41,12 @@ export const MasonryGrid = styled(Masonry)`
   }
 
   & > .MasonryColumn {
-    width: 30vw !important;
+    max-width: 40rem;
     margin: 0 0.5rem;
+
+    @media (max-width: 767px) {
+      margin: 0 2rem;
+    }
   }
 `
 
