@@ -10,6 +10,10 @@ export const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
+
+  @media (max-width: 767px) {
+    max-height: calc(100vh - 10rem);
+  }
 `
 
 export const Container = styled.section<SliderContainerProps>`

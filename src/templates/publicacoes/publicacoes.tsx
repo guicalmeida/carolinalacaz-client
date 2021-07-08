@@ -16,6 +16,11 @@ const Publicacoes = ({ publicacaos }: PublicacoesProps) => (
     <div>
       <ContentContainer>
         <Spacer />
+        <S.ToPremios>
+          <InternalLink page="/premios" useDark={true}>
+            ou clique aqui para ver prêmios
+          </InternalLink>
+        </S.ToPremios>
         <S.IndiceWrapper>
           <TituloLight>Publicações</TituloLight>
           <PublicacaoIndex publicacaos={publicacaos} />
@@ -35,11 +40,6 @@ const Publicacoes = ({ publicacaos }: PublicacoesProps) => (
             </svg>
           </S.DigitalLink>
         </S.IndiceWrapper>
-        <S.ToPremios>
-          <InternalLink page="/premios" useDark={true}>
-            ou clique aqui para ver prêmios
-          </InternalLink>
-        </S.ToPremios>
       </ContentContainer>
       <Publicacao publicacaos={publicacaos} />
       <PbDigitais publicacaos={publicacaos} />
