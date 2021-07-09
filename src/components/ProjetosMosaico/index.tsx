@@ -21,21 +21,21 @@ const ProjetosMosaico = ({
           >
             <S.FotoContainer>
               <S.FichaTecnica>
-                <S.Titulo>{projeto.nome ? projeto.nome : ''}</S.Titulo>
+                <S.Titulo>{projeto?.nome ? projeto.nome : ''}</S.Titulo>
                 <S.Texto>
-                  {projeto.escritorio.nome ? projeto.escritorio.nome : ''}
+                  {projeto?.escritorio?.nome ? projeto.escritorio.nome : ''}
                 </S.Texto>
                 <S.Dados>
                   <S.Texto id="cidade">
-                    {projeto.cidade.nome ? projeto.cidade.nome : ''}
+                    {projeto?.cidade?.nome ? projeto.cidade.nome : ''}
                   </S.Texto>{' '}
                   <p> · </p>
                   <S.Texto id="ano">
-                    {projeto.ano.ano ? projeto.ano.ano : ''}
+                    {projeto?.ano?.ano ? projeto.ano.ano : ''}
                   </S.Texto>
                 </S.Dados>
               </S.FichaTecnica>
-              <Foto url={projeto.capa ? projeto.capa.url : ''} />
+              <Foto url={projeto?.capa ? projeto.capa.url : ''} />
             </S.FotoContainer>
           </Link>
         )

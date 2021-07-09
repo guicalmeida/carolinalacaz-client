@@ -25,16 +25,16 @@ const Publicacao = ({ publicacaos }: PublicacoesProps) => {
               <S.ContentWrapper>
                 <S.TxtWrapper>
                   <S.PublicacaoTitle>
-                    {publicacao.nome ? publicacao.nome : ''}
+                    {publicacao?.nome ? publicacao.nome : ''}
                   </S.PublicacaoTitle>
                   <S.PublicacaoDesc>
-                    {publicacao.veiculo.nome ? publicacao.veiculo.nome : ''} -{' '}
-                    {publicacao.ano.ano ? publicacao.ano.ano : ''}
+                    {publicacao?.veiculo?.nome ? publicacao.veiculo.nome : ''} -{' '}
+                    {publicacao?.ano?.ano ? publicacao.ano.ano : ''}
                   </S.PublicacaoDesc>
                 </S.TxtWrapper>
                 <S.SliderWrapper>
                   <ImageSlider
-                    slides={publicacao.galeria}
+                    slides={publicacao?.galeria}
                     dark={!color}
                   ></ImageSlider>
                 </S.SliderWrapper>
@@ -42,13 +42,13 @@ const Publicacao = ({ publicacaos }: PublicacoesProps) => {
               <S.ToProject>
                 <InternalLink
                   page={
-                    publicacao.projeto
-                      ? 'arquitetura/' + publicacao.projeto.slug
+                    publicacao?.projeto
+                      ? 'arquitetura/' + publicacao?.projeto?.slug
                       : ''
                   }
                   useDark={false}
                 >
-                  {publicacao.projeto
+                  {publicacao?.projeto
                     ? 'clique aqui para ver as fotos do projeto'
                     : ''}
                 </InternalLink>

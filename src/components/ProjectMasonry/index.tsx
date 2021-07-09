@@ -22,8 +22,8 @@ export const ProjectMasonry = ({ ProjetoUnit }: ProjetoUnitProps) => {
         {ProjetoUnit.galeria
           ? ProjetoUnit.galeria.map((foto) => {
               return (
-                <S.PicWrapper key={foto.name ? foto.name : ''}>
-                  <Foto url={foto.url ? foto.url : ''} />
+                <S.PicWrapper key={foto?.name ? foto.name : ''}>
+                  <Foto url={foto?.url ? foto.url : ''} />
                 </S.PicWrapper>
               )
             })

@@ -8,22 +8,24 @@ const ProjectHeader = ({ ProjetoUnit }: ProjetoUnitProps) => {
         <S.ProjectInfosLeft>
           <div>
             <S.ProjectTitle>
-              {ProjetoUnit.nome ? ProjetoUnit.nome : ''}
+              {ProjetoUnit?.nome ? ProjetoUnit.nome : ''}
             </S.ProjectTitle>
             <i>
               <S.ProjectText id="estudio">
-                {ProjetoUnit.escritorio.nome ? ProjetoUnit.escritorio.nome : ''}
+                {ProjetoUnit?.escritorio?.nome
+                  ? ProjetoUnit.escritorio.nome
+                  : ''}
               </S.ProjectText>
             </i>
           </div>
         </S.ProjectInfosLeft>
         <S.ProjectInfosRight>
           <S.ProjectText id="cidade">
-            {ProjetoUnit.cidade.nome ? ProjetoUnit.cidade.nome : ''} ·{' '}
+            {ProjetoUnit?.cidade?.nome ? ProjetoUnit.cidade.nome : ''} ·{' '}
           </S.ProjectText>
           <S.ProjectText id="ano">
             {' '}
-            {ProjetoUnit.ano.ano ? ProjetoUnit.ano.ano : ''}
+            {ProjetoUnit?.ano?.ano ? ProjetoUnit.ano.ano : ''}
           </S.ProjectText>
         </S.ProjectInfosRight>
       </S.ProjectsInfosDiv>

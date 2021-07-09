@@ -29,7 +29,7 @@ const PbDigitais = ({ publicacaos }: PublicacoesProps) => {
                     rel="noopener noreferrer"
                     key={publicacao.slug}
                   >
-                    {publicacao.veiculo.nome == veiculo
+                    {publicacao.veiculo?.nome == veiculo
                       ? publicacao.nome
                       : null}
                   </S.SiteLink>
