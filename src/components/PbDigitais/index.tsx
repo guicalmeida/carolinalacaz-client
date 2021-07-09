@@ -24,7 +24,7 @@ const PbDigitais = ({ publicacaos }: PublicacoesProps) => {
               {digitalPub.map((publicacao) => {
                 return (
                   <S.SiteLink
-                    href={publicacao.url}
+                    href={publicacao.url ? publicacao.url : ''}
                     target="_blank"
                     rel="noopener noreferrer"
                     key={publicacao.slug}

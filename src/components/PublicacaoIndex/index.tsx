@@ -10,9 +10,10 @@ const PublicacaoIndex = ({ publicacaos }: PublicacoesProps) => {
             <a href={'#' + publicacao.slug} key={publicacao.slug}>
               <S.ItemWrapper>
                 <S.TxtDiv>
-                  <S.Title>{publicacao.nome}</S.Title>
+                  <S.Title>{publicacao.nome ? publicacao.nome : ''}</S.Title>
                   <S.Info>
-                    {publicacao.veiculo.nome} - {publicacao.ano.ano}
+                    {publicacao.veiculo.nome ? publicacao.veiculo.nome : ''} -{' '}
+                    {publicacao.ano.ano ? publicacao.ano.ano : ''}
                   </S.Info>
                 </S.TxtDiv>
                 <svg

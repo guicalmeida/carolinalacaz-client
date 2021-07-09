@@ -8,7 +8,7 @@ const MosaicoEnsaio = ({ EnsaioUnit }: EnsaioUnitProps) => {
   return (
     <S.Container>
       {EnsaioUnit.galeria?.map((foto) => {
-        return <Foto url={foto.url} key={foto.name} />
+        return <Foto url={foto.url ? foto.url : ''} key={foto.name} />
       })}
     </S.Container>
   )

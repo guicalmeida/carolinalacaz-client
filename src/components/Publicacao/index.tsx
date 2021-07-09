@@ -24,9 +24,12 @@ const Publicacao = ({ publicacaos }: PublicacoesProps) => {
             >
               <S.ContentWrapper>
                 <S.TxtWrapper>
-                  <S.PublicacaoTitle>{publicacao.nome}</S.PublicacaoTitle>
+                  <S.PublicacaoTitle>
+                    {publicacao.nome ? publicacao.nome : ''}
+                  </S.PublicacaoTitle>
                   <S.PublicacaoDesc>
-                    {publicacao.veiculo.nome} - {publicacao.ano.ano}
+                    {publicacao.veiculo.nome ? publicacao.veiculo.nome : ''} -{' '}
+                    {publicacao.ano.ano ? publicacao.ano.ano : ''}
                   </S.PublicacaoDesc>
                 </S.TxtWrapper>
                 <S.SliderWrapper>
