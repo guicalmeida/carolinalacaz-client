@@ -23,12 +23,7 @@ const Input = ({ title, type, name }: InputProps) => {
 const Form = ({ formName, fields }: FormProps) => {
   return (
     <S.Container>
-      <form
-        name={formName}
-        method="post"
-        data-netlify="true"
-        data-netlify-recaptcha="true"
-      >
+      <form name={formName} method="post" data-netlify="true">
         <S.Input type="hidden" name="form-name" value={formName} />
         <div>
           {fields.map((field) => {
@@ -42,7 +37,6 @@ const Form = ({ formName, fields }: FormProps) => {
             )
           })}
         </div>
-        <div data-netlify-recaptcha="true"></div>
         <S.Submit type="submit"> Enviar</S.Submit>
       </form>
     </S.Container>
