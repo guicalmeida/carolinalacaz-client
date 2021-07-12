@@ -9,9 +9,9 @@ const Publicacao = ({ publicacaos }: PublicacoesProps) => {
   return (
     <S.PublicacoesWrapper>
       {publicacaos.map((publicacao) => {
-        color = !color
-        if (publicacao.meio == 'impresso') {
-          return (
+        publicacao.meio == 'impresso' ? (color = !color) : null
+        return (
+          publicacao.meio == 'impresso' && (
             <S.Background
               imgSrc={
                 publicacao.capa
@@ -28,8 +28,8 @@ const Publicacao = ({ publicacaos }: PublicacoesProps) => {
                     {publicacao?.nome ? publicacao.nome : ''}
                   </S.PublicacaoTitle>
                   <S.PublicacaoDesc>
-                    {publicacao?.veiculo?.nome ? publicacao.veiculo.nome : ''} -{' '}
-                    {publicacao?.ano?.ano ? publicacao.ano.ano : ''}
+                    {publicacao?.veiculo?.nome ? publicacao.veiculo.nome : ''}
+                    {publicacao?.ano?.ano ? ' - ' + publicacao.ano.ano : ''}
                   </S.PublicacaoDesc>
                 </S.TxtWrapper>
                 <S.SliderWrapper>
@@ -55,7 +55,7 @@ const Publicacao = ({ publicacaos }: PublicacoesProps) => {
               </S.ToProject>
             </S.Background>
           )
-        }
+        )
       })}
     </S.PublicacoesWrapper>
   )
