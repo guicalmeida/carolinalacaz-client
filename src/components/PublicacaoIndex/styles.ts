@@ -5,6 +5,7 @@ export const ItemWrapper = styled.div`
   align-items: center;
   padding: 2rem;
   width: max-content;
+  max-width: 87vw;
 `
 
 export const TxtDiv = styled.div`
@@ -16,13 +17,21 @@ export const Title = styled.h2`
   font-weight: 300;
   text-align: center;
   text-transform: uppercase;
+
+  @media (max-width: 767px) {
+    font-size: 1.8rem;
+  }
 `
 
-export const Info = styled.h3`
+export const Info = styled.p`
   font-size: 2rem;
   font-weight: 300;
   text-align: center;
   font-style: italic;
+
+  @media (max-width: 767px) {
+    font-size: 1.8rem;
+  }
 `
 export const Container = styled.div`
   display: flex;

@@ -29,6 +29,7 @@ export const SiteColumn = styled.div`
 export const SiteTitle = styled.h3`
   font-weight: 600;
   font-size: 3rem;
+  text-align: center;
   @media (max-width: 767px) {
     margin-bottom: 1rem;
   }
@@ -46,7 +47,10 @@ export const SiteLink = styled.a`
   font-weight: 300;
   font-size: 2rem;
   text-decoration: underline;
-  width: 35rem;
   text-align: center;
   margin: 1rem;
+
+  @media (min-width: 768px) {
+    width: 35rem;
+  }
 `

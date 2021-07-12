@@ -12,8 +12,8 @@ const PublicacaoIndex = ({ publicacaos }: PublicacoesProps) => {
                 <S.TxtDiv>
                   <S.Title>{publicacao?.nome ? publicacao.nome : ''}</S.Title>
                   <S.Info>
-                    {publicacao?.veiculo?.nome ? publicacao.veiculo.nome : ''} -{' '}
-                    {publicacao?.ano?.ano ? publicacao.ano.ano : ''}
+                    {publicacao?.veiculo?.nome ? publicacao.veiculo.nome : ''}
+                    {publicacao?.ano?.ano ? ' - ' + publicacao.ano.ano : ''}
                   </S.Info>
                 </S.TxtDiv>
                 <svg
