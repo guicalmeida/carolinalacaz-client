@@ -16,18 +16,42 @@ export const HeaderWrapper = styled.div`
     cursor: pointer;
     text-decoration: underline;
   }
+
+  @media (max-width: 767px) {
+    width: 90vw;
+    justify-content: flex-start;
+    margin-top: 10rem;
+    height: auto;
+
+    & h1 {
+      font-size: 2.5rem;
+      text-align: center;
+    }
+
+    & > div {
+      text-align: center;
+      margin: 2rem;
+    }
+  }
 `
 
 export const FormWrapper = styled.div`
   height: 85vh;
-  width: 48vw;
+  width: 47vw;
   margin: auto auto auto 5rem;
   display: flex;
   align-items: center;
   margin-top: 10rem;
+
+  @media (max-width: 767px) {
+    height: auto;
+    width: 95vw;
+    margin: auto;
+  }
 `
 
 export const Container = styled.div`
   display: flex;
-  overflow: none;
+  overflow: hidden;
+  flex-wrap: wrap;
 `

@@ -18,6 +18,10 @@ export const Input = styled.input`
   width: 41rem;
   padding-left: 0.5rem;
 
+  @media (max-width: 767px) {
+    width: 90vw;
+  }
+
   &:focus,
   &:active {
     outline: none;
