@@ -45,6 +45,10 @@ export const PublicacaoTitle = styled.h2`
   font-size: 4rem;
   text-align: center;
   text-transform: uppercase;
+
+  @media (max-width: 767px) {
+    font-size: 3.4rem;
+  }
 `
 
 export const PublicacaoDesc = styled.h3`
@@ -52,10 +56,16 @@ export const PublicacaoDesc = styled.h3`
   font-size: 2.5rem;
   text-align: center;
   font-style: italic;
+
+  @media (max-width: 767px) {
+    font-size: 2rem;
+    margin: 0 4rem;
+  }
 `
 
 export const SliderWrapper = styled.div`
   width: 50vw;
+  margin: 0 auto;
 
   @media (max-width: 767px) {
     width: 80vw;
