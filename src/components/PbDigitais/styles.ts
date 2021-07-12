@@ -19,6 +19,8 @@ export const SiteColumn = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 5rem;
+
   @media (max-width: 767px) {
     margin-bottom: 3rem;
   }
@@ -30,7 +32,7 @@ export const SiteTitle = styled.h3`
   @media (max-width: 767px) {
     margin-bottom: 1rem;
   }
-  margin-bottom: 5.5rem;
+  margin-bottom: 2rem;
 `
 
 export const SiteLinkDiv = styled.div`
@@ -44,4 +46,7 @@ export const SiteLink = styled.a`
   font-weight: 300;
   font-size: 2rem;
   text-decoration: underline;
+  width: 35rem;
+  text-align: center;
+  margin: 1rem;
 `
