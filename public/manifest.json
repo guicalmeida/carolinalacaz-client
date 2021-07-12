@@ -1,9 +1,9 @@
 {
-  "name": "Estúdio Kant - Boilerplate",
-  "short_name": "Estúdio Kant",
+  "name": "Carolina Lacaz | Fotografia",
+  "short_name": "Carolina Lacaz",
   "icons": [],
   "background_color": "white",
-  "description": "Boilerlate utilizando Typescript, React, NextJS e Styled Components!",
+  "description": "Carolina Lacaz atua profissionalmente como fotógrafa, especializada no campo da fotografia de arquitetura. Em alternância aos trabalhos comerciais, desenvolve ensaios fotográficos capturando o movimento associado a técnica da longa exposição, tanto nos cenários do meio urbano quanto da natureza.",
   "display": "fullscreen",
   "start_url": "/",
   "theme_color": "#FFF"
