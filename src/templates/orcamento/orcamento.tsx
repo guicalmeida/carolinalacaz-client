@@ -35,11 +35,6 @@ const campos = [
     title: 'Metragem*',
     name: 'metragem',
     type: 'text'
-  },
-  {
-    title: 'Fotos & planta do projeto',
-    name: 'fotos-planta-projeto',
-    type: 'file'
   }
 ]
 
