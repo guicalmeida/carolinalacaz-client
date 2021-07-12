@@ -47,6 +47,7 @@ export const FormWrapper = styled.div`
     height: auto;
     width: 95vw;
     margin: auto;
+    margin-bottom: 5rem;
   }
 `
 
