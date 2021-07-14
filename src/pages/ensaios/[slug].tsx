@@ -1,6 +1,7 @@
 import EnsNav from 'components/EnsNav'
 import client from 'graphql/client'
 import GET_ENSAIOS from 'graphql/queries/getEnsaios'
+import GET_PROJETOS from 'graphql/queries/getProjetos'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { EnsaiosProps, EnsaioUnitProps, ProjetosProps } from 'types/api'
 import Ensaio from '../../templates/ensaio/ensaio'
@@ -30,13 +31,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { ensaios } = await client.request<EnsaiosProps>(GET_ENSAIOS)
+  const { ensaios } = await client.request(GET_ENSAIOS)
+  const { projetos } = await client.request(GET_PROJETOS)
 
-  const EnsaioUnit = ensaios.find((ensaio) => params!.slug == ensaio.slug)
+  const EnsaioUnit = ensaios.find(
+    (ensaio: { slug: string | string[] | undefined }) =>
+      params!.slug == ensaio.slug
+  )
 
   return {
     props: {
       EnsaioUnit,
+      projetos,
       ensaios
     }
   }

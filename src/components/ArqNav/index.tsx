@@ -47,7 +47,7 @@ const ArqNav = ({ ensaios, projetos }: ProjetosProps & EnsaiosProps) => {
 
   return (
     <div>
-      <MobileNav items={items} />
+      <MobileNav items={items} ensaios={ensaios} projetos={projetos} />
       <Nav items={items} ensaios={ensaios} projetos={projetos} />
     </div>
   )

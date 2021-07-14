@@ -15,7 +15,7 @@ const Search = ({ ensaios, projetos }: ProjetosProps & EnsaiosProps) => {
 
   const useOutsideAlerter = (ref: RefObject<HTMLInputElement>) => {
     useEffect(() => {
-      function handleClickOutside(event) {
+      function handleClickOutside(event: any) {
         if (ref.current && !ref.current.contains(event!.target)) {
           setSearchFocus(false)
         }

@@ -26,13 +26,16 @@ export const Lupa = styled.a`
 export const Busca = styled.input`
   border: none;
   border-bottom: 1px solid ${(props) => props.theme.colors.txt};
-  width: 25rem;
+  width: 18rem;
   height: 3rem;
   margin-right: 3rem;
   margin-left: 1rem;
   background-color: ${(props) => props.theme.colors.bg};
   color: ${(props) => props.theme.colors.txt};
   transition: 300ms;
+  @media (min-width: 1190px) {
+    width: 25rem;
+  }
 
   &:focus {
     outline: none;
@@ -41,13 +44,17 @@ export const Busca = styled.input`
 
 export const ResultList = styled.div`
   position: absolute;
-  width: 25rem;
+  width: 18rem;
   height: max-content;
   max-height: 20rem;
   background-color: ${(props) => props.theme.colors.bg};
   top: 3.5rem;
   overflow-y: scroll;
   right: 3rem;
+
+  @media (min-width: 1190px) {
+    width: 25rem;
+  }
 
   &::-webkit-scrollbar {
     width: 3px;
