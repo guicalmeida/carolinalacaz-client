@@ -12,13 +12,14 @@ export const Background = styled.div<BackgroundProps>`
   align-items: center;
 
   background-image: url(${(props) => props.imgSrc});
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: scroll;
   z-index: 0;
   background-position: bottom;
+  position: relative;
 
   & * {
     z-index: 2;
@@ -31,8 +32,8 @@ export const Background = styled.div<BackgroundProps>`
   &:after {
     position: absolute;
     content: '';
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: ${(props) => (props.dark ? '#373435' : '#FFF')};
     opacity: 0.9;
     z-index: 1;
@@ -44,6 +45,10 @@ export const PublicacaoTitle = styled.h2`
   font-size: 4rem;
   text-align: center;
   text-transform: uppercase;
+
+  @media (max-width: 767px) {
+    font-size: 3.4rem;
+  }
 `
 
 export const PublicacaoDesc = styled.h3`
@@ -51,10 +56,20 @@ export const PublicacaoDesc = styled.h3`
   font-size: 2.5rem;
   text-align: center;
   font-style: italic;
+
+  @media (max-width: 767px) {
+    font-size: 2rem;
+    margin: 0 4rem;
+  }
 `
 
 export const SliderWrapper = styled.div`
   width: 50vw;
+  margin: 0 auto;
+
+  @media (max-width: 767px) {
+    width: 80vw;
+  }
 `
 export const PublicacoesWrapper = styled.div`
   display: flex;
@@ -72,6 +87,10 @@ export const ContentWrapper = styled.div`
   margin: auto;
   max-width: 130rem;
   padding-top: 3rem;
+
+  @media (max-width: 767px) {
+    padding-bottom: 4rem;
+  }
 `
 
 export const ToProject = styled.div`
@@ -79,4 +98,11 @@ export const ToProject = styled.div`
   padding: 0 3rem 1.5rem 0;
   font-size: 1.5rem;
   padding-bottom: 2rem;
+
+  @media (max-width: 767px) {
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0 auto;
+    padding-top: 1rem;
+  }
 `

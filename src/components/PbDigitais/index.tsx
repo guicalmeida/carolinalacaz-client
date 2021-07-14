@@ -23,16 +23,16 @@ const PbDigitais = ({ publicacaos }: PublicacoesProps) => {
             <S.SiteLinkDiv>
               {digitalPub.map((publicacao) => {
                 return (
-                  <S.SiteLink
-                    href={publicacao.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    key={publicacao.slug}
-                  >
-                    {publicacao.veiculo.nome == veiculo
-                      ? publicacao.nome
-                      : null}
-                  </S.SiteLink>
+                  publicacao.veiculo?.nome == veiculo && (
+                    <S.SiteLink
+                      href={publicacao.url ? publicacao.url : ''}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      key={publicacao.slug}
+                    >
+                      {publicacao.nome}
+                    </S.SiteLink>
+                  )
                 )
               })}
             </S.SiteLinkDiv>

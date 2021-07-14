@@ -10,10 +10,14 @@ export const IndiceWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 10rem);
+  min-height: calc(100vh - 10rem);
 
   & > h1 {
     text-align: center;
+    font-size: clamp(4.5rem, 14vw, 8rem);
+    @media (max-width: 767px) {
+      margin-bottom: 2rem;
+    }
   }
 `
 export const Background = styled.div<BackgroundProps>`
@@ -49,13 +53,25 @@ export const ToPremios = styled.div`
   padding-bottom: 2rem;
   font-size: 1.5rem;
   position: absolute;
-  right: 0;
-  bottom: 0;
+  @media (max-width: 767px) {
+    top: 20rem;
+    text-align: center;
+    width: 100vw;
+
+    a {
+      color: #37343550;
+    }
+  }
+  @media (min-width: 768px) {
+    right: 0;
+    bottom: 0;
+  }
 `
 export const DigitalTxt = styled.h2`
   font-weight: 600;
   font-size: 3rem;
   padding-right: 2rem;
+  font-size: clamp(2.2rem, 5vw, 3rem);
 `
 
 export const DigitalLink = styled.a`

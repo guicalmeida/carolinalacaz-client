@@ -1,7 +1,6 @@
 import * as S from './styles'
 
 import { ContentContainer } from 'components/contentContainer'
-import { NavArq } from 'components/navbar'
 import TituloLight from 'components/TituloLight'
 import Spacer from 'components/NavbarSpacer'
 import InternalLink from 'components/InternalLink'
@@ -12,10 +11,14 @@ import { PublicacoesProps } from 'types/api'
 
 const Publicacoes = ({ publicacaos }: PublicacoesProps) => (
   <section>
-    <NavArq />
     <div>
       <ContentContainer>
         <Spacer />
+        <S.ToPremios>
+          <InternalLink page="/premios" useDark={true}>
+            ou clique aqui para ver prêmios
+          </InternalLink>
+        </S.ToPremios>
         <S.IndiceWrapper>
           <TituloLight>Publicações</TituloLight>
           <PublicacaoIndex publicacaos={publicacaos} />
@@ -35,11 +38,6 @@ const Publicacoes = ({ publicacaos }: PublicacoesProps) => (
             </svg>
           </S.DigitalLink>
         </S.IndiceWrapper>
-        <S.ToPremios>
-          <InternalLink page="/premios" useDark={true}>
-            ou clique aqui para ver prêmios
-          </InternalLink>
-        </S.ToPremios>
       </ContentContainer>
       <Publicacao publicacaos={publicacaos} />
       <PbDigitais publicacaos={publicacaos} />

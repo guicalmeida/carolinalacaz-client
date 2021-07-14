@@ -3,15 +3,19 @@ import styled from 'styled-components'
 export const Nav = styled.nav`
   height: 10rem;
   position: fixed;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: space-evenly;
+  display: none;
   z-index: 5;
   width: 100vw;
   background-color: ${(props) => props.theme.colors.bg};
   color: ${(props) => props.theme.colors.txt};
   transition: 300ms;
+
+  @media (min-width: 768px) {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+  }
 `
 export const List = styled.ul`
   display: flex;
@@ -39,35 +43,12 @@ export const Link = styled.a`
   transition: 300ms;
 `
 
-export const Busca = styled.input`
-  border: none;
-  border-bottom: 1px solid ${(props) => props.theme.colors.txt};
-  width: 25rem;
-  height: 3rem;
-  margin-right: 3rem;
-  margin-left: 1rem;
-  background-color: ${(props) => props.theme.colors.bg};
+export const Ico = styled.a`
   color: ${(props) => props.theme.colors.txt};
-  transition: 300ms;
-
-  &:focus {
-    outline: none;
-  }
-`
-
-export const Ico = styled.div`
-  color: ${(props) => props.theme.colors.txt};
+  cursor: pointer;
   transition: 300ms;
   width: 25px;
   height: 25px;
-
-  & > .lupa {
-    width: 100%;
-    height: 100%;
-    stroke-width: 6;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
 
   & > .igIco {
     fill: ${(props) => props.theme.colors.txt};

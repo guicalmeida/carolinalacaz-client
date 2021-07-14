@@ -1,15 +1,18 @@
+import EnsNav from 'components/EnsNav'
 import client from 'graphql/client'
 import GET_ENSAIOS from 'graphql/queries/getEnsaios'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { EnsaiosProps, EnsaioUnitProps } from 'types/api'
+import { EnsaiosProps, EnsaioUnitProps, ProjetosProps } from 'types/api'
 import Ensaio from '../../templates/ensaio/ensaio'
 
 export default function ensaio({
   EnsaioUnit,
+  projetos,
   ensaios
-}: EnsaioUnitProps & EnsaiosProps) {
+}: EnsaioUnitProps & EnsaiosProps & ProjetosProps) {
   return (
     <div>
+      <EnsNav ensaios={ensaios} projetos={projetos} />
       <Ensaio ensaios={ensaios} EnsaioUnit={EnsaioUnit} />
     </div>
   )

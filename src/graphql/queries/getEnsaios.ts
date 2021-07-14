@@ -5,6 +5,10 @@ const GET_ENSAIOS = /* GraphQL */ `
       slug
       descricao
       descricaoCurta
+      galeria {
+        name
+        url
+      }
       capa {
         name
         url

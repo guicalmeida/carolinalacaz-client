@@ -1,3 +1,4 @@
+import EnsNav from 'components/EnsNav'
 import client from 'graphql/client'
 import GET_PREMIOS from 'graphql/queries/getPremios'
 import { GetStaticProps } from 'next'
@@ -7,6 +8,7 @@ import Premios from '../templates/premios/premios'
 export default function premios({ premio }: PremioProps) {
   return (
     <div>
+      <EnsNav />
       <Premios premio={premio} />
     </div>
   )

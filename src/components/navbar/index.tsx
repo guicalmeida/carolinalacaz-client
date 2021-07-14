@@ -1,27 +1,22 @@
 import * as S from './styles'
 import Link from 'next/link'
 import Logo from 'components/Logo'
-import { useTheme } from 'hooks/theme'
+import Search from 'components/Search'
+import { EnsaiosProps, ProjetosProps } from 'types/api'
 
 type ItemProps = {
-  link: string
-  text: string
-  onClick: () => void
+  items: {
+    link: string
+    text: string
+    onClick: () => void
+  }[]
 }
 
-type NavProps = {
-  items: ItemProps[]
-}
-
-const NavItem = ({ link, text, onClick }: ItemProps) => (
-  <S.Option onClick={onClick}>
-    <Link href={link}>
-      <S.Link>{text}</S.Link>
-    </Link>
-  </S.Option>
-)
-
-const Nav = ({ items }: NavProps) => {
+const Nav = ({
+  items,
+  ensaios,
+  projetos
+}: ItemProps & ProjetosProps & EnsaiosProps) => {
   return (
     <S.Nav>
       <Link href="/">
@@ -31,34 +26,19 @@ const Nav = ({ items }: NavProps) => {
       </Link>
       <S.List>
         {items.map((item) => (
-          <NavItem
-            key={item.text}
-            text={item.text}
-            link={item.link}
-            onClick={item.onClick}
-          />
+          <S.Option onClick={item.onClick} key={item.text}>
+            <Link href={item.link}>{item.text}</Link>
+          </S.Option>
         ))}
       </S.List>
       <S.MenuHolder>
-        <S.Ico>
-          <svg
-            className="lupa"
-            width="114"
-            height="114"
-            viewBox="0 0 114 114"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M3.5 106C3.5 106 23.308 86.1921 36 73.5M36 73.5C51.9468 89.3093 77.5532 89.3093 93.5 73.5C109.585 57.5533 109.585 31.4468 93.5 15.5C77.5532 -0.309259 51.9468 -0.309259 36 15.5C19.9146 31.4468 19.9146 57.5533 36 73.5Z"
-              strokeWidth="6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </S.Ico>
-        <S.Busca />
-        <S.Ico>
+        <Search ensaios={ensaios} projetos={projetos} />
+
+        <S.Ico
+          href="https://www.instagram.com/carolina.lacaz"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <svg
             className="igIco"
             xmlns="http://www.w3.org/2000/svg"
@@ -73,98 +53,6 @@ const Nav = ({ items }: NavProps) => {
         </S.Ico>
       </S.MenuHolder>
     </S.Nav>
-  )
-}
-
-export const NavArq = () => {
-  const { turnDark, turnLight } = useTheme()
-  const handleToDark = () => {
-    turnDark()
-  }
-  const handleToLight = () => {
-    turnLight()
-  }
-  return (
-    <Nav
-      items={[
-        {
-          text: 'Arquitetura',
-          onClick: handleToLight,
-          link: '/arquitetura'
-        },
-        {
-          text: 'Ensaios',
-          onClick: handleToDark,
-          link: '/ensaios'
-        },
-        {
-          text: '+++',
-          onClick: handleToDark,
-          link: '/plus'
-        },
-        {
-          text: 'Sobre',
-          onClick: handleToLight,
-          link: '/sobre'
-        },
-        {
-          text: 'Publicações',
-          onClick: handleToLight,
-          link: '/publicacoes'
-        },
-        {
-          text: 'Orçamento',
-          onClick: handleToLight,
-          link: '/orcamento'
-        }
-      ]}
-    />
-  )
-}
-
-export const NavEns = () => {
-  const { turnDark, turnLight } = useTheme()
-  const handleToDark = () => {
-    turnDark()
-  }
-  const handleToLight = () => {
-    turnLight()
-  }
-  return (
-    <Nav
-      items={[
-        {
-          text: 'Arquitetura',
-          onClick: handleToLight,
-          link: '/arquitetura'
-        },
-        {
-          text: 'Ensaios',
-          onClick: handleToDark,
-          link: '/ensaios'
-        },
-        {
-          text: '+++',
-          onClick: handleToDark,
-          link: '/plus'
-        },
-        {
-          text: 'Sobre',
-          onClick: handleToLight,
-          link: '/sobre'
-        },
-        {
-          text: 'Prêmios',
-          onClick: handleToDark,
-          link: '/premios'
-        },
-        {
-          text: 'Contato',
-          onClick: handleToDark,
-          link: '/contato'
-        }
-      ]}
-    />
   )
 }
 

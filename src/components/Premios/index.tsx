@@ -8,9 +8,12 @@ const Premios = ({ premio }: PremioProps) => {
         return (
           <S.PremioWrapper key={premio.nome}>
             <S.PremioTitulo>
-              {premio.nome} - {premio.ano.ano}
+              {premio?.nome ? premio.nome : ''} -{' '}
+              {premio?.ano?.ano ? premio.ano.ano : ''}
             </S.PremioTitulo>
-            <S.PremioDesc>{premio.descricao}</S.PremioDesc>
+            <S.PremioDesc>
+              {premio?.descricao ? premio.descricao : ''}
+            </S.PremioDesc>
           </S.PremioWrapper>
         )
       })}

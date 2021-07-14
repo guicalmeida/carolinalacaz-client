@@ -1,7 +1,6 @@
 import * as S from './styles'
 
 import { ContentContainer } from 'components/contentContainer'
-import { NavEns } from 'components/navbar'
 import TituloLight from 'components/TituloLight'
 import Premios from 'components/Premios'
 import Spacer from 'components/NavbarSpacer'
@@ -10,7 +9,6 @@ import { PremioProps } from 'types/api'
 
 const Premio = ({ premio }: PremioProps) => (
   <section>
-    <NavEns />
     <S.Background
       imgSrc={process.env.NEXT_PUBLIC_IMAGE_HOST + premio.background.url}
     >

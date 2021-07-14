@@ -1,6 +1,5 @@
 import Form from 'components/Form'
 import InternalLink from 'components/InternalLink'
-import { NavEns } from 'components/navbar'
 import TextoCorrido from 'components/TextoCorrido'
 import TituloSemibold from 'components/TituloSemibold'
 import * as S from './style'
@@ -26,7 +25,6 @@ const campos = [
 const Contato = () => {
   return (
     <S.Container>
-      <NavEns />
       <S.HeaderWrapper>
         <TituloSemibold>CONSULTA DE DISPONIBILIDADE DE OBRAS</TituloSemibold>
         <TextoCorrido>
@@ -37,7 +35,7 @@ const Contato = () => {
         </TextoCorrido>
       </S.HeaderWrapper>
       <S.FormWrapper>
-        <Form fields={campos} formName="Orçamento" />
+        <Form fields={campos} formName="contato" />
       </S.FormWrapper>
     </S.Container>
   )

@@ -7,7 +7,6 @@ import { ContentContainer } from 'components/contentContainer'
 import Divider from 'components/Divider'
 import EnsaioHeader from 'components/EnsaioHeader'
 import MosaicoEnsaio from 'components/MosaicoEnsaio'
-import { NavEns } from 'components/navbar'
 import Spacer from 'components/NavbarSpacer'
 import OtherProjectsTxt from 'components/OtherProjectsTxt'
 import TextoCorrido from 'components/TextoCorrido'
@@ -16,7 +15,6 @@ import EnsaiosMosaico from 'components/EnsaiosMosaico'
 const Ensaio = ({ EnsaioUnit, ensaios }: EnsaioUnitProps & EnsaiosProps) => {
   return (
     <section>
-      <NavEns />
       <ContentContainer>
         <BackArrow linkTo="/ensaios" />
         <Spacer />
@@ -24,7 +22,7 @@ const Ensaio = ({ EnsaioUnit, ensaios }: EnsaioUnitProps & EnsaiosProps) => {
         <MosaicoEnsaio EnsaioUnit={EnsaioUnit} />
         <S.TextoWrapper>
           <TextoCorrido>
-            {parse(EnsaioUnit.descricao ? EnsaioUnit.descricao : '')}
+            {parse(EnsaioUnit?.descricao ? EnsaioUnit.descricao : '')}
           </TextoCorrido>
         </S.TextoWrapper>
         <OtherProjectsTxt>

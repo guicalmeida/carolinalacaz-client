@@ -1,4 +1,3 @@
-import { NavArq } from 'components/navbar'
 import TextoCorrido from 'components/TextoCorrido'
 import TituloLight from 'components/TituloLight'
 import { SobreProps } from 'types/api'
@@ -10,14 +9,13 @@ import Spacer from 'components/NavbarSpacer'
 const Sobre = ({ sobre }: SobreProps) => {
   return (
     <S.Container>
-      <NavArq />
       <S.BioWrapper>
         <Spacer />
-        <TituloLight>{sobre.nome}</TituloLight>
+        <TituloLight>{sobre?.nome ? sobre.nome : ''}</TituloLight>
         <TextoCorrido>{parse(`${sobre.descricao}`)}</TextoCorrido>
       </S.BioWrapper>
       <S.PerfilWrapper>
-        <Foto url={sobre.foto.url} />
+        <Foto url={sobre?.foto?.url ? sobre.foto.url : ''} />
       </S.PerfilWrapper>
     </S.Container>
   )

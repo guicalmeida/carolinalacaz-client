@@ -7,20 +7,27 @@ export type OverlayProps = {
 }
 
 export const ProjectMasonry = ({ ProjetoUnit }: ProjetoUnitProps) => {
+  const breakpointColumnsObj = {
+    default: 2,
+    500: 1
+  }
+
   return (
     <div>
       <S.MasonryGrid
-        breakpointCols={2}
+        breakpointCols={breakpointColumnsObj}
         className="masonryGrid"
         columnClassName="MasonryColumn"
       >
-        {ProjetoUnit.galeria.map((foto) => {
-          return (
-            <S.PicWrapper key={foto.name}>
-              <Foto url={foto.url} />
-            </S.PicWrapper>
-          )
-        })}
+        {ProjetoUnit.galeria
+          ? ProjetoUnit.galeria.map((foto) => {
+              return (
+                <S.PicWrapper key={foto?.name ? foto.name : ''}>
+                  <Foto url={foto?.url ? foto.url : ''} />
+                </S.PicWrapper>
+              )
+            })
+          : ''}
       </S.MasonryGrid>
     </div>
   )

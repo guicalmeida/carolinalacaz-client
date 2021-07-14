@@ -16,7 +16,7 @@ function App({ Component, pageProps }: AppProps) {
         <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
-          content="Project Starter com typescript, React, NextJS, Styled Components e Jester para testes."
+          content="Carolina Lacaz atua profissionalmente como fotógrafa, especializada no campo da fotografia de arquitetura. Em alternância aos trabalhos comerciais, desenvolve ensaios fotográficos capturando o movimento associado a técnica da longa exposição, tanto nos cenários do meio urbano quanto da natureza. "
         />
         <meta name="theme-color" content="#ffffff" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -25,6 +25,7 @@ function App({ Component, pageProps }: AppProps) {
           rel="stylesheet"
         />
         <script src="https://code.iconify.design/1/1.0.7/iconify.min.js" />
+        <link rel="shortcut icon" href="/favicon.png" />
       </Head>
       <GlobalStyles />
       <NextNprogress
