@@ -58,6 +58,11 @@ export const FotoContainer = styled.div`
 
     @media (max-width: 767px) {
       opacity: 1;
+      background: linear-gradient(
+        0deg,
+        rgb(55, 52, 53, 0.9) 0%,
+        rgba(196, 196, 196, 0) 70%
+      );
     }
   }
 

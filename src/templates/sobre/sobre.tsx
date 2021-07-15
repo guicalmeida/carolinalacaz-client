@@ -5,7 +5,6 @@ import parse from 'html-react-parser'
 import * as S from './style'
 import Foto from 'components/Foto'
 import Spacer from 'components/NavbarSpacer'
-import ArqNav from 'components/ArqNav'
 
 const Sobre = ({ sobre }: SobreProps) => {
   return (
