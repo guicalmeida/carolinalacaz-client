@@ -11,12 +11,10 @@ import Spacer from 'components/NavbarSpacer'
 import OtherProjectsTxt from 'components/OtherProjectsTxt'
 import TextoCorrido from 'components/TextoCorrido'
 import EnsaiosMosaico from 'components/EnsaiosMosaico'
-import EnsNav from 'components/EnsNav'
 
 const Ensaio = ({ EnsaioUnit, ensaios }: EnsaioUnitProps & EnsaiosProps) => {
   return (
     <section>
-      <EnsNav />
       <ContentContainer>
         <BackArrow linkTo="/ensaios" />
         <Spacer />

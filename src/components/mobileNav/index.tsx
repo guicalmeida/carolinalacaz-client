@@ -2,6 +2,8 @@ import * as S from './styles'
 import { slide as Menu } from 'react-burger-menu'
 import Link from 'next/link'
 import Logo from 'components/Logo'
+import Search from 'components/Search'
+import { EnsaiosProps, ProjetosProps } from 'types/api'
 
 type ItemProps = {
   items: {
@@ -11,7 +13,11 @@ type ItemProps = {
   }[]
 }
 
-const MobileNav = ({ items }: ItemProps) => {
+const MobileNav = ({
+  items,
+  ensaios,
+  projetos
+}: ItemProps & ProjetosProps & EnsaiosProps) => {
   return (
     <S.MobileContainer>
       <Menu>

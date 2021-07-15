@@ -1,8 +1,9 @@
 import MobileNav from 'components/mobileNav'
 import Nav from 'components/navbar'
 import { useTheme } from 'hooks/theme'
+import { EnsaiosProps, ProjetosProps } from 'types/api'
 
-const EnsNav = () => {
+const EnsNav = ({ ensaios, projetos }: ProjetosProps & EnsaiosProps) => {
   const { turnDark, turnLight } = useTheme()
   const handleToDark = () => {
     turnDark()
@@ -46,8 +47,8 @@ const EnsNav = () => {
 
   return (
     <div>
-      <MobileNav items={items} />
-      <Nav items={items} />
+      <MobileNav items={items} ensaios={ensaios} projetos={projetos} />
+      <Nav items={items} ensaios={ensaios} projetos={projetos} />
     </div>
   )
 }

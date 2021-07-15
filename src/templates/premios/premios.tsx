@@ -6,11 +6,9 @@ import Premios from 'components/Premios'
 import Spacer from 'components/NavbarSpacer'
 import InternalLink from 'components/InternalLink'
 import { PremioProps } from 'types/api'
-import EnsNav from 'components/EnsNav'
 
 const Premio = ({ premio }: PremioProps) => (
   <section>
-    <EnsNav />
     <S.Background
       imgSrc={process.env.NEXT_PUBLIC_IMAGE_HOST + premio.background.url}
     >

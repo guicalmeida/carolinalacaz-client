@@ -1,6 +1,8 @@
 import * as S from './styles'
 import Link from 'next/link'
 import Logo from 'components/Logo'
+import Search from 'components/Search'
+import { EnsaiosProps, ProjetosProps } from 'types/api'
 
 type ItemProps = {
   items: {
@@ -10,7 +12,11 @@ type ItemProps = {
   }[]
 }
 
-const Nav = ({ items }: ItemProps) => {
+const Nav = ({
+  items,
+  ensaios,
+  projetos
+}: ItemProps & ProjetosProps & EnsaiosProps) => {
   return (
     <S.Nav>
       <Link href="/">
@@ -26,27 +32,8 @@ const Nav = ({ items }: ItemProps) => {
         ))}
       </S.List>
       <S.MenuHolder>
-        {/*
-        <S.Ico>
-          <svg
-            className="lupa"
-            width="114"
-            height="114"
-            viewBox="0 0 114 114"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M3.5 106C3.5 106 23.308 86.1921 36 73.5M36 73.5C51.9468 89.3093 77.5532 89.3093 93.5 73.5C109.585 57.5533 109.585 31.4468 93.5 15.5C77.5532 -0.309259 51.9468 -0.309259 36 15.5C19.9146 31.4468 19.9146 57.5533 36 73.5Z"
-              strokeWidth="6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </S.Ico>
-        <S.Busca />
+        <Search ensaios={ensaios} projetos={projetos} />
 
-      */}
         <S.Ico
           href="https://www.instagram.com/carolina.lacaz"
           rel="noopener noreferrer"

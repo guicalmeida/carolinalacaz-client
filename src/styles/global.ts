@@ -34,6 +34,21 @@ const GlobalStyles = createGlobalStyle`
     transition: 300ms;
 
   }
+
+  ::-webkit-scrollbar{
+    width: 8px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb{
+    background: ${(props) => props.theme.colors.txt};
+    border-radius: 30px;
+  }
+
+  ::-webkit-scrollbar-track{
+    background: ${(props) => props.theme.colors.bg};
+    border-radius: 10px;
+  }
 `
 
 export default GlobalStyles

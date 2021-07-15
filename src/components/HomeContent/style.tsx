@@ -10,6 +10,7 @@ export const Card = styled.div`
   cursor: pointer;
   pointer-events: auto;
   transition: 300ms;
+  margin-top: 3rem;
 
   @media (max-width: 767px) {
     height: 35vh;

@@ -1,4 +1,3 @@
-import ArqNav from 'components/ArqNav'
 import Form from 'components/Form'
 import InternalLink from 'components/InternalLink'
 import TextoCorrido from 'components/TextoCorrido'
@@ -41,7 +40,6 @@ const campos = [
 const Orcamento = () => {
   return (
     <S.Container>
-      <ArqNav />
       <S.HeaderWrapper>
         <TituloSemibold>
           ORÇAMENTO PARA ENSAIO FOTOGRÁFICO DE ARQUITETURA

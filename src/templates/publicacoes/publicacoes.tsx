@@ -8,11 +8,9 @@ import Publicacao from 'components/Publicacao'
 import PublicacaoIndex from 'components/PublicacaoIndex'
 import PbDigitais from 'components/PbDigitais'
 import { PublicacoesProps } from 'types/api'
-import ArqNav from 'components/ArqNav'
 
 const Publicacoes = ({ publicacaos }: PublicacoesProps) => (
   <section>
-    <ArqNav />
     <div>
       <ContentContainer>
         <Spacer />

@@ -111,3 +111,5 @@ export const BurgerPlaceholder = styled.div`
   width: 2.5rem;
   height: 2rem;
 `
+
+export const SearchWrapper = styled.div``

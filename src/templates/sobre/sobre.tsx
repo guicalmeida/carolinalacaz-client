@@ -10,7 +10,6 @@ import ArqNav from 'components/ArqNav'
 const Sobre = ({ sobre }: SobreProps) => {
   return (
     <S.Container>
-      <ArqNav />
       <S.BioWrapper>
         <Spacer />
         <TituloLight>{sobre?.nome ? sobre.nome : ''}</TituloLight>
