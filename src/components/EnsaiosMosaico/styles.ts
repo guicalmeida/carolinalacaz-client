@@ -14,6 +14,7 @@ export const FichaTecnica = styled.div`
 
   @media (max-width: 767px) {
     opacity: 1;
+    color: ${(props) => props.theme.colors.overlayTxt};
   }
 `
 export const Titulo = styled.h2`
@@ -58,6 +59,11 @@ export const FotoContainer = styled.div`
 
     @media (max-width: 767px) {
       opacity: 1;
+      background: linear-gradient(
+        0deg,
+        rgb(255, 255, 255, 0.7) 0%,
+        rgba(255, 255, 255, 0) 70%
+      );
     }
   }
 

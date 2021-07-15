@@ -19,6 +19,10 @@ export const MasonryGrid = styled(Masonry)`
     margin-bottom: 5rem;
     width: auto;
     justify-content: center;
+
+    @media (max-width: 767px) {
+      margin: 3rem 0;
+    }
   }
 
   & > .MasonryColumn {

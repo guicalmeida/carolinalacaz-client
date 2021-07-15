@@ -14,10 +14,12 @@ export const BioWrapper = styled.div`
   }
   @media (max-width: 767px) {
     width: 95vw;
+    height: max-content;
     margin: 0 auto;
     & > * {
       max-width: 85vw;
       text-align: center;
+      font-size: 1.6rem;
     }
 
     & > h1 {
@@ -34,9 +36,10 @@ export const PerfilWrapper = styled.div`
 
   @media (max-width: 767px) {
     width: 90vw;
+    height: max-content;
     bottom: 0;
     left: 5vw;
-    margin-top: 10rem;
+    margin-top: 5rem;
   }
 
   & > img {
@@ -44,6 +47,10 @@ export const PerfilWrapper = styled.div`
     width: 100%;
     overflow: hidden;
     object-position: bottom;
+
+    @media (max-width: 767px) {
+      object-position: top;
+    }
   }
 `
 

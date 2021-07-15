@@ -9,7 +9,7 @@ export const MenuBar = styled.div`
   width: 100vw;
   overflow: hidden;
   height: 7rem;
-  z-index: 100;
+  z-index: 10;
   box-shadow: 0 0px 20px 0px #000000d4;
 
   @media (min-width: 768px) {
@@ -32,6 +32,7 @@ export const MobileContainer = styled.div`
     height: 1.6rem;
     left: 2rem;
     top: 2.5rem;
+    z-index: 11 !important;
   }
 
   /* Color/shape of burger icon bars */
@@ -58,7 +59,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   .bm-menu-wrap {
     position: fixed;
     height: 100vh;
-    z-index: 10;
+    z-index: 11;
   }
 
   /* General sidebar styles */
@@ -66,6 +67,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
     background-color: ${(props) => props.theme.colors.bg};
     padding: 2.5em 1.5em 0;
     font-size: 1.15em;
+    overflow-y: hidden !important;
   }
 
   /* Morph shape necessary with bubble or elastic */
@@ -112,4 +114,39 @@ export const BurgerPlaceholder = styled.div`
   height: 2rem;
 `
 
-export const SearchWrapper = styled.div``
+export const Close = styled.a`
+  position: fixed;
+  z-index: 12;
+  right: 2rem;
+  top: 2rem;
+  stroke: ${(props) => props.theme.colors.txt};
+  cursor: pointer;
+  transition: 300ms;
+  height: 25px;
+  width: 25px;
+
+  & > .close {
+    width: 100%;
+    height: 100%;
+    stroke-linecap: 'round';
+    stroke-linejoin: 'round';
+    stroke-width: 2;
+  }
+`
+
+export const Lupa = styled.a`
+  color: ${(props) => props.theme.colors.txt};
+  cursor: pointer;
+  transition: 300ms;
+  height: 25px;
+  width: 25px;
+
+  & > .lupa {
+    width: 100%;
+    height: 100%;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: rotate(270deg);
+  }
+`

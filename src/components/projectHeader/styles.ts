@@ -10,6 +10,16 @@ export const ProjectsInfosDiv = styled.div`
   align-items: center;
   margin: 0 auto;
   width: 73%;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    &:first-child > div {
+      margin-bottom: 2rem;
+    }
+  }
 `
 export const ProjectInfosLeft = styled.div`
   display: flex;

@@ -26,7 +26,7 @@ export const Card = styled.div`
         height: 35vh;
         background-color: #ffffff6e;
         position: absolute;
-        z-index: 9;
+        z-index: 7;
       }
     }
 
@@ -37,7 +37,7 @@ export const Card = styled.div`
         height: 35vh;
         background-color: #373435ab;
         position: absolute;
-        z-index: 9;
+        z-index: 7;
       }
     }
   }
@@ -85,7 +85,7 @@ export const Title = styled.h1`
   position: absolute;
   font-size: 4rem;
   font-weight: 100;
-  z-index: 10;
+  z-index: 8;
 
   @media (min-width: 768px) {
     font-size: 6rem;
