@@ -49,7 +49,8 @@ export const PremioTitle = styled.h2`
   max-width: 70rem;
 
   @media (max-width: 767px) {
-    font-size: 3.4rem;
+    font-size: 3rem;
+    width: 90vw;
   }
 `
 
@@ -61,7 +62,7 @@ export const PremioDesc = styled.h3`
 
   @media (max-width: 767px) {
     font-size: 2rem;
-    margin: 0 4rem;
+    margin: 0 5%;
   }
 `
 
@@ -111,4 +112,6 @@ export const ToProject = styled.div`
 export const Image = styled.img`
   height: 100%;
   width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
 `
