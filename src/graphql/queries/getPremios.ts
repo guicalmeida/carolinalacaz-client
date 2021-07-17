@@ -1,16 +1,16 @@
 const GET_PREMIOS = /* GraphQL */ `
   query GET_PREMIOS {
-    premio {
-      background {
+    premios {
+      posicao
+      slug
+      nome
+      descricao
+      ano {
+        ano
+      }
+      foto {
         name
         url
-      }
-      itens {
-        nome
-        descricao
-        ano {
-          ano
-        }
       }
     }
   }

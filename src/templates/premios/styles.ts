@@ -4,16 +4,23 @@ type BackgroundProps = {
   imgSrc: string
 }
 
-export const PremiosWrapper = styled.div`
-  margin: auto;
+export const IndiceWrapper = styled.div`
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100vh - 10rem);
 
   & > h1 {
     text-align: center;
-    margin-bottom: 2rem;
+    font-size: clamp(4.5rem, 14vw, 8rem);
+    @media (max-width: 767px) {
+      margin-bottom: 2rem;
+    }
   }
 `
 export const Background = styled.div<BackgroundProps>`
-  overflow: hidden;
   background-image: url(${(props) => props.imgSrc});
   height: 100vh;
   width: 100vw;
@@ -22,6 +29,7 @@ export const Background = styled.div<BackgroundProps>`
   background-attachment: fixed;
   z-index: 0;
   background-position: bottom;
+  position: relative;
 
   & * {
     z-index: 2;
@@ -41,8 +49,34 @@ export const Background = styled.div<BackgroundProps>`
   }
 `
 
-export const ToPublicacoes = styled.div`
-  align-self: flex-end;
-  padding-bottom: 1.5rem;
+export const ToPremios = styled.div`
+  padding-bottom: 2rem;
   font-size: 1.5rem;
+  position: absolute;
+  @media (max-width: 767px) {
+    top: 20rem;
+    text-align: center;
+    width: 100vw;
+
+    a {
+      color: #37343550;
+    }
+  }
+  @media (min-width: 768px) {
+    right: 0;
+    bottom: 0;
+  }
+`
+export const DigitalTxt = styled.h2`
+  font-weight: 600;
+  font-size: 3rem;
+  padding-right: 2rem;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+`
+
+export const DigitalLink = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2rem;
 `

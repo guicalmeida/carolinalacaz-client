@@ -24,6 +24,7 @@ const GET_PROJETOS = /* GraphQL */ `
       escritorio {
         nome
       }
+      prioridade
     }
   }
 `

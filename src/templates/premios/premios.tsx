@@ -2,30 +2,31 @@ import * as S from './styles'
 
 import { ContentContainer } from 'components/contentContainer'
 import TituloLight from 'components/TituloLight'
-import Premios from 'components/Premios'
 import Spacer from 'components/NavbarSpacer'
 import InternalLink from 'components/InternalLink'
+import PremiosIndex from 'components/PremiosIndex'
 import { PremioProps } from 'types/api'
+import Premio from 'components/Premios'
 
-const Premio = ({ premio }: PremioProps) => (
+const Premios = ({ premios }: PremioProps) => (
   <section>
-    <S.Background
-      imgSrc={process.env.NEXT_PUBLIC_IMAGE_HOST + premio.background.url}
-    >
+    <div>
       <ContentContainer>
         <Spacer />
-        <S.PremiosWrapper>
-          <TituloLight>PRÊMIOS</TituloLight>
-          <Premios premio={premio} />
-        </S.PremiosWrapper>
-        <S.ToPublicacoes>
+        <S.ToPremios>
           <InternalLink page="/publicacoes" useDark={false}>
             ou clique aqui para ver publicações
           </InternalLink>
-        </S.ToPublicacoes>
+        </S.ToPremios>
+        <S.IndiceWrapper>
+          <TituloLight>Prêmios</TituloLight>
+          <PremiosIndex premios={premios} />
+          <div> </div>
+        </S.IndiceWrapper>
       </ContentContainer>
-    </S.Background>
+      <Premio premios={premios} />
+    </div>
   </section>
 )
 
-export default Premio
+export default Premios

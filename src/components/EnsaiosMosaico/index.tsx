@@ -13,30 +13,36 @@ const EnsaiosMosaico = ({
 }: EnsaiosProps & OnProjectProps) => {
   return (
     <S.Container>
-      {ensaios.map((ensaio) => {
-        return (
-          <Link
-            href={project ? ensaio.slug : 'ensaios/' + ensaio.slug}
-            key={ensaio.slug}
-          >
-            <S.FotoContainer>
-              <S.FichaTecnica>
-                <S.Titulo>{ensaio.nome ? ensaio.nome : ''}</S.Titulo>
-                <S.Dados>
-                  <S.Texto id="cidade">
-                    {ensaio.cidade?.nome ? ensaio.cidade.nome : ''}
-                  </S.Texto>{' '}
-                  <p> · </p>
-                  <S.Texto id="ano">
-                    {ensaio.ano?.ano ? ensaio.ano.ano : ''}
-                  </S.Texto>
-                </S.Dados>
-              </S.FichaTecnica>
-              <Foto url={ensaio.capa?.url ? ensaio.capa.url : ''} />
-            </S.FotoContainer>
-          </Link>
-        )
-      })}
+      {ensaios
+        .sort((a, b) => {
+          const aHandler = a.prioridade ? a.prioridade : 10
+          const bHandler = b.prioridade ? b.prioridade : 10
+          return aHandler > bHandler ? 1 : -1
+        })
+        .map((ensaio) => {
+          return (
+            <Link
+              href={project ? ensaio.slug : 'ensaios/' + ensaio.slug}
+              key={ensaio.slug}
+            >
+              <S.FotoContainer>
+                <S.FichaTecnica>
+                  <S.Titulo>{ensaio.nome ? ensaio.nome : ''}</S.Titulo>
+                  <S.Dados>
+                    <S.Texto id="cidade">
+                      {ensaio.cidade?.nome ? ensaio.cidade.nome : ''}
+                    </S.Texto>{' '}
+                    <p> · </p>
+                    <S.Texto id="ano">
+                      {ensaio.ano?.ano ? ensaio.ano.ano : ''}
+                    </S.Texto>
+                  </S.Dados>
+                </S.FichaTecnica>
+                <Foto url={ensaio.capa?.url ? ensaio.capa.url : ''} />
+              </S.FotoContainer>
+            </Link>
+          )
+        })}
     </S.Container>
   )
 }

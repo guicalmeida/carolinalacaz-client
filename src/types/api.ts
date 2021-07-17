@@ -39,6 +39,7 @@ export type EnsaiosProps = {
     galeria: ImagemProps[]
     capa: ImagemProps
     tags: tagsProps
+    prioridade: number
   }[]
 }
 
@@ -68,6 +69,7 @@ export type ProjetosProps = {
     galeria: ImagemProps[]
     capa: ImagemProps
     tags: tagsProps
+    prioridade: number
     escritorio: {
       nome: string
     }
@@ -94,14 +96,14 @@ export type PlusProps = {
 }
 
 export type PremioProps = {
-  premio: {
-    background: ImagemProps
-    itens: {
-      nome: string
-      descricao: string
-      ano: anoProps
-    }[]
-  }
+  premios: {
+    slug: string
+    foto: ImagemProps
+    nome: string
+    descricao: string
+    ano: anoProps
+    posicao: string
+  }[]
 }
 
 export type PublicacoesProps = {

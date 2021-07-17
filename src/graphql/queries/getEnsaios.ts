@@ -19,6 +19,7 @@ const GET_ENSAIOS = /* GraphQL */ `
       ano {
         ano
       }
+      prioridade
     }
   }
 `
