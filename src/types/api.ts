@@ -73,6 +73,9 @@ export type ProjetosProps = {
     escritorio: {
       nome: string
     }
+    tipo: {
+      nome: string
+    }
   }[]
 }
 
