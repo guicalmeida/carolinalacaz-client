@@ -39,6 +39,7 @@ export type EnsaiosProps = {
     galeria: ImagemProps[]
     capa: ImagemProps
     tags: tagsProps
+    destaque: boolean
     prioridade: number
   }[]
 }
@@ -70,6 +71,7 @@ export type ProjetosProps = {
     capa: ImagemProps
     tags: tagsProps
     prioridade: number
+    destaque: boolean
     escritorio: {
       nome: string
     }

@@ -20,6 +20,7 @@ const GET_ENSAIOS = /* GraphQL */ `
         ano
       }
       prioridade
+      destaque
     }
   }
 `

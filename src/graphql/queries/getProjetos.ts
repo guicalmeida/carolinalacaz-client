@@ -25,6 +25,7 @@ const GET_PROJETOS = /* GraphQL */ `
         nome
       }
       prioridade
+      destaque
       tipo {
         nome
       }

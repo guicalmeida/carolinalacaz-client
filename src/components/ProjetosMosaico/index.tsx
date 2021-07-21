@@ -52,7 +52,6 @@ const ProjetosMosaico = ({
       values: [...tags] as string[]
     }
   ]
-
   return (
     <>
       <S.FilterBar>

@@ -1,12 +1,20 @@
-import { HomeProps } from 'types/api'
+import { ProjetosProps } from 'types/api'
 import * as S from './styles'
 
-const ArqCover = ({ home }: HomeProps) => {
+const ArqCover = ({ projetos }: ProjetosProps) => {
+  const fotosDestaque: string[] = []
+
+  projetos.forEach((projeto) => {
+    projeto.destaque ? fotosDestaque.push(projeto.capa.url) : null
+  })
+
   return (
     <S.Container
-      imgSrc={process.env.NEXT_PUBLIC_IMAGE_HOST + home.arquitetura.url}
+      imgSrc={
+        process.env.NEXT_PUBLIC_IMAGE_HOST +
+        fotosDestaque[Math.floor(Math.random() * fotosDestaque.length)]
+      }
     >
-      <h1>ARQUITETURA</h1>
       <S.ScrollDown>
         <svg
           xmlns="http://www.w3.org/2000/svg"

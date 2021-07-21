@@ -1,11 +1,11 @@
 import { ContentContainer } from 'components/contentContainer'
 import ArqCover from 'components/ArqCover'
 import ProjetosMosaico from 'components/ProjetosMosaico'
-import { HomeProps, ProjetosProps } from 'types/api'
+import { ProjetosProps } from 'types/api'
 
-const Arquitetura = ({ projetos, home }: ProjetosProps & HomeProps) => (
+const Arquitetura = ({ projetos }: ProjetosProps) => (
   <section>
-    <ArqCover home={home} />
+    <ArqCover projetos={projetos} />
     <ContentContainer>
       {/*<FilterBar />*/}
       <ProjetosMosaico projetos={projetos} project={false} />
