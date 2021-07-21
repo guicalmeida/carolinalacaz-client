@@ -1,12 +1,12 @@
 import { ContentContainer } from 'components/contentContainer'
 import EnsCover from 'components/EnsCover'
-import { EnsaiosProps, HomeProps } from 'types/api'
+import { EnsaiosProps } from 'types/api'
 import EnsaiosMosaico from 'components/EnsaiosMosaico'
 
-const Ensaios = ({ ensaios, home }: EnsaiosProps & HomeProps) => {
+const Ensaios = ({ ensaios }: EnsaiosProps) => {
   return (
     <section>
-      <EnsCover home={home} />
+      <EnsCover ensaios={ensaios} />
       <ContentContainer>
         <EnsaiosMosaico ensaios={ensaios} project={false} />
       </ContentContainer>
