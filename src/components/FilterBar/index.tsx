@@ -6,15 +6,23 @@ interface ItemProps extends React.HTMLProps<HTMLDivElement> {
   children: ReactNode
 }
 
+type DDItemProps = {
+  itemName: string
+}
+
 type DropdownProps = {
   items: string[]
+}
+
+const DropdownItem = ({ itemName }: DDItemProps) => {
+  return <S.DropdownItem>{itemName}</S.DropdownItem>
 }
 
 const Dropdown = ({ items }: DropdownProps) => {
   return (
     <S.Dropdown>
       {items.map((item) => (
-        <S.DropdownItem key={item}>{item}</S.DropdownItem>
+        <DropdownItem key={item} itemName={item} />
       ))}
     </S.Dropdown>
   )
@@ -52,20 +60,20 @@ const FilterBar = () => {
           Filtrar Por
         </S.FilterBy>
         <S.List>
-          <S.Item>
-            <S.ItemContainer>
-              <p>a</p>
-              <S.ArrowDown
-                className="iconify"
-                data-icon="dashicons:arrow-down-alt2"
-                data-inline="false"
-              />
-            </S.ItemContainer>
-
-            <S.Dropdown>
-              <S.DropdownItem>teste</S.DropdownItem>
-            </S.Dropdown>
-          </S.Item>
+          <FilterItem itemName="Projetos">
+            <Dropdown
+              items={['recentes', 'residencial', 'interiores', 'comercial']}
+            />
+          </FilterItem>
+          <FilterItem itemName="Localização">
+            <Dropdown items={['campo', 'praia']} />
+          </FilterItem>
+          <FilterItem itemName="Ano">
+            <Dropdown items={['2021', '2020', '2019', '2018', '2017']} />
+          </FilterItem>
+          <FilterItem itemName="Formato">
+            <Dropdown items={['retrato', 'drone', 'gif']} />
+          </FilterItem>
         </S.List>
       </S.FilterContainer>
     </S.FilterBar>

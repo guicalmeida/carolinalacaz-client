@@ -16,6 +16,7 @@ const Projeto = ({
       <ProjectHeader ProjetoUnit={ProjetoUnit} />
       <ProjectMasonry ProjetoUnit={ProjetoUnit} />
       <OtherProjectsTxt>Veja outros projetos:</OtherProjectsTxt>
+      {/*<FilterBar />*/}
       <ProjetoMosaico projetos={projetos} project />
     </ContentContainer>
   </section>
