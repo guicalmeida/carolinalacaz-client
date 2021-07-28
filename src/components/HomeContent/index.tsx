@@ -2,9 +2,14 @@ import Link from 'next/link'
 import * as S from './style'
 
 import { useTheme } from '../../hooks/theme'
-import { HomeProps } from 'types/api'
+import { EnsaiosProps, ProjetosProps } from 'types/api'
+import { EnsInitialPhoto } from 'components/EnsCoverPhotos'
+import { ArqInitialPhoto } from 'components/ArqCoverPhotos'
 
-export const HomeContent = ({ home }: HomeProps) => {
+export const HomeContent = ({
+  ensaios,
+  projetos
+}: EnsaiosProps & ProjetosProps) => {
   const { turnDark, turnLight } = useTheme()
   const handleToDark = () => {
     turnDark()
@@ -24,10 +29,7 @@ export const HomeContent = ({ home }: HomeProps) => {
           onClick={handleToLight}
         >
           <S.Title className="arqTitle">Arquitetura</S.Title>
-          <S.Photo
-            src={process.env.NEXT_PUBLIC_IMAGE_HOST + home.arquitetura.url}
-            alt="img"
-          />
+          <ArqInitialPhoto projetos={projetos} />
         </S.Card>
       </Link>
       <Link href="/ensaios">
@@ -37,11 +39,7 @@ export const HomeContent = ({ home }: HomeProps) => {
           onMouseLeave={handleToLight}
           onClick={handleToDark}
         >
-          <S.Photo
-            src={process.env.NEXT_PUBLIC_IMAGE_HOST + home.ensaio.url}
-            alt="img"
-            className="EnsPhoto"
-          />
+          <EnsInitialPhoto ensaios={ensaios} />
           <S.Title className="ensaioTitle">Ensaios</S.Title>
         </S.Card>
       </Link>
