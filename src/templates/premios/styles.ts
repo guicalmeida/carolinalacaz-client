@@ -80,3 +80,7 @@ export const DigitalLink = styled.a`
   justify-content: center;
   padding-bottom: 2rem;
 `
+
+export const Filler = styled.div`
+  height: 10vh;
+`

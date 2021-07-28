@@ -6,11 +6,13 @@ import EnsTitle from 'components/EnsTitle'
 import InternalLink from 'components/InternalLink'
 import Spacer from 'components/NavbarSpacer'
 import OtherProjectsTxt from 'components/OtherProjectsTxt'
+import ScrollTop from 'components/ScrollToTop'
 import { PlusProps } from 'types/api'
 
 const Plus = ({ plus }: PlusProps) => {
   return (
     <section>
+      <ScrollTop />
       <ContentContainer>
         <Spacer />
         <EnsTitle>+++</EnsTitle>

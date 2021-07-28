@@ -7,14 +7,10 @@ export type OverlayProps = {
 }
 
 export const AvulsasMasonry = ({ plus, overlay }: PlusProps & OverlayProps) => {
-  const breakpointColumnsObj = {
-    default: 2,
-    500: 1
-  }
   return (
     <div>
       <S.MasonryGrid
-        breakpointCols={breakpointColumnsObj}
+        breakpointCols={1}
         className="masonryGrid"
         columnClassName="MasonryColumn"
       >
@@ -30,9 +26,10 @@ export const AvulsasMasonry = ({ plus, overlay }: PlusProps & OverlayProps) => {
                   <S.Titulo>{fotoUnit?.nome ? fotoUnit.nome : ''}</S.Titulo>
                   <S.Dados>
                     <S.Texto>
-                      {fotoUnit?.cidade?.nome ? fotoUnit.cidade.nome : ''}
+                      {fotoUnit?.cidade?.nome
+                        ? fotoUnit.cidade.nome + ' · '
+                        : ''}
                     </S.Texto>{' '}
-                    <p> · </p>
                     <S.Texto>
                       {fotoUnit?.ano?.ano ? fotoUnit.ano.ano : ''}
                     </S.Texto>
