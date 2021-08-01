@@ -6,6 +6,7 @@ export const FilterBar = styled.div`
   height: 125px;
   margin: 0 auto;
   margin-top: 4rem;
+  position: relative;
 `
 
 export const Item = styled.li`
@@ -58,20 +59,14 @@ export const List = styled.ul`
   list-style-type: none;
 `
 export const DropdownItem = styled.a`
-  margin: 0 20px;
+  margin: 0.5rem 2rem;
+  width: max-content;
 `
 
 export const Dropdown = styled.div`
   display: flex;
   position: absolute;
-  transform: translateY(50px);
-
-  &::before {
-    content: '';
-    height: 1px;
-    width: 8rem;
-    background-color: ${(props) => props.theme.colors.txt};
-    position: absolute;
-    transform: translateY(-20px);
-  }
+  left: 0;
+  top: 50%;
+  flex-wrap: wrap;
 `
