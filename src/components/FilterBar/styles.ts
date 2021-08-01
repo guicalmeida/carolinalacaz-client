@@ -1,11 +1,12 @@
 import styled from 'styled-components'
+import { DropdownProps } from '.'
 
 export const FilterBar = styled.div`
   display: flex;
   align-items: flex-start;
   height: 125px;
   margin: 0 auto;
-  margin-top: 4rem;
+  margin-top: 10rem;
   position: relative;
 `
 
@@ -63,10 +64,23 @@ export const DropdownItem = styled.a`
   width: max-content;
 `
 
-export const Dropdown = styled.div`
+export const Dropdown = styled.div<DropdownProps>`
   display: flex;
   position: absolute;
   left: 0;
   top: 50%;
   flex-wrap: wrap;
+  opacity: ${props => props.active ? 1 : 0};
+  pointer-events: ${props => props.active ? 'auto' : 'none'};
+  transition: opacity 2s linear; 
+  animation: ${props => props.active ? 'motion 0.1s linear' : 'none'};
+
+  @keyframes motion {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
 `

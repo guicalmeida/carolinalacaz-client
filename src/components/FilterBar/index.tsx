@@ -4,54 +4,64 @@ import * as S from './styles'
 
 interface ItemProps extends React.HTMLProps<HTMLDivElement> {
   itemName: string
-  children: ReactNode
 }
 
 type DDItemProps = {
   itemName: string
 }
 
-type DropdownProps = {
+export type DropdownProps = {
   items: string[]
+  active: boolean
 }
 
 const FilterBar = ({ projetos }: ProjetosProps) => {
-  const [target, setTarget] = useState('')
-  const [open, setOpen] = useState({
+  const initialState = {
     Ano: false,
     Tipo: false,
     Cidade: false,
-    Outros: false
-  })
+    Outros: false,
+    '': false  
+  }
+  let openState = initialState
+
+  const [target, setTarget] = useState('')
+  const [open, setOpen] = useState(initialState)
+  const [clickCounter, setClickCounter] = useState(0)
+
 
   useEffect(() => {
-    open[target] && setOpen({ ...open, [target]: false })
+    openState = {
+      ...openState,
+      [target]: true
+    }
+    setOpen(openState)
+    console.log(openState)
+  }, [target, clickCounter])
 
-    open[target] || setOpen({ ...open, [target]: true })
+  const ClickHandler = (itemName: string) => {
+    console.log('click')
+    setClickCounter(clickCounter + 1)
+    setTarget(itemName == target ? "" : itemName)
+  }
 
-    console.log(open)
-  }, [target])
-
-  console.log(open)
 
   const DropdownItem = ({ itemName }: DDItemProps) => {
     return <S.DropdownItem>{itemName}</S.DropdownItem>
   }
-
-  const Dropdown = ({ items }: DropdownProps) => {
+  const Dropdown = ({ items, active }: DropdownProps) => {
     return (
-      <S.Dropdown>
+      <S.Dropdown active={active} items={items}>
         {items.map((item) => (
           <DropdownItem key={item} itemName={item} />
         ))}
       </S.Dropdown>
     )
   }
-
   const FilterItem = ({ itemName }: ItemProps) => {
     return (
       <S.Item>
-        <S.ItemContainer onClick={() => setTarget(itemName)}>
+        <S.ItemContainer onClick={() => ClickHandler(itemName)}>
           <p>{itemName}</p>
           <S.ArrowDown
             className="iconify"
@@ -70,7 +80,6 @@ const FilterBar = ({ projetos }: ProjetosProps) => {
         .map((projeto) => projeto.ano?.ano.toString())
     )
   )
-
   const projetosType = Array.from(
     new Set(
       projetos
@@ -78,7 +87,6 @@ const FilterBar = ({ projetos }: ProjetosProps) => {
         .map((projeto) => projeto.tipo?.nome)
     )
   )
-
   const projetosCities = Array.from(
     new Set(
       projetos
@@ -86,7 +94,6 @@ const FilterBar = ({ projetos }: ProjetosProps) => {
         .map((projeto) => projeto.cidade?.nome)
     )
   )
-
   const projetosOther = Array.from(
     new Set(
       projetos
@@ -107,18 +114,14 @@ const FilterBar = ({ projetos }: ProjetosProps) => {
           Filtrar Por
         </S.FilterBy>
         <S.List>
-          <FilterItem itemName="Ano">
-            {open.Ano ? <Dropdown items={projetosYear} /> : null}
-          </FilterItem>
-          <FilterItem itemName="Tipo">
-            {open.Tipo ? <Dropdown items={projetosType} /> : null}
-          </FilterItem>
-          <FilterItem itemName="Cidade">
-            {open.Cidade ? <Dropdown items={projetosCities} /> : null}
-          </FilterItem>
-          <FilterItem itemName="Outros">
-            {open.Outros ? <Dropdown items={projetosOther} /> : null}
-          </FilterItem>
+          <FilterItem itemName="Ano" />
+          <Dropdown items={projetosYear} active={open.Ano}/>
+          <FilterItem itemName="Tipo" />
+          <Dropdown items={projetosType} active={open.Tipo}/>
+          <FilterItem itemName="Cidade" />
+          <Dropdown items={projetosCities} active={open.Cidade}/>
+          <FilterItem itemName="Outros" />
+          <Dropdown items={projetosOther} active={open.Outros}/>
         </S.List>
       </S.FilterContainer>
     </S.FilterBar>
