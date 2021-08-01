@@ -27,6 +27,10 @@ export const BioWrapper = styled.div`
       line-height: normal;
     }
   }
+
+  @media (min-height: 768px) {
+    padding-top: 15%;
+  }
 `
 
 export const PerfilWrapper = styled.div`

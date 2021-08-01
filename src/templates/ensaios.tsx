@@ -1,12 +1,12 @@
 import { ContentContainer } from 'components/contentContainer'
-import EnsCover from 'components/EnsCover'
 import { EnsaiosProps } from 'types/api'
 import EnsaiosMosaico from 'components/EnsaiosMosaico'
+import ScrollTop from 'components/ScrollToTop'
 
 const Ensaios = ({ ensaios }: EnsaiosProps) => {
   return (
     <section>
-      <EnsCover ensaios={ensaios} />
+      <ScrollTop />
       <ContentContainer>
         <EnsaiosMosaico ensaios={ensaios} project={false} />
       </ContentContainer>

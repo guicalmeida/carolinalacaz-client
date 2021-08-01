@@ -3,6 +3,7 @@ import { ContentContainer } from 'components/contentContainer'
 import OtherProjectsTxt from 'components/OtherProjectsTxt'
 import ProjectMasonry from 'components/ProjectMasonry'
 import ProjetoMosaico from 'components/ProjetosMosaico'
+import ScrollTop from 'components/ScrollToTop'
 import { ProjetosProps, ProjetoUnitProps } from 'types/api'
 import ProjectHeader from '../components/projectHeader'
 
@@ -11,6 +12,7 @@ const Projeto = ({
   ProjetoUnit
 }: ProjetosProps & ProjetoUnitProps) => (
   <section>
+    <ScrollTop />
     <ContentContainer>
       <BackArrow linkTo="/arquitetura" />
       <ProjectHeader ProjetoUnit={ProjetoUnit} />

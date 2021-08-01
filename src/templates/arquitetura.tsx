@@ -1,12 +1,13 @@
 import { ContentContainer } from 'components/contentContainer'
-import ArqCover from 'components/ArqCover'
 import ProjetosMosaico from 'components/ProjetosMosaico'
+import ScrollTop from 'components/ScrollToTop'
 import { ProjetosProps } from 'types/api'
 import FilterBar from 'components/FilterBar'
 
 const Arquitetura = ({ projetos }: ProjetosProps) => (
   <section>
-    <ArqCover projetos={projetos} />
+    <ScrollTop />
+
     <ContentContainer>
       <FilterBar projetos={projetos} />
       <ProjetosMosaico projetos={projetos} project={false} />

@@ -11,10 +11,12 @@ import Spacer from 'components/NavbarSpacer'
 import OtherProjectsTxt from 'components/OtherProjectsTxt'
 import TextoCorrido from 'components/TextoCorrido'
 import EnsaiosMosaico from 'components/EnsaiosMosaico'
+import ScrollTop from 'components/ScrollToTop'
 
 const Ensaio = ({ EnsaioUnit, ensaios }: EnsaioUnitProps & EnsaiosProps) => {
   return (
     <section>
+      <ScrollTop />
       <ContentContainer>
         <BackArrow linkTo="/ensaios" />
         <Spacer />

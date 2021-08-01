@@ -1,12 +1,12 @@
 import { ContentContainer } from 'components/contentContainer'
 import { HomeContent } from 'components/HomeContent'
-import { HomeProps } from 'types/api'
+import { EnsaiosProps, HomeProps, ProjetosProps } from 'types/api'
 
-const Home = ({ home }: HomeProps) => {
+const Home = ({ ensaios, projetos }: EnsaiosProps & ProjetosProps) => {
   return (
     <div>
       <ContentContainer>
-        <HomeContent home={home} />
+        <HomeContent ensaios={ensaios} projetos={projetos} />
       </ContentContainer>
     </div>
   )
