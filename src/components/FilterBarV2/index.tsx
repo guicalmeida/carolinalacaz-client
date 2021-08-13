@@ -13,7 +13,7 @@ export type FilterObjectProps = {
   active: boolean
 }
 
-const FilterBar = ({ projetos }: ProjetosProps) => {
+const FilterBarSecond = ({ projetos }: ProjetosProps) => {
   //unique filter open hooks
   const initialState = {
     Ano: false,
@@ -32,7 +32,6 @@ const FilterBar = ({ projetos }: ProjetosProps) => {
       [target]: true
     }
     setOpen(openState)
-    console.log(openState)
   }, [target, clickCounter])
   const ClickHandler = (itemName: string) => {
     setClickCounter(clickCounter + 1)
@@ -115,83 +114,48 @@ const FilterBar = ({ projetos }: ProjetosProps) => {
   const [results, setResults] = useState([])
 
   const selectedClickHandler = (item: string, name: string) => {
-    const ActiveFilters = [
-      ...filtersChosen.find((field) => field.name === name)!.value,
-      item
-    ]
+    const thisFilter = filtersChosen.find((field) => field.name === name)
+    let newFilter: { name: string; value: string[] }
 
-    console.log(ActiveFilters)
-    const newFilter: { name: string; value: string[] } = {
-      name: name,
-      value: ActiveFilters
+    if (thisFilter?.value.includes(item)) {
+      const repetitionIndex = thisFilter.value.indexOf(item)
+      const filterValue = thisFilter.value
+      filterValue.splice(repetitionIndex, 1)
+
+      newFilter = {
+        name: name,
+        value: filterValue
+      }
+    } else {
+      const activeFilters: string[] = [
+        ...filtersChosen.find((field) => field.name === name)!.value,
+        item
+      ]
+
+      newFilter = {
+        name: name,
+        value: activeFilters
+      }
     }
     setFilter([
       ...filtersChosen.filter((e) => e.name != newFilter.name),
       newFilter
     ])
-    console.log(filtersChosen)
   }
 
   useEffect(() => {
-    let result = []
-    const filteredResults = projetos.ma
-    // const filteredResults = projetos.filter((projeto) => {
-    //   filtersChosen.forEach((filterCategory) => {
-    //     if (filterCategory.name === 'Ano') {
-    //       filterCategory.value.forEach((option) => {
-    //         if (
-    //           option === projeto.ano?.ano.toString() &&
-    //           !result.includes(projeto)
-    //         ) {
-    //           result.push(projeto)
-    //         }
-    //         result = result.filter((item) => {
-    //           return item.ano?.ano.toString() === option})
-    //       })
-    //     } else if (filterCategory.name === 'Tipo') {
-    //       filterCategory.value.forEach((option) => {
-    //         if (option === projeto.tipo?.nome &&
-    //           !result.includes(projeto)) {
-    //           result.push(projeto)
-    //           result = result.filter((item) => {return item.tipo?.nome === option})
-    //         }
-    //       })
-    //     } else if (filterCategory.name === 'Cidade') {
-    //       filterCategory.value.forEach((option) => {
-    //         if (option === projeto.cidade?.nome &&
-    //           !result.includes(projeto)) {
-    //           result.push(projeto)
-    //           result = result.filter((item) => item.cidade?.nome === option)
-    //         }
-    //       })
-    //     } else if (filterCategory.name === 'Outros') {
-    //       filterCategory.value.forEach((option) => {
-    //         ;((result.length === 0 ||
-    //           result.includes((a) => a.tags?.nome === option)) &&
-    //           option === projeto.tags?.nome.toString() &&
-    //           result.push(projeto)) ||
-    //           result.filter((item) => item.tags?.nome.toString() === option)
-    //       })
-    //     }
-    //   })
-
-    //   // result.length === 0 && filterCategory.value.length === 1 && filterCategory.value.includes(projeto.ano.ano.toString()) ? result.push(projeto) :
-    //   // e.name === 'Ano' &&
-    //   //   (e.value.length === 0 || e.value.includes(projeto.ano.ano.toString())) &&
-    //   //   result.push(projeto) &&
-
-    //   //   e.name === 'Cidade' &&
-    //   //   (e.value.length === 0 || e.value.includes(projeto.cidade.nome)) &&
-    //   //   result.push(projeto) &&
-
-    //   //   e.name === 'Tipo' &&
-    //   //   (e.value.length === 0 || e.value.includes(projeto.tags.nome)) &&
-    //   //   result.push(projeto) &&
-
-    //   //   e.name === 'Outros' &&
-    //   //   e.value.length === 0 || e.value.includes(projeto.tipo.nome) &&
-    //   //   result.push(projeto)
-    // })
+    let results = projetos.filter((projeto) => {
+      return filtersChosen.some((filterOption) => {
+        return filterOption.value.some(
+          (v) =>
+            v === projeto.ano.ano?.toString() ||
+            v === projeto.tipo?.nome ||
+            v === projeto.cidade?.nome ||
+            v === projeto.tags?.nome
+        )
+      })
+    })
+    console.log(results)
   }, [filtersChosen, projetos])
 
   const DropDownItem = ({ active, name, values }: FilterObjectProps) => {
@@ -247,4 +211,4 @@ const FilterBar = ({ projetos }: ProjetosProps) => {
   )
 }
 
-export default FilterBar
+export default FilterBarSecond

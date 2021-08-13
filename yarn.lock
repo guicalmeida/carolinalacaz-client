@@ -6308,6 +6308,11 @@ get-intrinsic@^1.0.2, get-intrinsic@^1.1.0, get-intrinsic@^1.1.1:
     has "^1.0.3"
     has-symbols "^1.0.1"
 
+get-key-value@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/get-key-value/-/get-key-value-1.0.2.tgz#6e9faec0fb802ec45cbf6d98b9e78ef9cb9fc6f5"
+  integrity sha512-XygHMbs2S4lTMfY7AXRwNrU/lQuyRazYri4woI+G4eEdnYxljU+/e47fOuHAPMVX7UsQahIDzrgTsCC/L9XF8w==
+
 get-orientation@1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/get-orientation/-/get-orientation-1.1.2.tgz#20507928951814f8a91ded0a0e67b29dfab98947"
