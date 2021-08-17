@@ -9,6 +9,7 @@ export const Nav = styled.nav`
   background-color: ${(props) => props.theme.colors.bg};
   color: ${(props) => props.theme.colors.txt};
   transition: 300ms;
+  top: 0;
 
   @media (min-width: 1190px) {
     height: 10rem;

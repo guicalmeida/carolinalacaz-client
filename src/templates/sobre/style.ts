@@ -4,6 +4,7 @@ export const BioWrapper = styled.div`
   width: 62vw;
   margin-right: auto;
   height: 100vh;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
