@@ -8,11 +8,7 @@ import FilterBarSecond from 'components/FilterBarV2'
 const Arquitetura = ({ projetos }: ProjetosProps) => (
   <section>
     <ScrollTop />
-
-    <ContentContainer>
       <FilterBarSecond projetos={projetos} />
-      <ProjetosMosaico projetos={projetos} project={false} />
-    </ContentContainer>
   </section>
 )
 

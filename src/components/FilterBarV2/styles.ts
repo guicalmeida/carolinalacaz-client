@@ -4,10 +4,10 @@ import { DropdownProps, FilterObjectProps } from '.'
 export const FilterBar = styled.div`
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   height: 125px;
   margin: 0 auto;
   margin-top: 10rem;
-  position: relative;
 `
 
 export const Item = styled.li`
@@ -34,6 +34,7 @@ export const ItemContainer = styled.div`
 export const FilterContainer = styled.div`
   display: flex;
   align-items: center;
+  position: relative;
 `
 export const FilterBy = styled.div`
   width: 14rem;
@@ -60,15 +61,24 @@ export const List = styled.ul`
   list-style-type: none;
 `
 export const DropdownItem = styled.a`
-  margin: 0.5rem 2rem;
+  margin: 0 1rem;
   width: max-content;
+  text-align: center;
+  padding: 5px 16px;
+
+  &.active {
+    background-color: #373435;
+    color: white;
+    text-align: center;
+    border-radius: 15px;
+  }
 `
 
 export const Dropdown = styled.div<FilterObjectProps>`
   display: flex;
   position: absolute;
-  left: 0;
-  top: 50%;
+  left: -27px;
+  top: 50px;
   flex-wrap: wrap;
   opacity: ${(props) => (props.active ? 1 : 0)};
   pointer-events: ${(props) => (props.active ? 'auto' : 'none')};

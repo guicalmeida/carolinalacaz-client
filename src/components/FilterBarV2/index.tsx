@@ -1,3 +1,5 @@
+import { ContentContainer } from 'components/contentContainer'
+import ProjetosMosaico from 'components/ProjetosMosaico'
 import { useEffect, useState } from 'react'
 import { ProjetosProps } from 'types/api'
 import * as S from './styles'
@@ -111,7 +113,7 @@ const FilterBarSecond = ({ projetos }: ProjetosProps) => {
       value: []
     }
   ])
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState<ProjetosProps>()
 
   const selectedClickHandler = (item: string, name: string) => {
     const thisFilter = filtersChosen.find((field) => field.name === name)
@@ -144,7 +146,7 @@ const FilterBarSecond = ({ projetos }: ProjetosProps) => {
   }
 
   useEffect(() => {
-    let results = projetos.filter((projeto) => {
+    const filteredResults = projetos.filter((projeto) => {
       return filtersChosen.some((filterOption) => {
         return filterOption.value.some(
           (v) =>
@@ -155,7 +157,8 @@ const FilterBarSecond = ({ projetos }: ProjetosProps) => {
         )
       })
     })
-    console.log(results)
+    console.log(filtersChosen)
+    setResults(filteredResults)
   }, [filtersChosen, projetos])
 
   const DropDownItem = ({ active, name, values }: FilterObjectProps) => {
@@ -175,6 +178,10 @@ const FilterBarSecond = ({ projetos }: ProjetosProps) => {
               <S.DropdownItem
                 key={item}
                 onClick={() => selectedClickHandler(item, name)}
+                className={
+                  filtersChosen.some((a) => a.value.some((e) => e === item)) &&
+                  'active'
+                }
               >
                 {item}
               </S.DropdownItem>
@@ -186,28 +193,34 @@ const FilterBarSecond = ({ projetos }: ProjetosProps) => {
   }
 
   return (
-    <S.FilterBar>
-      <S.FilterContainer>
-        <S.FilterBy>
-          <S.Ico
-            className="iconify"
-            data-icon="bx:bx-filter"
-            data-inline="false"
-          />
-          Filtrar Por
-        </S.FilterBy>
-        {filtersObject.map((item) => {
-          return (
-            <DropDownItem
-              active={item.active}
-              name={item.name}
-              values={item.values}
-              key={item.name}
+    <>
+      <S.FilterBar>
+        <S.FilterContainer>
+          <S.FilterBy>
+            <S.Ico
+              className="iconify"
+              data-icon="bx:bx-filter"
+              data-inline="false"
             />
-          )
-        })}
-      </S.FilterContainer>
-    </S.FilterBar>
+            Filtrar Por
+          </S.FilterBy>
+          {filtersObject.map((item) => {
+            return (
+              <DropDownItem
+                active={item.active}
+                name={item.name}
+                values={item.values}
+                key={item.name}
+              />
+            )
+          })}
+        </S.FilterContainer>
+      </S.FilterBar>
+      <ProjetosMosaico
+        projetos={results?.length ? results : projetos}
+        project={false}
+      />
+    </>
   )
 }
 
