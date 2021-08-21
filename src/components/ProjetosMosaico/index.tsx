@@ -12,7 +12,7 @@ const ProjetosMosaico = ({
   projetos
 }: ProjetosProps & OnProjectProps) => {
   return (
-    <S.Container>
+    <S.Container project>
       {projetos
         .sort((a, b) => {
           const aHandler = a.prioridade ? a.prioridade : 10
