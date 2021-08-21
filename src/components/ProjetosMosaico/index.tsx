@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ProjetosProps } from 'types/api'
 import * as S from './styles'
 
-type OnProjectProps = {
+export type OnProjectProps = {
   project: boolean
 }
 

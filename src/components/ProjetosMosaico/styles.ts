@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { OnProjectProps } from '.'
 
 export const FichaTecnica = styled.div`
   display: flex;
@@ -86,12 +87,12 @@ export const FotoContainer = styled.div`
     bottom: 0;
   }
 `
-export const Container = styled.div`
-  padding-top: 1rem;
+export const Container = styled.div<OnProjectProps>`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   & > ${FotoContainer} {
     margin: 10px;
   }
+  padding-top: ${(props) => props.project ? '1rem' : '0'}
 `
