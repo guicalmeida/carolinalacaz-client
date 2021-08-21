@@ -1,6 +1,4 @@
-import { Dialog, Slide } from '@material-ui/core'
-import { TransitionProps } from '@material-ui/core/transitions/transition'
-import { ContentContainer } from 'components/contentContainer'
+import { Dialog } from '@material-ui/core'
 import ProjetosMosaico from 'components/ProjetosMosaico'
 import useWindowSize from 'hooks/useWindowResize'
 import React, { useEffect, useState } from 'react'

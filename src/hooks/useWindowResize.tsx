@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react'
 
 export default function useWindowSize() {
-  const [windowSize, setWindowSize] = useState({
+  const [windowSize, setWindowSize] = useState<{
+    width?: number
+    height?: number
+  }>({
     width: undefined,
     height: undefined
   })
