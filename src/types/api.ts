@@ -9,11 +9,6 @@ export type ImagemProps = {
   url: string
 }
 
-export type tagsProps = {
-  nome: string
-  slug: string
-}
-
 export type EnsaioUnitProps = {
   EnsaioUnit: {
     nome: string
@@ -24,7 +19,6 @@ export type EnsaioUnitProps = {
     cidade: cidadeProps
     galeria: ImagemProps[]
     capa: ImagemProps
-    tags: tagsProps
   }
 }
 
@@ -38,7 +32,6 @@ export type EnsaiosProps = {
     cidade: cidadeProps
     galeria: ImagemProps[]
     capa: ImagemProps
-    tags: tagsProps
     destaque: boolean
     prioridade: number
   }[]
@@ -53,7 +46,6 @@ export type ProjetoUnitProps = {
     cidade: cidadeProps
     galeria: ImagemProps[]
     capa: ImagemProps
-    tags: tagsProps
     escritorio: {
       nome: string
     }
@@ -69,7 +61,6 @@ export type ProjetosProps = {
     cidade: cidadeProps
     galeria: ImagemProps[]
     capa: ImagemProps
-    tags: tagsProps
     prioridade: number
     destaque: boolean
     escritorio: {

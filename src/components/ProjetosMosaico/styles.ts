@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import { OnProjectProps } from '.'
 
 export const FichaTecnica = styled.div`
   display: flex;
   flex-direction: column;
   color: ${(props) => props.theme.colors.overlayTxt};
-  margin: 0 auto 2em 2rem;
+  margin: 0 auto 2rem 2rem;
   opacity: 0;
   transition: opacity 0.2s linear;
   position: absolute;
@@ -86,13 +87,12 @@ export const FotoContainer = styled.div`
     bottom: 0;
   }
 `
-export const Container = styled.div`
-  margin-top: 5rem;
-  padding-top: 10rem;
+export const Container = styled.div<OnProjectProps>`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   & > ${FotoContainer} {
     margin: 10px;
   }
+  padding-top: ${(props) => props.project ? '1rem' : '0'}
 `
