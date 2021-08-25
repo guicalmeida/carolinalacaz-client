@@ -8,8 +8,8 @@ const EnsaioHeader = ({ EnsaioUnit }: EnsaioUnitProps) => {
     <S.Container>
       <EnsTitle>{EnsaioUnit?.nome ? EnsaioUnit.nome : ''}</EnsTitle>
       <S.Subtitle>
-        {EnsaioUnit?.cidade?.nome ? EnsaioUnit.cidade.nome : ''}
-        {EnsaioUnit?.ano?.ano ? ', ' + EnsaioUnit.ano.ano : ''}
+        {EnsaioUnit?.cidade?.nome ? EnsaioUnit.cidade.nome + ', ' : ''}
+        {EnsaioUnit?.ano?.ano ? EnsaioUnit.ano.ano : ''}
       </S.Subtitle>
       <S.Description>
         {EnsaioUnit?.descricaoCurta

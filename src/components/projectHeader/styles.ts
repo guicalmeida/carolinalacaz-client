@@ -9,7 +9,7 @@ export const ProjectsInfosDiv = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  width: 73%;
+  max-width: 80rem;
 
   @media (max-width: 767px) {
     flex-direction: column;

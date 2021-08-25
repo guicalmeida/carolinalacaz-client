@@ -16,16 +16,22 @@ const Publicacoes = ({ publicacaos }: PublicacoesProps) => (
     <div>
       <ContentContainer>
         <Spacer />
-        <S.ToPremios>
-          <InternalLink page="/premios" useDark={true}>
-            ou clique aqui para ver prêmios
-          </InternalLink>
-        </S.ToPremios>
         <S.IndiceWrapper>
-          <TituloLight>Publicações</TituloLight>
-          <PublicacaoIndex publicacaos={publicacaos} />
+          <S.HeaderWrapper>
+            <TituloLight>Publicações</TituloLight>
+            <S.ToPremios>
+              <InternalLink page="/premios" useDark={true}>
+                ou clique aqui para ver prêmios
+              </InternalLink>
+            </S.ToPremios>
+          </S.HeaderWrapper>
+
+          <div className="pubImpressa">
+            <S.TituloImpresso>Publicações impressas</S.TituloImpresso>
+            <PublicacaoIndex publicacaos={publicacaos} />
+          </div>
           <S.DigitalLink href="#digitalLink">
-            <S.DigitalTxt>Publicações digitais</S.DigitalTxt>
+            <S.DigitalTxt>Ou vá direto para publicações digitais</S.DigitalTxt>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"

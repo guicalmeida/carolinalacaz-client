@@ -10,5 +10,6 @@ export const Container = styled.div`
     max-height: 85vh;
     object-fit: contain;
     max-width: 90%;
+    pointer-events: none;
   }
 `

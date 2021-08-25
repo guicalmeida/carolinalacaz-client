@@ -39,22 +39,26 @@ const campos = [
 
 const Orcamento = () => {
   return (
-    <S.Container>
-      <S.HeaderWrapper>
-        <TituloSemibold>
-          ORÇAMENTO PARA ENSAIO FOTOGRÁFICO DE ARQUITETURA
-        </TituloSemibold>
+    <>
+      <S.Container>
+        <S.HeaderWrapper>
+          <TituloSemibold>
+            ORÇAMENTO PARA ENSAIO FOTOGRÁFICO DE ARQUITETURA
+          </TituloSemibold>
+        </S.HeaderWrapper>
+        <S.FormWrapper>
+          <Form fields={campos} formName="Orçamento" />
+        </S.FormWrapper>
+      </S.Container>
+      <S.ChangePageContainer>
         <TextoCorrido>
           Buscando a consulta de disponibilidade de obras?{' '}
           <InternalLink page="/contato" useDark={true}>
             Clique aqui
           </InternalLink>
         </TextoCorrido>
-      </S.HeaderWrapper>
-      <S.FormWrapper>
-        <Form fields={campos} formName="Orçamento" />
-      </S.FormWrapper>
-    </S.Container>
+      </S.ChangePageContainer>
+    </>
   )
 }
 

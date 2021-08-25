@@ -1,39 +1,16 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: flex-start;
-  padding-top: 15rem;
-  min-height: 100vh;
-  @media (max-width: 767px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-`
-
-export const SiteColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 5rem;
+  margin: 5rem 5rem 20rem 5rem;
 
   @media (max-width: 767px) {
-    margin-bottom: 3rem;
+    margin: 1rem;
   }
-`
 
-export const SiteTitle = styled.h3`
-  font-weight: 600;
-  font-size: 3rem;
-  text-align: center;
-  @media (max-width: 767px) {
-    margin-bottom: 1rem;
+  & .accTitle {
+    font-weight: 600;
+    font-size: 2rem;
   }
-  margin-bottom: 2rem;
 `
 
 export const SiteLinkDiv = styled.div`
@@ -45,12 +22,19 @@ export const SiteLinkDiv = styled.div`
 
 export const SiteLink = styled.a`
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-decoration: underline;
-  text-align: center;
   margin: 1rem;
 
   @media (min-width: 768px) {
     width: 35rem;
   }
+`
+export const Titulo = styled.h2`
+  text-align: center;
+  margin: 0 auto;
+  font-weight: 600;
+  padding-top: 4rem;
+  text-align: center;
+  font-size: 2.5rem;
 `

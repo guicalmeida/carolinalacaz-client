@@ -5,12 +5,16 @@ import parse from 'html-react-parser'
 import * as S from './style'
 import Foto from 'components/Foto'
 import Spacer from 'components/NavbarSpacer'
+import useWindowSize from 'hooks/useWindowResize'
 
 const Sobre = ({ sobre }: SobreProps) => {
+  const { width } = useWindowSize()
+  const isMobile = width! < 768
+
   return (
     <S.Container>
       <S.BioWrapper>
-        <Spacer />
+        {isMobile && <Spacer />}
         <TituloLight>{sobre?.nome ? sobre.nome : ''}</TituloLight>
         <TextoCorrido>{parse(`${sobre.descricao}`)}</TextoCorrido>
       </S.BioWrapper>

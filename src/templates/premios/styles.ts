@@ -12,9 +12,13 @@ export const IndiceWrapper = styled.div`
   justify-content: space-between;
   min-height: calc(100vh - 10rem);
 
+  & > .pubImpressa {
+    flex-grow: 0.6;
+  }
+
   & > h1 {
     text-align: center;
-    font-size: clamp(4.5rem, 14vw, 8rem);
+    font-size: 6rem;
     @media (max-width: 767px) {
       margin-bottom: 2rem;
     }
@@ -28,7 +32,7 @@ export const Background = styled.div<BackgroundProps>`
   background-repeat: no-repeat;
   background-attachment: fixed;
   z-index: 0;
-  background-position: bottom;
+  background-position: center;
   position: relative;
 
   & * {
@@ -52,7 +56,7 @@ export const Background = styled.div<BackgroundProps>`
 export const ToPremios = styled.div`
   padding-bottom: 2rem;
   font-size: 1.5rem;
-  position: absolute;
+
   @media (max-width: 767px) {
     top: 20rem;
     text-align: center;
@@ -69,9 +73,8 @@ export const ToPremios = styled.div`
 `
 export const DigitalTxt = styled.h2`
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 2.5rem;
   padding-right: 2rem;
-  font-size: clamp(2.2rem, 5vw, 3rem);
 `
 
 export const DigitalLink = styled.a`
@@ -83,4 +86,8 @@ export const DigitalLink = styled.a`
 
 export const Filler = styled.div`
   height: 10vh;
+`
+
+export const HeaderWrapper = styled.div`
+  text-align: center;
 `

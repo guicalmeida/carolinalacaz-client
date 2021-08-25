@@ -10,6 +10,7 @@ export const PicWrapper = styled.div`
   & > img {
     object-fit: contain;
     display: block;
+    pointer-events: none;
   }
 `
 export const MasonryGrid = styled(Masonry)`

@@ -71,10 +71,22 @@ export const Ico = styled.a`
     width: 100%;
     height: 100%;
   }
+
+  & > .mailIco {
+    fill: ${(props) => props.theme.colors.txt};
+    width: 80%;
+    height: 80%;
+    padding-top: 1px;
+  }
 `
 
 export const MenuHolder = styled.div`
   display: flex;
   align-items: center;
   transition: 300ms;
+`
+
+export const iconHolder = styled.div`
+  display: flex;
+  align-items: center;
 `

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const HeaderWrapper = styled.div`
   width: 40vw;
   margin: auto;
-  height: 100vh;
+  height: 96vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,6 +17,11 @@ export const HeaderWrapper = styled.div`
     text-decoration: underline;
   }
 
+  & h1 {
+    max-width: 50rem;
+    margin-left: auto;
+  }
+
   @media (max-width: 767px) {
     width: 90vw;
     justify-content: flex-start;
@@ -26,6 +31,7 @@ export const HeaderWrapper = styled.div`
     & h1 {
       font-size: 2.5rem;
       text-align: center;
+      margin-bottom: 2rem;
     }
 
     & > div {
@@ -54,4 +60,10 @@ export const Container = styled.div`
   display: flex;
   overflow: hidden;
   flex-wrap: wrap;
+`
+
+export const ChangePageContainer = styled.div`
+  & > div {
+    text-align: center;
+  }
 `

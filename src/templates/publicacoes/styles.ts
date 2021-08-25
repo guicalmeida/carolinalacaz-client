@@ -12,12 +12,8 @@ export const IndiceWrapper = styled.div`
   justify-content: space-between;
   min-height: calc(100vh - 10rem);
 
-  & > h1 {
-    text-align: center;
-    font-size: clamp(4.5rem, 14vw, 8rem);
-    @media (max-width: 767px) {
-      margin-bottom: 2rem;
-    }
+  & > .pubImpressa {
+    flex-grow: 0.6;
   }
 `
 export const Background = styled.div<BackgroundProps>`
@@ -28,7 +24,7 @@ export const Background = styled.div<BackgroundProps>`
   background-repeat: no-repeat;
   background-attachment: fixed;
   z-index: 0;
-  background-position: bottom;
+  background-position: center;
   position: relative;
 
   & * {
@@ -52,7 +48,7 @@ export const Background = styled.div<BackgroundProps>`
 export const ToPremios = styled.div`
   padding-bottom: 2rem;
   font-size: 1.5rem;
-  position: absolute;
+
   @media (max-width: 767px) {
     top: 20rem;
     text-align: center;
@@ -69,9 +65,14 @@ export const ToPremios = styled.div`
 `
 export const DigitalTxt = styled.h2`
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 2.5rem;
   padding-right: 2rem;
-  font-size: clamp(2.2rem, 5vw, 3rem);
+
+  @media (max-width: 767px) {
+    font-size: 1.8rem;
+    text-align: center;
+    padding-right: 0;
+  }
 `
 
 export const DigitalLink = styled.a`
@@ -79,4 +80,30 @@ export const DigitalLink = styled.a`
   align-items: center;
   justify-content: center;
   padding-bottom: 2rem;
+
+  @media (max-width: 767px) {
+    margin: 3rem;
+  }
+`
+export const TituloImpresso = styled.h2`
+  font-weight: 600;
+  padding-bottom: 4rem;
+  text-align: center;
+  font-size: 2.5rem;
+
+  @media (max-width: 767px) {
+    font-size: 1.8rem;
+  }
+`
+
+export const HeaderWrapper = styled.div`
+  text-align: center;
+
+  & > h1 {
+    text-align: center;
+    font-size: 6rem;
+    @media (max-width: 767px) {
+      font-size: 4rem;
+    }
+  }
 `

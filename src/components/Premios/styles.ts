@@ -67,7 +67,7 @@ export const PremioDesc = styled.h3`
 `
 
 export const SliderWrapper = styled.div`
-  width: 50vw;
+  width: 70rem;
   margin: 0 auto;
 
   @media (max-width: 767px) {
@@ -114,4 +114,5 @@ export const Image = styled.img`
   width: 100%;
   max-height: 75vh;
   object-fit: contain;
+  pointer-events: none;
 `

@@ -20,6 +20,7 @@ export const Pic = styled.img`
   width: 100%;
   object-fit: contain;
   display: block;
+  pointer-events: none;
 `
 export const PicWrapper = styled.div<OverlayProps>`
   position: relative;

@@ -9,7 +9,7 @@ export type OverlayProps = {
 export const ProjectMasonry = ({ ProjetoUnit }: ProjetoUnitProps) => {
   const breakpointColumnsObj = {
     default: 2,
-    500: 1
+    768: 1
   }
 
   return (

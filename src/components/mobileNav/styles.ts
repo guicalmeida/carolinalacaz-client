@@ -101,6 +101,13 @@ export const Ico = styled.a`
     width: 25px;
     height: 25px;
   }
+
+  & > .mailIco {
+    fill: ${(props) => props.theme.colors.txt};
+    width: 10%;
+    padding-bottom: 3.8px;
+    padding-left: 16px;
+  }
 `
 export const LogoWrapper = styled.div`
   width: 14rem;
@@ -149,4 +156,9 @@ export const Lupa = styled.a`
     stroke-linejoin: round;
     transform: rotate(270deg);
   }
+`
+
+export const iconHolder = styled.div`
+  display: flex;
+  align-items: center;
 `

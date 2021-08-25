@@ -24,20 +24,24 @@ const campos = [
 
 const Contato = () => {
   return (
-    <S.Container>
-      <S.HeaderWrapper>
-        <TituloSemibold>CONSULTA DE DISPONIBILIDADE DE OBRAS</TituloSemibold>
+    <>
+      <S.Container>
+        <S.HeaderWrapper>
+          <TituloSemibold>CONSULTA DE DISPONIBILIDADE DE OBRAS</TituloSemibold>
+        </S.HeaderWrapper>
+        <S.FormWrapper>
+          <Form fields={campos} formName="contato" />
+        </S.FormWrapper>
+      </S.Container>
+      <S.ChangePageContainer>
         <TextoCorrido>
           Buscando orçamento para ensaio de arquitetura?{' '}
           <InternalLink page="/orcamento" useDark={false}>
             Clique aqui
           </InternalLink>
         </TextoCorrido>
-      </S.HeaderWrapper>
-      <S.FormWrapper>
-        <Form fields={campos} formName="contato" />
-      </S.FormWrapper>
-    </S.Container>
+      </S.ChangePageContainer>
+    </>
   )
 }
 

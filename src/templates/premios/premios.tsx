@@ -16,13 +16,15 @@ const Premios = ({ premios }: PremioProps) => {
       <div>
         <ContentContainer>
           <Spacer />
-          <S.ToPremios>
-            <InternalLink page="/publicacoes" useDark={false}>
-              ou clique aqui para ver publicações
-            </InternalLink>
-          </S.ToPremios>
           <S.IndiceWrapper>
-            <TituloLight>Prêmios</TituloLight>
+            <S.HeaderWrapper>
+              <TituloLight>Prêmios</TituloLight>
+              <S.ToPremios>
+                <InternalLink page="/publicacoes" useDark={false}>
+                  ou clique aqui para ver publicações
+                </InternalLink>
+              </S.ToPremios>
+            </S.HeaderWrapper>
             <PremiosIndex premios={premios} />
             <S.Filler />
           </S.IndiceWrapper>

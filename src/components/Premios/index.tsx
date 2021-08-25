@@ -2,13 +2,14 @@ import { PremioProps } from 'types/api'
 import * as S from './styles'
 
 const Premio = ({ premios }: PremioProps) => {
-  const color = false
+  let color = false
 
   return (
     <S.PremiosWrapper>
       {premios
         .sort((a, b) => (a.ano?.ano > b.ano?.ano ? -1 : 1))
         .map((premio) => {
+          color = !color
           return (
             <S.Background
               imgSrc={
