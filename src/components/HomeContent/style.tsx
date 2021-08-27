@@ -42,9 +42,9 @@ export const Card = styled.div`
     }
   }
   @media (min-width: 768px) {
-    max-width: 55rem;
+    max-width: 42%;
     min-width: 30rem;
-    max-height: 40rem;
+    max-height: 45rem;
     min-height: 30rem;
   }
 `
@@ -56,6 +56,10 @@ export const Container = styled.div`
   margin: auto;
   @media (max-width: 767px) {
     padding-top: 6rem;
+  }
+
+  @media (min-width: 768px){
+    width: 100%;
   }
 
   &:hover .card {
