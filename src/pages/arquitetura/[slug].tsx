@@ -1,19 +1,26 @@
 import ArqNav from 'components/ArqNav'
 import client from 'graphql/client'
 import GET_ENSAIOS from 'graphql/queries/getEnsaios'
+import GET_PLUS from 'graphql/queries/getPlus'
 import GET_PROJETOS from 'graphql/queries/getProjetos'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { EnsaiosProps, ProjetosProps, ProjetoUnitProps } from 'types/api'
+import {
+  EnsaiosProps,
+  PlusProps,
+  ProjetosProps,
+  ProjetoUnitProps
+} from 'types/api'
 import Projeto from '../../templates/projeto'
 
 export default function projeto({
   projetos,
   ensaios,
-  ProjetoUnit
-}: ProjetosProps & ProjetoUnitProps & EnsaiosProps) {
+  ProjetoUnit,
+  plus
+}: ProjetosProps & ProjetoUnitProps & EnsaiosProps & PlusProps) {
   return (
     <div>
-      <ArqNav ensaios={ensaios} projetos={projetos} />
+      <ArqNav ensaios={ensaios} projetos={projetos} plus={plus} />
       <Projeto projetos={projetos} ProjetoUnit={ProjetoUnit} />
     </div>
   )
@@ -33,6 +40,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { projetos } = await client.request(GET_PROJETOS)
   const { ensaios } = await client.request(GET_ENSAIOS)
+  const { plus } = await client.request(GET_PLUS)
 
   const ProjetoUnit = projetos.find(
     (projeto: { slug: string | string[] | undefined }) =>
@@ -43,7 +51,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       ProjetoUnit,
       ensaios,
-      projetos
+      projetos,
+      plus
     }
   }
 }

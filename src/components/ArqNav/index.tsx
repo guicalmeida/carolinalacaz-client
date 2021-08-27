@@ -1,9 +1,13 @@
 import MobileNav from 'components/mobileNav'
 import Nav from 'components/navbar'
 import { useTheme } from 'hooks/theme'
-import { EnsaiosProps, ProjetosProps } from 'types/api'
+import { EnsaiosProps, PlusProps, ProjetosProps } from 'types/api'
 
-const ArqNav = ({ ensaios, projetos }: ProjetosProps & EnsaiosProps) => {
+const ArqNav = ({
+  ensaios,
+  projetos,
+  plus
+}: ProjetosProps & EnsaiosProps & PlusProps) => {
   const { turnDark, turnLight } = useTheme()
   const handleToDark = () => {
     turnDark()
@@ -24,11 +28,6 @@ const ArqNav = ({ ensaios, projetos }: ProjetosProps & EnsaiosProps) => {
       link: '/ensaios'
     },
     {
-      text: '+++',
-      onClick: handleToDark,
-      link: '/plus'
-    },
-    {
       text: 'Sobre',
       onClick: handleToLight,
       link: '/sobre'
@@ -44,6 +43,13 @@ const ArqNav = ({ ensaios, projetos }: ProjetosProps & EnsaiosProps) => {
       link: '/orcamento'
     }
   ]
+
+  plus.turn &&
+    items.splice(2, 0, {
+      text: '+++',
+      onClick: handleToDark,
+      link: '/plus'
+    })
 
   return (
     <div>

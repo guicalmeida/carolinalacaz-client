@@ -88,6 +88,7 @@ export type PlusProps = {
       cidade: cidadeProps
       foto: ImagemProps
     }[]
+    turn: boolean
   }
 }
 

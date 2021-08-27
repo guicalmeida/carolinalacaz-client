@@ -14,7 +14,7 @@ export default function plus({
 }: PlusProps & ProjetosProps & EnsaiosProps) {
   return (
     <div>
-      <EnsNav ensaios={ensaios} projetos={projetos} />
+      <EnsNav ensaios={ensaios} projetos={projetos} plus={plus} />
       <Plus plus={plus} />
     </div>
   )
