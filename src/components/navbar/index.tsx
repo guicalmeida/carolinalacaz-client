@@ -52,8 +52,9 @@ const Nav = ({
             </svg>
           </S.Ico>
           <S.Ico
-            href="mailto:fotografia@carolinalacaz.com.br"
-            rel="noopener noreferrer"
+            href={
+              'mailto:fotografia@carolinalacaz.com?subject=Contato%20-%20Carolina%20Lacaz%20%7C%20Fotografia&body=%0D%0A________%0D%0Aacessado%20via%20https%3A%2F%2Fcarolinalacaz.com'
+            }
             target="_blank"
           >
             <svg
