@@ -19,9 +19,9 @@ export const Item = styled.li`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 767px){
-  align-items: center;
-  margin: 2rem 0;
+  @media (max-width: 767px) {
+    align-items: center;
+    margin: 2rem 0;
   }
 `
 
@@ -85,6 +85,7 @@ export const DropdownItem = styled.a`
   text-align: center;
   padding: 5px 16px;
   margin-bottom: 1rem;
+  cursor: pointer;
 
   &.active {
     background-color: #373435;
@@ -92,9 +93,17 @@ export const DropdownItem = styled.a`
     text-align: center;
     border-radius: 15px;
   }
+
+  &.blocked {
+    pointer-events: none;
+    background-color: #ededed;
+    color: #d3d3d3;
+    border-radius: 30px;
+  }
 `
 
 export const Dropdown = styled.div<FilterObjectProps>`
+  cursor: default;
   @media (min-width: 768px) {
     display: flex;
     position: absolute;
@@ -115,7 +124,7 @@ export const Dropdown = styled.div<FilterObjectProps>`
     border-bottom-right-radius: 18px;
   }
 
-  @media (max-width: 767px){
+  @media (max-width: 767px) {
     display: ${(props) => (props.active ? 'flex' : 'none')};
     flex-direction: row;
     flex-wrap: wrap;
@@ -134,13 +143,13 @@ export const Dropdown = styled.div<FilterObjectProps>`
 `
 export const Results = styled.div`
   position: absolute;
-  @media (min-width: 768px){  
+  @media (min-width: 768px) {
     width: 100%;
     z-index: 51;
     text-align: center;
   }
-  @media (max-width: 767px){
-    top: 5rem;
+  @media (max-width: 767px) {
+    top: 8.5rem;
     margin: 0 2rem;
     text-align: center;
   }
@@ -163,12 +172,29 @@ export const DialogContainer = styled.div`
 export const DialogOptions = styled.div``
 
 export const Close = styled.div`
-  @media (max-width: 767px){
+  @media (max-width: 767px) {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    & > svg {
+      width: 15px;
+    }
+  }
+`
+
+export const SeeResults = styled.button`
+  margin: 0 1rem;
+  width: max-content;
+  text-align: center;
+  padding: 1.2rem 3rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  background-color: ${(props) => props.theme.colors.button};
+  color: ${(props) => props.theme.colors.buttonTxt};
+  border: none;
+  border-radius: 10px;
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  & > svg {
-    width: 15px;
-  }
-  }
+  bottom: 2rem;
+  text-transform: lowercase;
+  font-weight: 600;
 `

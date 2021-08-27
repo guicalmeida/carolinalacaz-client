@@ -208,19 +208,38 @@ const FilterBarSecond = ({ projetos }: ProjetosProps) => {
             />
           </S.ItemContainer>
           <S.Dropdown active={active} name={name} values={values}>
-            {values.map((item) => (
-              <S.DropdownItem
-                key={item + counter}
-                onClick={() => selectedClickHandler(item, name)}
-                className={
-                  filtersChosen.some((a) => a.value.some((e) => e === item))
-                    ? 'active'
-                    : ''
-                }
-              >
-                {item}
-              </S.DropdownItem>
-            ))}
+            {values.map((item) => {
+              let ativo
+              const allFilters: string[] = []
+
+              filtersChosen.forEach((e) => {
+                e.value.forEach((i) => {
+                  allFilters.push(i)
+                })
+              })
+
+              const checkItem = () => {
+                return allFilters.some((a) => a === item)
+              }
+
+              if (allFilters.length === 1 && checkItem()) {
+                ativo = 'active'
+              } else if (allFilters.length === 1 && !checkItem()) {
+                ativo = 'blocked'
+              } else {
+                ativo = ''
+              }
+
+              return (
+                <S.DropdownItem
+                  key={item + counter}
+                  onClick={() => selectedClickHandler(item, name)}
+                  className={ativo}
+                >
+                  {item}
+                </S.DropdownItem>
+              )
+            })}
           </S.Dropdown>
         </S.Item>
       </div>
@@ -240,6 +259,8 @@ const FilterBarSecond = ({ projetos }: ProjetosProps) => {
             Filtrar Por
           </S.FilterBy>
         </a>
+        <S.Results>{renderedText}</S.Results>
+
         <Dialog fullScreen open={openDialog} onClose={handleClose}>
           <S.DialogContainer>
             <S.Close onClick={handleClose}>
@@ -252,7 +273,6 @@ const FilterBarSecond = ({ projetos }: ProjetosProps) => {
                 <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" />
               </svg>
             </S.Close>
-            <S.Results>{renderedText}</S.Results>
             <S.FilterBy>
               <S.Ico
                 className="iconify"
@@ -274,6 +294,11 @@ const FilterBarSecond = ({ projetos }: ProjetosProps) => {
                 )
               })}
             </S.DialogOptions>
+            {!!results?.length && (
+              <S.SeeResults
+                onClick={handleClose}
+              >{`ver ${results.length} resultados`}</S.SeeResults>
+            )}
           </S.DialogContainer>
         </Dialog>
       </S.MobileFilterContainer>

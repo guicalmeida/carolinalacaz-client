@@ -1,5 +1,2 @@
-<a href="mailto:fotografia@carolinalacaz.com.br">fotografia@carolinalacaz.com.br</a>
-
-- icone de e-mail
-- reposicionar link de ir para premios
-- centralizar tela de orçamentos
+ligar e desligar +++
+aumentar numero de prioridades
