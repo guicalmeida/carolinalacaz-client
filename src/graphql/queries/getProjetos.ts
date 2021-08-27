@@ -17,10 +17,6 @@ const GET_PROJETOS = /* GraphQL */ `
         name
         url
       }
-      tags {
-        nome
-        slug
-      }
       escritorio {
         nome
       }
