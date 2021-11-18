@@ -13,15 +13,7 @@ export const IndiceWrapper = styled.div`
   min-height: calc(100vh - 10rem);
 
   & > .pubImpressa {
-    flex-grow: 0.6;
-  }
-
-  & > h1 {
-    text-align: center;
-    font-size: 6rem;
-    @media (max-width: 767px) {
-      margin-bottom: 2rem;
-    }
+    flex-grow: 0.8;
   }
 `
 export const Background = styled.div<BackgroundProps>`
@@ -63,7 +55,7 @@ export const ToPremios = styled.div`
     width: 100vw;
 
     a {
-      color: #37343550;
+      color: #ffffff50;
     }
   }
   @media (min-width: 768px) {
@@ -71,23 +63,26 @@ export const ToPremios = styled.div`
     bottom: 0;
   }
 `
-export const DigitalTxt = styled.h2`
+
+export const TituloImpresso = styled.h2`
   font-weight: 600;
+  padding-bottom: 4rem;
+  text-align: center;
   font-size: 2.5rem;
-  padding-right: 2rem;
-`
 
-export const DigitalLink = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 2rem;
-`
-
-export const Filler = styled.div`
-  height: 10vh;
+  @media (max-width: 767px) {
+    font-size: 1.8rem;
+  }
 `
 
 export const HeaderWrapper = styled.div`
   text-align: center;
+
+  & > h1 {
+    text-align: center;
+    font-size: 6rem;
+    @media (max-width: 767px) {
+      font-size: 4rem;
+    }
+  }
 `

@@ -13,7 +13,7 @@ export const IndiceWrapper = styled.div`
   min-height: calc(100vh - 10rem);
 
   & > .pubImpressa {
-    flex-grow: 0.6;
+    flex-grow: 0.8;
   }
 `
 export const Background = styled.div<BackgroundProps>`

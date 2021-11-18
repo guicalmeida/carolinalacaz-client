@@ -9,6 +9,10 @@ export const ItemWrapper = styled.div`
 
 export const TxtDiv = styled.div`
   padding: 0 1.5rem;
+
+  @media (max-width: 767px) {
+    max-width: 60vw;
+  }
 `
 
 export const Title = styled.h2`
@@ -42,9 +46,10 @@ export const Container = styled.div`
 
 export const GridLayout = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-columns: repeat(auto-fit, 300px);
   grid-column-gap: 2rem;
   grid-row-gap: 1rem;
+  justify-content: center;
 
   @media (max-width: 767px) {
     grid-template-columns: 1fr;

@@ -25,11 +25,13 @@ const Premios = ({ premios }: PremioProps) => {
                 </InternalLink>
               </S.ToPremios>
             </S.HeaderWrapper>
-            <PremiosIndex premios={premios} />
-            <S.Filler />
+            <div className="pubImpressa">
+              <S.TituloImpresso>Publicações impressas</S.TituloImpresso>
+              <PremiosIndex premios={premios} />
+            </div>
           </S.IndiceWrapper>
-        </ContentContainer>
-        <Premio premios={premios} />
+          <Premio premios={premios} />
+        </ContentContainer>{' '}
       </div>
     </section>
   )
