@@ -7,6 +7,7 @@ export const HeaderWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 2rem;
   & > * {
     text-align: right;
   }
@@ -27,11 +28,12 @@ export const HeaderWrapper = styled.div`
     justify-content: flex-start;
     margin-top: 10rem;
     height: auto;
+    align-items: center;
 
     & h1 {
       font-size: 2.5rem;
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
 
     & > div {
@@ -63,7 +65,18 @@ export const Container = styled.div`
 `
 
 export const ChangePageContainer = styled.div`
+  padding: 0 20px;
+  @media (min-width: 768px) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
   & > div {
     text-align: center;
   }
+`
+
+export const Subtitulo = styled.p`
+  color: ${(props) => props.theme.colors.txt};
 `

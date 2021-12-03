@@ -45,6 +45,9 @@ const Orcamento = () => {
           <TituloSemibold>
             ORÇAMENTO PARA ENSAIO FOTOGRÁFICO DE ARQUITETURA
           </TituloSemibold>
+          <S.Subtitulo>
+            ou envie um e-mail para fotografia@carolinalacaz.com
+          </S.Subtitulo>
         </S.HeaderWrapper>
         <S.FormWrapper>
           <Form fields={campos} formName="Orçamento" />

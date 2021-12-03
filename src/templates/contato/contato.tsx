@@ -28,6 +28,9 @@ const Contato = () => {
       <S.Container>
         <S.HeaderWrapper>
           <TituloSemibold>CONSULTA DE DISPONIBILIDADE DE OBRAS</TituloSemibold>
+          <S.Subtitulo>
+            ou envie um e-mail para fotografia@carolinalacaz.com
+          </S.Subtitulo>
         </S.HeaderWrapper>
         <S.FormWrapper>
           <Form fields={campos} formName="contato" />

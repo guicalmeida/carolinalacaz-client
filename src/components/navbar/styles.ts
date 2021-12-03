@@ -1,25 +1,20 @@
 import styled from 'styled-components'
 
 export const Nav = styled.nav`
-  height: 8rem;
-  position: fixed;
-  display: none;
   z-index: 5;
-  width: 100vw;
   background-color: ${(props) => props.theme.colors.bg};
   color: ${(props) => props.theme.colors.txt};
   transition: 300ms;
-  top: 0;
-
-  @media (min-width: 1190px) {
-    height: 10rem;
-  }
+  display: none;
+  position: fixed;
+  top: 15px;
+  width: 100vw;
 
   @media (min-width: 768px) {
     display: flex;
     text-align: center;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
   }
 `
 export const List = styled.ul`
@@ -29,6 +24,10 @@ export const List = styled.ul`
   justify-content: center;
   list-style-type: none;
   transition: 300ms;
+
+  @media (min-width: 1340px) {
+    width: 720px;
+  }
 `
 
 export const LogoWrapper = styled.div`
@@ -70,13 +69,6 @@ export const Ico = styled.a`
     fill: ${(props) => props.theme.colors.txt};
     width: 100%;
     height: 100%;
-  }
-
-  & > .mailIco {
-    fill: ${(props) => props.theme.colors.txt};
-    width: 80%;
-    height: 80%;
-    padding-top: 1px;
   }
 `
 

@@ -51,23 +51,6 @@ const Nav = ({
               <path d="M335.9 447.9a112 112 0 110-224 112 112 0 010 224zm0-284.5a172.5 172.5 0 100 345 172.5 172.5 0 000-345m219.6-6.8a40.3 40.3 0 11-80.6 0 40.3 40.3 0 0180.6 0" />
             </svg>
           </S.Ico>
-          <S.Ico
-            href={
-              'mailto:fotografia@carolinalacaz.com?subject=Contato%20-%20Carolina%20Lacaz%20%7C%20Fotografia&body=%0D%0A________%0D%0Aacessado%20via%20https%3A%2F%2Fcarolinalacaz.com'
-            }
-            target="_blank"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              className="mailIco"
-            >
-              <path
-                fill="currentColor"
-                d="M16 112v384h480V112zm220.8 229.6a32.167 32.167 0 0038.4 0l23.467-17.6L464 448v16H48v-16l165.333-124zM256 316L48 160v-16h416v16zM48 200l138.667 104L48 408zm416 208L325.333 304 464 200z"
-              />
-            </svg>
-          </S.Ico>
         </S.iconHolder>
       </S.MenuHolder>
     </S.Nav>
