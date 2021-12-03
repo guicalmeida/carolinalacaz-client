@@ -27,6 +27,7 @@ export const List = styled.ul`
 
   @media (min-width: 1340px) {
     width: 720px;
+    padding-left: 100px;
   }
 `
 
