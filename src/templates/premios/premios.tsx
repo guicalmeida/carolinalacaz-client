@@ -26,7 +26,6 @@ const Premios = ({ premios }: PremioProps) => {
               </S.ToPremios>
             </S.HeaderWrapper>
             <div className="pubImpressa">
-              <S.TituloImpresso>Publicações impressas</S.TituloImpresso>
               <PremiosIndex premios={premios} />
             </div>
           </S.IndiceWrapper>
