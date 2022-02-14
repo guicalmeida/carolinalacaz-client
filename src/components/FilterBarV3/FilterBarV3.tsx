@@ -16,7 +16,6 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
   const [selectedPlaces, setSelectedPlaces] = useState([])
 
   const filterHelper = (selectedFilterName, value) => {
-    console.log(selectedFilterName, value)
     if (selectedFilterName === 'Ano') {
       const newValue = selectedYears.includes(value.toString())
         ? removeValue(selectedYears, value.toString())
@@ -74,7 +73,7 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
     ].filter((a) => !!a)
 
     textArray.length > 0
-      ? setRenderedText(`${textArray.join('    //    ')}`)
+      ? setRenderedText(`${textArray.join('   //   ')}`)
       : setRenderedText('')
   }, [projetos, selectedPlaces, selectedTypes, selectedYears])
 
@@ -157,7 +156,27 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
             Filtrar Por
           </S.FilterBy>
         </a>
-        <S.Results>{renderedText}</S.Results>
+        <S.Results>
+          {renderedText ? (
+            <S.FilterTextContainer>
+              <div style={{ display: 'flex' }}>
+                <S.Bold>Filtros ativos:</S.Bold>
+                <pre> {renderedText}</pre>
+              </div>
+              <S.RemoveAll
+                onClick={() => {
+                  setSelectedPlaces([])
+                  setSelectedYears([])
+                  setSelectedTypes([])
+                }}
+              >
+                remover filtros
+              </S.RemoveAll>
+            </S.FilterTextContainer>
+          ) : (
+            ''
+          )}
+        </S.Results>
         <Dialog fullScreen open={openDialog} onClose={handleClose}>
           <S.DialogContainer>
             <S.Close onClick={handleClose}>

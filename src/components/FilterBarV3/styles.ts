@@ -174,15 +174,17 @@ export const Results = styled.div`
     text-align: center;
   }
   @media (max-width: 767px) {
-    top: 8.5rem;
-    margin: 0 2rem;
+    position: relative;
     text-align: center;
   }
 `
 export const MobileFilterContainer = styled.div`
   padding-top: 11rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+
   margin-bottom: 1rem;
 `
 
@@ -225,6 +227,22 @@ export const RemoveAll = styled.a`
 export const FilterTextContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  & > div > pre {
+    white-space: pre-wrap;
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    justify-content: center;
+
+    & > div {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
 `
 
 export const DialogDrop = styled.div`
