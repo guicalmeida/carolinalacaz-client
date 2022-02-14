@@ -53,23 +53,25 @@ export type ProjetoUnitProps = {
 }
 
 export type ProjetosProps = {
-  projetos: {
+  projetos: Projeto[]
+}
+
+export interface Projeto {
+  nome: string
+  descricao: string
+  slug: string
+  ano: anoProps
+  cidade: cidadeProps
+  galeria: ImagemProps[]
+  capa: ImagemProps
+  prioridade: number
+  destaque: boolean
+  escritorio: {
     nome: string
-    descricao: string
-    slug: string
-    ano: anoProps
-    cidade: cidadeProps
-    galeria: ImagemProps[]
-    capa: ImagemProps
-    prioridade: number
-    destaque: boolean
-    escritorio: {
-      nome: string
-    }
-    tipo: {
-      nome: string
-    }
-  }[]
+  }
+  tipo: {
+    nome: string
+  }
 }
 
 export type SobreProps = {
