@@ -1,5 +1,7 @@
+import ProjetosMosaico from 'components/ProjetosMosaico'
 import React, { useEffect, useState } from 'react'
-import { ProjetosProps } from 'types/api'
+import slugify from 'slugify'
+import { Projeto, ProjetosProps } from 'types/api'
 import * as S from './styles'
 
 const FilterBarV3 = ({ projetos }: ProjetosProps) => {
@@ -40,7 +42,7 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
 
   //react to filters change
   useEffect(() => {
-    const newProjects = []
+    const newProjects: Projeto[] = []
 
     projetos.forEach((project) => {
       const isProjectInSelectedYear =
@@ -66,9 +68,8 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
         newProjects.push(project)
       }
     })
-
-    console.log(newProjects)
-  }, [selectedPlaces, selectedTypes, selectedYears])
+    setFilteredProjects(newProjects)
+  }, [projetos, selectedPlaces, selectedTypes, selectedYears])
 
   //Unique items for each filter
   const projetosYear = Array.from(
@@ -152,7 +153,7 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
                       ?.values.map((value) => {
                         return (
                           <S.DropdownItem
-                            key={value}
+                            key={slugify(String(value))}
                             onClick={() => {
                               filterHelper(selectedFilterName, value)
                             }}
@@ -175,6 +176,7 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
           })}
         </S.FilterContainer>
       </S.FilterBar>
+      <ProjetosMosaico projetos={filteredProjects} project={false} />
     </div>
   )
 }
