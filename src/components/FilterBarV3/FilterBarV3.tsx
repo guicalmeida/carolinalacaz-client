@@ -15,14 +15,14 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
     return Array.from(new Set(newValue))
   }
 
-  const filterHelper = (selectedFilter, value) => {
-    if (selectedFilter === 'Ano') {
+  const filterHelper = (selectedFilterName, value) => {
+    if (selectedFilterName === 'Ano') {
       const uniqueValues = getUniqueValues(selectedYears, value)
       setSelectedYears(uniqueValues)
-    } else if (selectedFilter === 'Tipo') {
+    } else if (selectedFilterName === 'Tipo') {
       const uniqueValues = getUniqueValues(selectedTypes, value)
       setSelectedTypes(uniqueValues)
-    } else if (selectedFilter === 'Cidade') {
+    } else if (selectedFilterName === 'Cidade') {
       const uniqueValues = getUniqueValues(selectedPlaces, value)
       setSelectedPlaces(uniqueValues)
     }
@@ -99,7 +99,8 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
   ]
 
   const [dropdownOpen, setDropdownOpen] = useState(false)
-  const [selectedFilter, setSelectedFilter] = useState('')
+  const [selectedFilterName, setSelectedFilterName] = useState('')
+  const [itemActive, setItemActive] = useState(false)
 
   return (
     <div>
@@ -120,11 +121,11 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
                 <S.Item>
                   <S.ItemContainer
                     onClick={() => {
-                      if (selectedFilter === item.name) {
+                      if (selectedFilterName === item.name) {
                         setDropdownOpen(false)
-                        setSelectedFilter('')
+                        setSelectedFilterName('')
                       } else {
-                        setSelectedFilter(item.name)
+                        setSelectedFilterName(item.name)
                         setDropdownOpen(true)
                       }
                     }}
@@ -138,14 +139,22 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
                   </S.ItemContainer>
                   <S.Dropdown className={dropdownOpen ? 'active' : ''}>
                     {filtersObject
-                      .find((e) => e.name === selectedFilter)
+                      .find((e) => e.name === selectedFilterName)
                       ?.values.map((value) => {
                         return (
                           <S.DropdownItem
                             key={value}
                             onClick={() => {
-                              filterHelper(selectedFilter, value)
+                              filterHelper(selectedFilterName, value)
+                              setItemActive(!itemActive)
                             }}
+                            className={
+                              selectedYears.includes(value) ||
+                              selectedPlaces.includes(value) ||
+                              selectedTypes.includes(value)
+                                ? 'active'
+                                : ''
+                            }
                           >
                             {value}
                           </S.DropdownItem>

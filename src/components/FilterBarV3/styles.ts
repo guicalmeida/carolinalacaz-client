@@ -107,7 +107,7 @@ export const Dropdown = styled.div`
     display: flex;
     position: absolute;
     left: -1px;
-    top: 6.6rem;
+    top: 6rem;
     box-sizing: border-box;
     width: 720px;
     flex-wrap: wrap;
