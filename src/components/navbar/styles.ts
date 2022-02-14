@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
 export const Nav = styled.nav`
-  z-index: 5;
+  z-index: 200;
   background-color: ${(props) => props.theme.colors.bg};
   color: ${(props) => props.theme.colors.txt};
   transition: 300ms;
   display: none;
   position: fixed;
-  top: 15px;
+  top: 0;
+  padding: 15px 5px;
   width: 100vw;
 
   @media (min-width: 768px) {
