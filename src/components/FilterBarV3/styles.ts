@@ -50,8 +50,8 @@ export const FilterContainer = styled.div`
   border: 1px solid #373435;
   margin-bottom: 7rem;
 
-  &.paddingBottom {
-    padding-bottom: 4rem;
+  &.active {
+    padding-bottom: 2.6rem;
   }
 `
 export const FilterBy = styled.div`
@@ -107,7 +107,7 @@ export const Dropdown = styled.div`
     display: flex;
     position: absolute;
     left: -1px;
-    top: 6rem;
+    top: 6.6rem;
     box-sizing: border-box;
     width: 720px;
     flex-wrap: wrap;

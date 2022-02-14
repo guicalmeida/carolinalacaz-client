@@ -1,5 +1,5 @@
 import ProjetosMosaico from 'components/ProjetosMosaico'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import slugify from 'slugify'
 import { Projeto, ProjetosProps } from 'types/api'
 import { getResultsText, getUniqueValues, removeValue } from './filterBarHelper'
@@ -116,6 +116,13 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [selectedFilterName, setSelectedFilterName] = useState('')
 
+  const dropdownRef = useRef(null as null | HTMLDivElement)
+  const [height, setHeight] = useState(0)
+  useEffect(() => {
+    const newHeight = dropdownRef.current.clientHeight || 0
+    setHeight(newHeight)
+  }, [selectedFilterName])
+
   return (
     <div>
       <S.FilterBar>
@@ -128,7 +135,10 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
             ''
           )}
         </S.Results>
-        <S.FilterContainer>
+        <S.FilterContainer
+          className={dropdownOpen ? 'active' : ''}
+          style={{ marginBottom: height }}
+        >
           <S.FilterBy>
             <S.Ico
               className="iconify"
@@ -159,7 +169,10 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
                       data-inline="false"
                     />
                   </S.ItemContainer>
-                  <S.Dropdown className={dropdownOpen ? 'active' : ''}>
+                  <S.Dropdown
+                    className={dropdownOpen ? 'active' : ''}
+                    ref={dropdownRef}
+                  >
                     {filtersObject
                       .find((e) => e.name === selectedFilterName)
                       ?.values.map((value) => {
