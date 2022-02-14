@@ -1,4 +1,6 @@
+import { Dialog } from '@material-ui/core'
 import ProjetosMosaico from 'components/ProjetosMosaico'
+import useWindowSize from 'hooks/useWindowResize'
 import React, { useEffect, useRef, useState } from 'react'
 import slugify from 'slugify'
 import { Projeto, ProjetosProps } from 'types/api'
@@ -14,6 +16,7 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
   const [selectedPlaces, setSelectedPlaces] = useState([])
 
   const filterHelper = (selectedFilterName, value) => {
+    console.log(selectedFilterName, value)
     if (selectedFilterName === 'Ano') {
       const newValue = selectedYears.includes(value.toString())
         ? removeValue(selectedYears, value.toString())
@@ -121,38 +124,30 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
   const dropdownRef = useRef(null as null | HTMLDivElement)
   const [height, setHeight] = useState(0)
   useEffect(() => {
-    const newHeight = dropdownRef.current.clientHeight || 0
-    setHeight(newHeight)
+    if (dropdownRef?.current?.clientHeight) {
+      const newHeight = dropdownRef.current.clientHeight || 0
+      setHeight(newHeight)
+    }
   }, [selectedFilterName])
 
-  return (
-    <div>
-      <S.FilterBar>
-        <S.Results>
-          {renderedText ? (
-            <S.FilterTextContainer>
-              <div style={{ display: 'flex' }}>
-                <S.Bold>Filtros ativos:</S.Bold>
-                <pre> {renderedText}</pre>
-              </div>
-              <S.RemoveAll
-                onClick={() => {
-                  setSelectedPlaces([])
-                  setSelectedYears([])
-                  setSelectedTypes([])
-                }}
-              >
-                remover filtros
-              </S.RemoveAll>
-            </S.FilterTextContainer>
-          ) : (
-            ''
-          )}
-        </S.Results>
-        <S.FilterContainer
-          className={dropdownOpen ? 'active' : ''}
-          style={{ marginBottom: height }}
-        >
+  //check mobile
+  const { width } = useWindowSize()
+  const isMobile = width! < 768
+
+  const [openDialog, setOpenDialog] = useState(false)
+
+  const handleClickOpen = () => {
+    setOpenDialog(true)
+  }
+
+  const handleClose = () => {
+    setOpenDialog(false)
+  }
+
+  const FullDialog = () => {
+    return (
+      <S.MobileFilterContainer>
+        <a onClick={handleClickOpen}>
           <S.FilterBy>
             <S.Ico
               className="iconify"
@@ -161,40 +156,40 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
             />
             Filtrar Por
           </S.FilterBy>
-          {filtersObject.map((item) => {
-            return (
-              <div key={item.name}>
-                <S.Item>
-                  <S.ItemContainer
-                    onClick={() => {
-                      if (selectedFilterName === item.name) {
-                        setDropdownOpen(false)
-                        setSelectedFilterName('')
-                      } else {
-                        setSelectedFilterName(item.name)
-                        setDropdownOpen(true)
-                      }
-                    }}
-                  >
-                    <p>{item.name}</p>
-                    <S.ArrowDown
-                      className="iconify"
-                      data-icon="dashicons:arrow-down-alt2"
-                      data-inline="false"
-                    />
-                  </S.ItemContainer>
-                  <S.Dropdown
-                    className={dropdownOpen ? 'active' : ''}
-                    ref={dropdownRef}
-                  >
-                    {filtersObject
-                      .find((e) => e.name === selectedFilterName)
-                      ?.values.map((value) => {
+        </a>
+        <S.Results>{renderedText}</S.Results>
+        <Dialog fullScreen open={openDialog} onClose={handleClose}>
+          <S.DialogContainer>
+            <S.Close onClick={handleClose}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" />
+              </svg>
+            </S.Close>
+            <S.FilterBy className="dialog">
+              <S.Ico
+                className="iconify"
+                data-icon="bx:bx-filter"
+                data-inline="false"
+              />
+              Filtrar Por
+            </S.FilterBy>
+            <S.DialogOptions>
+              {filtersObject.map((filter) => {
+                return (
+                  <S.DialogDrop key={filter.name}>
+                    <S.Bold>{filter.name}</S.Bold>
+                    <S.GridLayout className="active">
+                      {filter.values.map((value) => {
                         return (
                           <S.DropdownItem
                             key={slugify(String(value))}
                             onClick={() => {
-                              filterHelper(selectedFilterName, value)
+                              filterHelper(filter.name, value)
                             }}
                             className={
                               selectedYears.includes(value) ||
@@ -208,13 +203,117 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
                           </S.DropdownItem>
                         )
                       })}
-                  </S.Dropdown>
-                </S.Item>
-              </div>
-            )
-          })}
-        </S.FilterContainer>
-      </S.FilterBar>
+                    </S.GridLayout>
+                  </S.DialogDrop>
+                )
+              })}
+            </S.DialogOptions>
+            {!!renderedText && (
+              <S.ResultsButtonContainer>
+                <S.SeeResults
+                  onClick={handleClose}
+                >{`ver resultados`}</S.SeeResults>
+              </S.ResultsButtonContainer>
+            )}
+          </S.DialogContainer>
+        </Dialog>
+      </S.MobileFilterContainer>
+    )
+  }
+
+  return (
+    <div>
+      {!isMobile && (
+        <S.FilterBar>
+          <S.Results>
+            {renderedText ? (
+              <S.FilterTextContainer>
+                <div style={{ display: 'flex' }}>
+                  <S.Bold>Filtros ativos:</S.Bold>
+                  <pre> {renderedText}</pre>
+                </div>
+                <S.RemoveAll
+                  onClick={() => {
+                    setSelectedPlaces([])
+                    setSelectedYears([])
+                    setSelectedTypes([])
+                  }}
+                >
+                  remover filtros
+                </S.RemoveAll>
+              </S.FilterTextContainer>
+            ) : (
+              ''
+            )}
+          </S.Results>
+          <S.FilterContainer
+            className={dropdownOpen ? 'active' : ''}
+            style={{ marginBottom: height }}
+          >
+            <S.FilterBy>
+              <S.Ico
+                className="iconify"
+                data-icon="bx:bx-filter"
+                data-inline="false"
+              />
+              Filtrar Por
+            </S.FilterBy>
+            {filtersObject.map((item) => {
+              return (
+                <div key={item.name}>
+                  <S.Item>
+                    <S.ItemContainer
+                      onClick={() => {
+                        if (selectedFilterName === item.name) {
+                          setDropdownOpen(false)
+                          setSelectedFilterName('')
+                        } else {
+                          setSelectedFilterName(item.name)
+                          setDropdownOpen(true)
+                        }
+                      }}
+                    >
+                      <p>{item.name}</p>
+                      <S.ArrowDown
+                        className="iconify"
+                        data-icon="dashicons:arrow-down-alt2"
+                        data-inline="false"
+                      />
+                    </S.ItemContainer>
+                    <S.Dropdown
+                      className={dropdownOpen ? 'active' : ''}
+                      ref={dropdownRef}
+                    >
+                      {filtersObject
+                        .find((e) => e.name === selectedFilterName)
+                        ?.values.map((value) => {
+                          return (
+                            <S.DropdownItem
+                              key={slugify(String(value))}
+                              onClick={() => {
+                                filterHelper(selectedFilterName, value)
+                              }}
+                              className={
+                                selectedYears.includes(value) ||
+                                selectedPlaces.includes(value) ||
+                                selectedTypes.includes(value)
+                                  ? 'active'
+                                  : ''
+                              }
+                            >
+                              {value}
+                            </S.DropdownItem>
+                          )
+                        })}
+                    </S.Dropdown>
+                  </S.Item>
+                </div>
+              )
+            })}
+          </S.FilterContainer>
+        </S.FilterBar>
+      )}
+      {isMobile && <FullDialog />}
       <ProjetosMosaico projetos={filteredProjects} project={false} />
     </div>
   )

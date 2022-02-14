@@ -64,6 +64,11 @@ export const FilterBy = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 1.6rem;
+
+  &.dialog {
+    top: 36px;
+    position: absolute;
+  }
 `
 export const Ico = styled.span`
   width: 3.1rem;
@@ -98,6 +103,15 @@ export const DropdownItem = styled.a`
     background-color: #ededed;
     color: #d3d3d3;
     border-radius: 30px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `
 
@@ -176,11 +190,18 @@ export const DialogContainer = styled.div`
   margin-top: 10rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `
 
-export const DialogOptions = styled.div``
+export const DialogOptions = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 90%;
+  margin-bottom: 120px;
+`
 
 export const Close = styled.div`
   @media (max-width: 767px) {
@@ -191,23 +212,6 @@ export const Close = styled.div`
       width: 15px;
     }
   }
-`
-
-export const SeeResults = styled.button`
-  margin: 0 1rem;
-  width: max-content;
-  text-align: center;
-  padding: 1.2rem 3rem;
-  margin-bottom: 1rem;
-  cursor: pointer;
-  background-color: ${(props) => props.theme.colors.button};
-  color: ${(props) => props.theme.colors.buttonTxt};
-  border: none;
-  border-radius: 10px;
-  position: absolute;
-  bottom: 2rem;
-  text-transform: lowercase;
-  font-weight: 600;
 `
 
 export const Bold = styled.span`
@@ -221,4 +225,51 @@ export const RemoveAll = styled.a`
 export const FilterTextContainer = styled.div`
   display: flex;
   justify-content: space-between;
+`
+
+export const DialogDrop = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  width: 100%;
+  margin-top: 40px;
+
+  & > span {
+    margin-bottom: 20px;
+  }
+`
+
+export const GridLayout = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100px);
+  grid-column-gap: 2rem;
+  grid-row-gap: 1rem;
+  justify-content: center;
+`
+
+export const ResultsButtonContainer = styled.div`
+  background-color: ${(props) => props.theme.colors.bg};
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  box-shadow: 0px 3px 13px 0px #0000007d;
+`
+
+export const SeeResults = styled.button`
+  text-align: center;
+  padding: 1.2rem 3rem;
+  cursor: pointer;
+  background-color: ${(props) => props.theme.colors.button};
+  color: ${(props) => props.theme.colors.buttonTxt};
+  border: none;
+  border-radius: 10px;
+  text-transform: lowercase;
+  font-weight: 600;
+  height: 48px;
 `
