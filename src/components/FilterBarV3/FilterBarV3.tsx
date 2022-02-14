@@ -6,8 +6,8 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
   const [filteredProjects, setFilteredProjects] = useState([])
 
   const [selectedYears, setSelectedYears] = useState([])
-  const [selectedPlaces, setSelectedPlaces] = useState([])
   const [selectedTypes, setSelectedTypes] = useState([])
+  const [selectedPlaces, setSelectedPlaces] = useState([])
 
   const getUniqueValues = (array, value) => {
     const newValue = array.slice()
@@ -15,16 +15,26 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
     return Array.from(new Set(newValue))
   }
 
+  const removeValue = (array, value) => {
+    return array.filter((e) => e !== value)
+  }
+
   const filterHelper = (selectedFilterName, value) => {
     if (selectedFilterName === 'Ano') {
-      const uniqueValues = getUniqueValues(selectedYears, value)
-      setSelectedYears(uniqueValues)
+      const newValue = selectedYears.includes(value)
+        ? removeValue(selectedYears, value)
+        : getUniqueValues(selectedYears, value)
+      setSelectedYears(newValue)
     } else if (selectedFilterName === 'Tipo') {
-      const uniqueValues = getUniqueValues(selectedTypes, value)
-      setSelectedTypes(uniqueValues)
+      const newValue = selectedTypes.includes(value)
+        ? removeValue(selectedTypes, value)
+        : getUniqueValues(selectedTypes, value)
+      setSelectedTypes(newValue)
     } else if (selectedFilterName === 'Cidade') {
-      const uniqueValues = getUniqueValues(selectedPlaces, value)
-      setSelectedPlaces(uniqueValues)
+      const newValue = selectedPlaces.includes(value)
+        ? removeValue(selectedPlaces, value)
+        : getUniqueValues(selectedPlaces, value)
+      setSelectedPlaces(newValue)
     }
   }
 
@@ -35,17 +45,17 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
     projetos.forEach((project) => {
       const isProjectInSelectedYear =
         selectedYears.length > 0
-          ? selectedYears.includes(String(project.ano.ano))
+          ? selectedYears.includes(String(project?.ano?.ano))
           : true
 
       const isProjectInSelectedType =
         selectedTypes.length > 0
-          ? selectedTypes.includes(project.tipo.nome)
+          ? selectedTypes.includes(project?.tipo?.nome)
           : true
 
       const isProjectInSelectedPlace =
         selectedPlaces.length > 0
-          ? selectedPlaces.includes(project.cidade.nome)
+          ? selectedPlaces.includes(project?.cidade?.nome)
           : true
 
       if (
@@ -65,21 +75,21 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
     new Set(
       projetos
         .sort((a, b) => (a.ano?.ano > b.ano?.ano ? -1 : 1))
-        .map((projeto) => projeto.ano?.ano.toString())
+        .map((projeto) => projeto?.ano?.ano?.toString())
     )
   )
   const projetosType = Array.from(
     new Set(
       projetos
         .sort((a, b) => (a.tipo?.nome > b.tipo?.nome ? -1 : 1))
-        .map((projeto) => projeto.tipo?.nome)
+        .map((projeto) => projeto?.tipo?.nome)
     )
   )
   const projetosCities = Array.from(
     new Set(
       projetos
         .sort((a, b) => (a.cidade?.nome > b.cidade?.nome ? -1 : 1))
-        .map((projeto) => projeto.cidade?.nome)
+        .map((projeto) => projeto?.cidade?.nome)
     )
   )
 
@@ -100,7 +110,6 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
 
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [selectedFilterName, setSelectedFilterName] = useState('')
-  const [itemActive, setItemActive] = useState(false)
 
   return (
     <div>
@@ -146,7 +155,6 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
                             key={value}
                             onClick={() => {
                               filterHelper(selectedFilterName, value)
-                              setItemActive(!itemActive)
                             }}
                             className={
                               selectedYears.includes(value) ||
