@@ -8,6 +8,7 @@ import * as S from './styles'
 const FilterBarV3 = ({ projetos }: ProjetosProps) => {
   const [filteredProjects, setFilteredProjects] = useState([])
 
+  //handle filter clicks
   const [selectedYears, setSelectedYears] = useState([])
   const [selectedTypes, setSelectedTypes] = useState([])
   const [selectedPlaces, setSelectedPlaces] = useState([])
@@ -70,7 +71,7 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
     ].filter((a) => !!a)
 
     textArray.length > 0
-      ? setRenderedText(`${textArray.join(' // ')}`)
+      ? setRenderedText(`${textArray.join('    //    ')}`)
       : setRenderedText('')
   }, [projetos, selectedPlaces, selectedTypes, selectedYears])
 
@@ -116,6 +117,7 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [selectedFilterName, setSelectedFilterName] = useState('')
 
+  //variable filter margin
   const dropdownRef = useRef(null as null | HTMLDivElement)
   const [height, setHeight] = useState(0)
   useEffect(() => {
@@ -128,9 +130,21 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
       <S.FilterBar>
         <S.Results>
           {renderedText ? (
-            <p>
-              <S.Bold>Filtros ativos:</S.Bold> {renderedText}
-            </p>
+            <S.FilterTextContainer>
+              <div style={{ display: 'flex' }}>
+                <S.Bold>Filtros ativos:</S.Bold>
+                <pre> {renderedText}</pre>
+              </div>
+              <S.RemoveAll
+                onClick={() => {
+                  setSelectedPlaces([])
+                  setSelectedYears([])
+                  setSelectedTypes([])
+                }}
+              >
+                remover filtros
+              </S.RemoveAll>
+            </S.FilterTextContainer>
           ) : (
             ''
           )}

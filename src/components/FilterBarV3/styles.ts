@@ -155,7 +155,7 @@ export const Dropdown = styled.div`
 export const Results = styled.div`
   position: absolute;
   @media (min-width: 768px) {
-    width: 100%;
+    width: 700px;
     z-index: 51;
     text-align: center;
   }
@@ -212,4 +212,13 @@ export const SeeResults = styled.button`
 
 export const Bold = styled.span`
   font-weight: 600;
+`
+export const RemoveAll = styled.a`
+  font-weight: 600;
+  cursor: pointer;
+`
+
+export const FilterTextContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
