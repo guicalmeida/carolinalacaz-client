@@ -2,6 +2,7 @@ import ProjetosMosaico from 'components/ProjetosMosaico'
 import React, { useEffect, useState } from 'react'
 import slugify from 'slugify'
 import { Projeto, ProjetosProps } from 'types/api'
+import { getResultsText, getUniqueValues, removeValue } from './filterBarHelper'
 import * as S from './styles'
 
 const FilterBarV3 = ({ projetos }: ProjetosProps) => {
@@ -11,21 +12,11 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
   const [selectedTypes, setSelectedTypes] = useState([])
   const [selectedPlaces, setSelectedPlaces] = useState([])
 
-  const getUniqueValues = (array, value) => {
-    const newValue = array.slice()
-    newValue.push(value)
-    return Array.from(new Set(newValue))
-  }
-
-  const removeValue = (array, value) => {
-    return array.filter((e) => e !== value)
-  }
-
   const filterHelper = (selectedFilterName, value) => {
     if (selectedFilterName === 'Ano') {
-      const newValue = selectedYears.includes(value)
-        ? removeValue(selectedYears, value)
-        : getUniqueValues(selectedYears, value)
+      const newValue = selectedYears.includes(value.toString())
+        ? removeValue(selectedYears, value.toString())
+        : getUniqueValues(selectedYears, value.toString())
       setSelectedYears(newValue)
     } else if (selectedFilterName === 'Tipo') {
       const newValue = selectedTypes.includes(value)
@@ -39,6 +30,8 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
       setSelectedPlaces(newValue)
     }
   }
+
+  const [renderedText, setRenderedText] = useState('')
 
   //react to filters change
   useEffect(() => {
@@ -69,6 +62,16 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
       }
     })
     setFilteredProjects(newProjects)
+
+    const textArray = [
+      getResultsText(selectedYears),
+      getResultsText(selectedTypes),
+      getResultsText(selectedPlaces)
+    ].filter((a) => !!a)
+
+    textArray.length > 0
+      ? setRenderedText(`${textArray.join(' // ')}`)
+      : setRenderedText('')
   }, [projetos, selectedPlaces, selectedTypes, selectedYears])
 
   //Unique items for each filter
@@ -109,13 +112,22 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
     }
   ]
 
+  //filter behaviour
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [selectedFilterName, setSelectedFilterName] = useState('')
 
   return (
     <div>
       <S.FilterBar>
-        <S.Results> aqui</S.Results>
+        <S.Results>
+          {renderedText ? (
+            <p>
+              <S.Bold>Filtros ativos:</S.Bold> {renderedText}
+            </p>
+          ) : (
+            ''
+          )}
+        </S.Results>
         <S.FilterContainer>
           <S.FilterBy>
             <S.Ico

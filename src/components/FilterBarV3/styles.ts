@@ -209,3 +209,7 @@ export const SeeResults = styled.button`
   text-transform: lowercase;
   font-weight: 600;
 `
+
+export const Bold = styled.span`
+  font-weight: 600;
+`
