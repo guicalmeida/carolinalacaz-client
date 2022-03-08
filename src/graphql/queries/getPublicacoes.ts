@@ -1,6 +1,6 @@
 const GET_PUBLICACOES = /* GraphQL */ `
   query GET_PUBLICACOES {
-    publicacaos(where: { projeto_null: false }) {
+    publicacaos {
       nome
       slug
       url
@@ -8,7 +8,6 @@ const GET_PUBLICACOES = /* GraphQL */ `
         ano
       }
       projeto {
-        id
         slug
       }
       veiculo {
