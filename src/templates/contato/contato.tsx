@@ -2,6 +2,7 @@ import Form from 'components/Form'
 import InternalLink from 'components/InternalLink'
 import TextoCorrido from 'components/TextoCorrido'
 import TituloSemibold from 'components/TituloSemibold'
+import Obfuscate from 'react-obfuscate'
 import * as S from './style'
 
 const campos = [
@@ -29,7 +30,7 @@ const Contato = () => {
         <S.HeaderWrapper>
           <TituloSemibold>CONSULTA DE DISPONIBILIDADE DE OBRAS</TituloSemibold>
           <S.Subtitulo>
-            ou envie um e-mail para fotografia@carolinalacaz.com
+            ou envie um e-mail para <Obfuscate element='span'>fotografia@carolinalacaz.com</Obfuscate>
           </S.Subtitulo>
         </S.HeaderWrapper>
         <S.FormWrapper>
