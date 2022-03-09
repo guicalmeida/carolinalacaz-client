@@ -95,5 +95,5 @@ export const Container = styled.div<OnProjectProps>`
   & > ${FotoContainer} {
     margin: 10px;
   }
-  padding-top: ${(props) => props.project ? '1rem' : '0'}
+  padding-top: ${(props) => (props.project ? '1rem' : '0')};
 `

@@ -14,7 +14,7 @@ export default function contato({
 }: ProjetosProps & EnsaiosProps & PlusProps) {
   return (
     <div>
-      <EnsNav ensaios={ensaios} projetos={projetos} plus={plus}/>
+      <EnsNav ensaios={ensaios} projetos={projetos} plus={plus} />
       <Contato />
     </div>
   )
