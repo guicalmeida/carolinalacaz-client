@@ -20,3 +20,15 @@ export const getResultsText = (array) => {
     return ''
   }
 }
+
+export const getUniqueSet = (obj, child1, child2) => {
+  return Array.from(
+    new Set(
+      obj
+        .sort((a, b) =>
+          a?.[child1]?.[child2] > b?.[child1]?.[child2] ? -1 : 1
+        )
+        .map((projeto) => projeto?.[child1]?.[child2])
+    )
+  )
+}

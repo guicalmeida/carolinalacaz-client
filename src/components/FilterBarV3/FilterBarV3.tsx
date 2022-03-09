@@ -4,7 +4,12 @@ import useWindowSize from 'hooks/useWindowResize'
 import React, { useEffect, useRef, useState } from 'react'
 import slugify from 'slugify'
 import { Projeto, ProjetosProps } from 'types/api'
-import { getResultsText, getUniqueValues, removeValue } from './filterBarHelper'
+import {
+  getResultsText,
+  getUniqueSet,
+  getUniqueValues,
+  removeValue
+} from './filterBarHelper'
 import * as S from './styles'
 
 const FilterBarV3 = ({ projetos }: ProjetosProps) => {
@@ -16,21 +21,19 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
   const [selectedPlaces, setSelectedPlaces] = useState([])
 
   const filterHelper = (selectedFilterName, value) => {
+    const handleState = (value, currentState, setStateAction) => {
+      const newValue = currentState.includes(value.toString())
+        ? removeValue(currentState, value.toString())
+        : getUniqueValues(currentState, value.toString())
+      setStateAction(newValue)
+    }
+
     if (selectedFilterName === 'Ano') {
-      const newValue = selectedYears.includes(value.toString())
-        ? removeValue(selectedYears, value.toString())
-        : getUniqueValues(selectedYears, value.toString())
-      setSelectedYears(newValue)
+      handleState(value, selectedYears, setSelectedYears)
     } else if (selectedFilterName === 'Tipo') {
-      const newValue = selectedTypes.includes(value)
-        ? removeValue(selectedTypes, value)
-        : getUniqueValues(selectedTypes, value)
-      setSelectedTypes(newValue)
+      handleState(value, selectedTypes, setSelectedTypes)
     } else if (selectedFilterName === 'Cidade') {
-      const newValue = selectedPlaces.includes(value)
-        ? removeValue(selectedPlaces, value)
-        : getUniqueValues(selectedPlaces, value)
-      setSelectedPlaces(newValue)
+      handleState(value, selectedPlaces, setSelectedPlaces)
     }
   }
 
@@ -41,20 +44,19 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
     const newProjects: Projeto[] = []
 
     projetos.forEach((project) => {
-      const isProjectInSelectedYear =
-        selectedYears.length > 0
-          ? selectedYears.includes(String(project?.ano?.ano))
+      const checkProject = (currentState, value) => {
+        return currentState.length > 0
+          ? currentState.includes(value?.toString())
           : true
+      }
+      const { ano, tipo, cidade } = project
 
-      const isProjectInSelectedType =
-        selectedTypes.length > 0
-          ? selectedTypes.includes(project?.tipo?.nome)
-          : true
-
-      const isProjectInSelectedPlace =
-        selectedPlaces.length > 0
-          ? selectedPlaces.includes(project?.cidade?.nome)
-          : true
+      const isProjectInSelectedYear = checkProject(selectedYears, ano?.ano)
+      const isProjectInSelectedType = checkProject(selectedTypes, tipo?.nome)
+      const isProjectInSelectedPlace = checkProject(
+        selectedPlaces,
+        cidade?.nome
+      )
 
       if (
         isProjectInSelectedPlace &&
@@ -78,27 +80,9 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
   }, [projetos, selectedPlaces, selectedTypes, selectedYears])
 
   //Unique items for each filter
-  const projetosYear = Array.from(
-    new Set(
-      projetos
-        .sort((a, b) => (a.ano?.ano > b.ano?.ano ? -1 : 1))
-        .map((projeto) => projeto?.ano?.ano?.toString())
-    )
-  )
-  const projetosType = Array.from(
-    new Set(
-      projetos
-        .sort((a, b) => (a.tipo?.nome > b.tipo?.nome ? -1 : 1))
-        .map((projeto) => projeto?.tipo?.nome)
-    )
-  )
-  const projetosCities = Array.from(
-    new Set(
-      projetos
-        .sort((a, b) => (a.cidade?.nome > b.cidade?.nome ? -1 : 1))
-        .map((projeto) => projeto?.cidade?.nome)
-    )
-  )
+  const projetosYear = getUniqueSet(projetos, 'ano', 'ano')
+  const projetosType = getUniqueSet(projetos, 'tipo', 'nome')
+  const projetosCities = getUniqueSet(projetos, 'cidade', 'nome')
 
   const filtersObject = [
     {

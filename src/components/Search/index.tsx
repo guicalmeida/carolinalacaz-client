@@ -15,6 +15,7 @@ const Search = ({ ensaios, projetos }: ProjetosProps & EnsaiosProps) => {
 
   const useOutsideAlerter = (ref: RefObject<HTMLInputElement>) => {
     useEffect(() => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       function handleClickOutside(event: any) {
         if (ref.current && !ref.current.contains(event!.target)) {
           setSearchFocus(false)

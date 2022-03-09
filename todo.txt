@@ -1,2 +1,0 @@
-ligar e desligar +++
-aumentar numero de prioridades

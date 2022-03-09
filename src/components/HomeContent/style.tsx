@@ -58,7 +58,7 @@ export const Container = styled.div`
     padding-top: 6rem;
   }
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     width: 100%;
   }
 
