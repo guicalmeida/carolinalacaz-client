@@ -1,6 +1,6 @@
 const GET_PLUS = /* GraphQL */ `
   query GET_PLUS {
-    pluses {
+    pluses(first: 999) {
       nome
       cidade {
         nome

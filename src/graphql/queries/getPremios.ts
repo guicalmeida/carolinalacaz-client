@@ -1,6 +1,6 @@
 const GET_PREMIOS = /* GraphQL */ `
   query GET_PREMIOS {
-    premios {
+    premios(first: 999) {
       posicao
       slug
       nome

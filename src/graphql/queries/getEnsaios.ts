@@ -1,6 +1,6 @@
 const GET_ENSAIOS = /* GraphQL */ `
   query GET_ENSAIOS {
-    ensaios {
+    ensaios(first: 999) {
       nome
       slug
       descricao {

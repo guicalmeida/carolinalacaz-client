@@ -1,6 +1,6 @@
 const GET_PUBLICACOES = /* GraphQL */ `
   query GET_PUBLICACOES {
-    publicacaos {
+    publicacaos(first: 999) {
       nome
       slug
       url

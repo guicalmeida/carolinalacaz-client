@@ -5,9 +5,7 @@ type PicProps = {
 }
 
 const Foto = ({ url }: PicProps) => {
-  return (
-    <S.Foto src={process.env.NEXT_PUBLIC_IMAGE_HOST + url} loading="lazy" />
-  )
+  return <S.Foto src={url} loading="lazy" />
 }
 
 export default Foto

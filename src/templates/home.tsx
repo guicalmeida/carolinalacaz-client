@@ -1,6 +1,6 @@
 import { ContentContainer } from 'components/contentContainer'
 import { HomeContent } from 'components/HomeContent'
-import { EnsaiosProps, HomeProps, ProjetosProps } from 'types/api'
+import { EnsaiosProps, ProjetosProps } from 'types/api'
 
 const Home = ({ ensaios, projetos }: EnsaiosProps & ProjetosProps) => {
   return (

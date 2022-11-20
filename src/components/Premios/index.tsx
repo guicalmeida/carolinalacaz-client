@@ -12,11 +12,7 @@ const Premio = ({ premios }: PremioProps) => {
           color = !color
           return (
             <S.Background
-              imgSrc={
-                premio.foto.url
-                  ? process.env.NEXT_PUBLIC_IMAGE_HOST + premio.foto.url
-                  : ''
-              }
+              imgSrc={premio.foto.url ? premio.foto.url : ''}
               key={premio.slug}
               dark={color}
               id={premio.slug}
@@ -36,11 +32,7 @@ const Premio = ({ premios }: PremioProps) => {
                 </S.TxtWrapper>
                 <S.SliderWrapper>
                   <S.Image
-                    src={
-                      premio.foto.url
-                        ? process.env.NEXT_PUBLIC_IMAGE_HOST + premio.foto.url
-                        : ''
-                    }
+                    src={premio.foto.url ? premio.foto.url : ''}
                   ></S.Image>
                 </S.SliderWrapper>
               </S.ContentWrapper>

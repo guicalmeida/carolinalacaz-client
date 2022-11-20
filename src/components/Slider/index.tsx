@@ -23,7 +23,7 @@ const ImageSlider = ({ slides, dark }: SliderProps) => {
         {slides.map((slide) => {
           return (
             <div key={slide?.name}>
-              <S.Image src={process.env.NEXT_PUBLIC_IMAGE_HOST + slide.url} />
+              <S.Image src={slide.url} />
             </div>
           )
         })}

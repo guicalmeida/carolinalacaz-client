@@ -17,7 +17,7 @@ const Publicacao = ({ publicacaos }: PublicacoesProps) => {
               <S.Background
                 imgSrc={
                   publicacao.capa
-                    ? process.env.NEXT_PUBLIC_IMAGE_HOST + publicacao.capa.url
+                    ? publicacao.capa.url
                     : 'https://source.unsplash.com/random'
                 }
                 key={publicacao.slug}

@@ -16,10 +16,7 @@ export const EnsInitialPhoto = React.memo(({ ensaios }: EnsaiosProps) => {
 
   return (
     <S.Image
-      src={
-        process.env.NEXT_PUBLIC_IMAGE_HOST +
-        fotosDestaque[Math.floor(getRandomNumber() * fotosDestaque.length)]
-      }
+      src={fotosDestaque[Math.floor(getRandomNumber() * fotosDestaque.length)]}
     />
   )
 })

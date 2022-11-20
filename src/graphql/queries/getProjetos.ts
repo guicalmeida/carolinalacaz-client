@@ -1,6 +1,6 @@
 const GET_PROJETOS = /* GraphQL */ `
   query GET_PROJETOS {
-    projetos {
+    projetos(first: 999) {
       nome
       ano {
         ano
