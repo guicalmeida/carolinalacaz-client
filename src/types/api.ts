@@ -12,8 +12,12 @@ export type ImagemProps = {
 export type EnsaioUnitProps = {
   EnsaioUnit: {
     nome: string
-    descricaoCurta: string
-    descricao: string
+    descricaoCurta: {
+      html: string
+    }
+    descricao: {
+      html: string
+    }
     slug: string
     ano: anoProps
     cidade: cidadeProps

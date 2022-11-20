@@ -24,7 +24,9 @@ const Ensaio = ({ EnsaioUnit, ensaios }: EnsaioUnitProps & EnsaiosProps) => {
         <MosaicoEnsaio EnsaioUnit={EnsaioUnit} />
         <S.TextoWrapper>
           <TextoCorrido>
-            {parse(EnsaioUnit?.descricao ? EnsaioUnit.descricao : '')}
+            {parse(
+              EnsaioUnit?.descricao?.html ? EnsaioUnit.descricao?.html : ''
+            )}
           </TextoCorrido>
         </S.TextoWrapper>
         <OtherProjectsTxt>

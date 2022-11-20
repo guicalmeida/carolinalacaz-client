@@ -3,14 +3,18 @@ const GET_ENSAIOS = /* GraphQL */ `
     ensaios {
       nome
       slug
-      descricao
-      descricaoCurta
+      descricao {
+        html
+      }
+      descricaoCurta {
+        html
+      }
       galeria {
-        name
+        fileName
         url
       }
       capa {
-        name
+        fileName
         url
       }
       cidade {
