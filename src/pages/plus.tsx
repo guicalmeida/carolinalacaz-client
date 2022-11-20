@@ -21,14 +21,14 @@ export default function plus({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { plus } = await client.request(GET_PLUS)
+  const { pluses } = await client.request(GET_PLUS)
 
   const { ensaios } = await client.request(GET_ENSAIOS)
   const { projetos } = await client.request(GET_PROJETOS)
 
   return {
     props: {
-      plus,
+      pluses,
       ensaios,
       projetos
     }

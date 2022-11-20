@@ -92,7 +92,7 @@ export type PlusProps = {
     ano: anoProps
     cidade: cidadeProps
     foto: ImagemProps
-  }
+  }[]
 }
 
 export type PremioProps = {
