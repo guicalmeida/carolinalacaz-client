@@ -12,8 +12,8 @@ const EnsaioHeader = ({ EnsaioUnit }: EnsaioUnitProps) => {
         {EnsaioUnit?.ano?.ano ? EnsaioUnit.ano.ano : ''}
       </S.Subtitle>
       <S.Description>
-        {EnsaioUnit?.descricaoCurta
-          ? parse(`${EnsaioUnit.descricaoCurta}`)
+        {EnsaioUnit?.descricaoCurta?.html
+          ? parse(`${EnsaioUnit.descricaoCurta?.html}`)
           : ''}
       </S.Description>
     </S.Container>

@@ -16,7 +16,7 @@ export const Subtitle = styled.h2`
   line-height: 3.6rem;
 `
 
-export const Description = styled.p`
+export const Description = styled.div`
   font-size: clamp(12px, 5vw, 16px);
   font-weight: 300;
   text-align: justify;

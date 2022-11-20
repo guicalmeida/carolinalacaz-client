@@ -5,7 +5,7 @@ export type cidadeProps = {
   nome: string
 }
 export type ImagemProps = {
-  name: string
+  fileName: string
   url: string
 }
 
