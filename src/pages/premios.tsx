@@ -4,15 +4,25 @@ import GET_ENSAIOS from 'graphql/queries/getEnsaios'
 
 import GET_PREMIOS from 'graphql/queries/getPremios'
 import GET_PROJETOS from 'graphql/queries/getProjetos'
+import { CheckCurrentColor, useTheme } from 'hooks/theme'
 import { GetStaticProps } from 'next'
+import { useEffect } from 'react'
 import { EnsaiosProps, PremioProps, ProjetosProps } from 'types/api'
 import Premios from '../templates/premios/premios'
 
-export default function premios({
+export default function PremiosPage({
   premios,
   ensaios,
   projetos
 }: PremioProps & ProjetosProps & EnsaiosProps) {
+  CheckCurrentColor()
+
+  const { turnDark } = useTheme()
+
+  useEffect(() => {
+    turnDark()
+  })
+
   return (
     <div>
       <EnsNav ensaios={ensaios} projetos={projetos} />

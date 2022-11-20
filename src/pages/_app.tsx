@@ -1,4 +1,4 @@
-import CustomThemeProvider from 'hooks/theme'
+import { CustomThemeProvider } from 'hooks/theme'
 import type { AppProps } from 'next/app'
 import NextNprogress from 'nextjs-progressbar'
 

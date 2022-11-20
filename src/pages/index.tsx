@@ -3,14 +3,17 @@ import client from 'graphql/client'
 import GET_ENSAIOS from 'graphql/queries/getEnsaios'
 
 import GET_PROJETOS from 'graphql/queries/getProjetos'
+import { CheckCurrentColor } from 'hooks/theme'
 import { GetStaticProps } from 'next'
 import { EnsaiosProps, ProjetosProps } from 'types/api'
 import Home from '../templates/home'
 
-export default function Inicial({
+export default function InicialPage({
   ensaios,
   projetos
 }: ProjetosProps & EnsaiosProps) {
+  CheckCurrentColor()
+
   return (
     <div>
       <ArqNav ensaios={ensaios} projetos={projetos} />

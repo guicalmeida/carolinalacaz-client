@@ -3,15 +3,25 @@ import client from 'graphql/client'
 import GET_ENSAIOS from 'graphql/queries/getEnsaios'
 
 import GET_PROJETOS from 'graphql/queries/getProjetos'
+import { CheckCurrentColor, useTheme } from 'hooks/theme'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { useEffect } from 'react'
 import { EnsaiosProps, EnsaioUnitProps, ProjetosProps } from 'types/api'
 import Ensaio from '../../templates/ensaio/ensaio'
 
-export default function ensaio({
+export default function EnsaioPage({
   EnsaioUnit,
   projetos,
   ensaios
 }: EnsaioUnitProps & EnsaiosProps & ProjetosProps) {
+  CheckCurrentColor()
+
+  const { turnDark } = useTheme()
+
+  useEffect(() => {
+    turnDark()
+  })
+
   return (
     <div>
       <EnsNav ensaios={ensaios} projetos={projetos} />
