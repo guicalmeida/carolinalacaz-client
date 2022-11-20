@@ -7,9 +7,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { PublicacoesProps } from 'types/api'
 import * as S from './styles'
 
-const PbDigitais = ({ publicacaos }: PublicacoesProps) => {
-  const digitalPub = publicacaos.filter((publicacao) => {
-    return publicacao.meio == 'digital'
+const PbDigitais = ({ publicacoes }: PublicacoesProps) => {
+  const digitalPub = publicacoes?.filter((publicacao) => {
+    return publicacao.meio == 'Digital'
   })
 
   const veiculosUnicos = Array.from(

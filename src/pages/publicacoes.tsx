@@ -9,26 +9,26 @@ import { EnsaiosProps, ProjetosProps, PublicacoesProps } from 'types/api'
 import Publicacoes from '../templates/publicacoes/publicacoes'
 
 export default function publicacoes({
-  publicacaos,
+  publicacoes,
   projetos,
   ensaios
 }: PublicacoesProps & ProjetosProps & EnsaiosProps) {
   return (
     <div>
       <ArqNav ensaios={ensaios} projetos={projetos} />
-      <Publicacoes publicacaos={publicacaos} />
+      <Publicacoes publicacoes={publicacoes} />
     </div>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { publicacaos } = await client.request(GET_PUBLICACOES)
+  const { publicacoes } = await client.request(GET_PUBLICACOES)
   const { projetos } = await client.request(GET_PROJETOS)
   const { ensaios } = await client.request(GET_ENSAIOS)
 
   return {
     props: {
-      publicacaos,
+      publicacoes,
       ensaios,
       projetos
     }

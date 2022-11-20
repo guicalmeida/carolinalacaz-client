@@ -1,13 +1,13 @@
 import { PublicacoesProps } from 'types/api'
 import * as S from './styles'
 
-const PublicacaoIndex = ({ publicacaos }: PublicacoesProps) => {
+const PublicacaoIndex = ({ publicacoes }: PublicacoesProps) => {
   return (
     <S.GridLayout>
-      {publicacaos
-        .sort((a, b) => (a.ano?.ano > b.ano?.ano ? -1 : 1))
+      {publicacoes
+        ?.sort((a, b) => (a.ano?.ano > b.ano?.ano ? -1 : 1))
         .map((publicacao) => {
-          if (publicacao.meio == 'impresso') {
+          if (publicacao.meio == 'Impresso') {
             return (
               <a href={'#' + publicacao?.slug} key={publicacao.slug}>
                 <S.ItemWrapper>

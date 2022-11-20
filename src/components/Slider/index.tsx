@@ -4,7 +4,7 @@ import Slider from 'react-slick'
 type SliderProps = {
   slides: {
     url: string
-    name: string
+    fileName: string
   }[]
   dark: boolean
 }
@@ -22,7 +22,7 @@ const ImageSlider = ({ slides, dark }: SliderProps) => {
       <Slider {...settings}>
         {slides.map((slide) => {
           return (
-            <div key={slide?.name}>
+            <div key={slide?.fileName}>
               <S.Image src={slide.url} />
             </div>
           )

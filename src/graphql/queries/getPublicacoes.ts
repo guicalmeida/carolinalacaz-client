@@ -1,6 +1,6 @@
 const GET_PUBLICACOES = /* GraphQL */ `
   query GET_PUBLICACOES {
-    publicacaos(first: 999) {
+    publicacoes(first: 999) {
       nome
       slug
       url
@@ -15,11 +15,11 @@ const GET_PUBLICACOES = /* GraphQL */ `
       }
       meio
       capa {
-        name
+        fileName
         url
       }
       galeria {
-        name
+        fileName
         url
       }
     }

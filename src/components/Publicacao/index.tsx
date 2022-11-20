@@ -3,17 +3,18 @@ import ImageSlider from 'components/Slider'
 import { PublicacoesProps } from 'types/api'
 import * as S from './styles'
 
-const Publicacao = ({ publicacaos }: PublicacoesProps) => {
+const Publicacao = ({ publicacoes }: PublicacoesProps) => {
   let color = false
 
+  console.log(publicacoes)
   return (
     <S.PublicacoesWrapper>
-      {publicacaos
-        .sort((a, b) => (a.ano?.ano > b.ano?.ano ? -1 : 1))
-        .map((publicacao) => {
-          publicacao.meio == 'impresso' ? (color = !color) : null
+      {publicacoes
+        ?.sort((a, b) => (a.ano?.ano > b.ano?.ano ? -1 : 1))
+        ?.map((publicacao) => {
+          publicacao.meio == 'Impresso' ? (color = !color) : null
           return (
-            publicacao.meio == 'impresso' && (
+            publicacao.meio == 'Impresso' && (
               <S.Background
                 imgSrc={
                   publicacao.capa

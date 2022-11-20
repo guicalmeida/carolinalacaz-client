@@ -107,7 +107,7 @@ export type PremioProps = {
 }
 
 export type PublicacoesProps = {
-  publicacaos: {
+  publicacoes: {
     nome: string
     slug: string
     url: string

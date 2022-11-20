@@ -9,7 +9,7 @@ const GET_PREMIOS = /* GraphQL */ `
         ano
       }
       foto {
-        name
+        fileName
         url
       }
     }
