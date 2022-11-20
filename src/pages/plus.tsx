@@ -8,14 +8,14 @@ import { EnsaiosProps, PlusProps, ProjetosProps } from 'types/api'
 import Plus from '../templates/plus'
 
 export default function plus({
-  plus,
+  pluses,
   ensaios,
   projetos
 }: PlusProps & ProjetosProps & EnsaiosProps) {
   return (
     <div>
-      <EnsNav ensaios={ensaios} projetos={projetos} plus={plus} />
-      <Plus plus={plus} />
+      <EnsNav ensaios={ensaios} projetos={projetos} />
+      <Plus pluses={pluses} />
     </div>
   )
 }

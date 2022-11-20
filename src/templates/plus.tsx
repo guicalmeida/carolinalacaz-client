@@ -9,14 +9,14 @@ import OtherProjectsTxt from 'components/OtherProjectsTxt'
 import ScrollTop from 'components/ScrollToTop'
 import { PlusProps } from 'types/api'
 
-const Plus = ({ plus }: PlusProps) => {
+const Plus = ({ pluses }: PlusProps) => {
   return (
     <section>
       <ScrollTop />
       <ContentContainer>
         <Spacer />
         <EnsTitle>+++</EnsTitle>
-        <AvulsasMasonry overlay={true} plus={plus} />
+        <AvulsasMasonry overlay={true} pluses={pluses} />
         <OtherProjectsTxt>
           interessado? Entre em{' '}
           <InternalLink page="/contato" useDark={true}>

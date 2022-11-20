@@ -87,14 +87,11 @@ export type SobreProps = {
 }
 
 export type PlusProps = {
-  plus: {
-    fotografia: {
-      nome: string
-      ano: anoProps
-      cidade: cidadeProps
-      foto: ImagemProps
-    }[]
-    turn: boolean
+  pluses: {
+    nome: string
+    ano: anoProps
+    cidade: cidadeProps
+    foto: ImagemProps
   }
 }
 

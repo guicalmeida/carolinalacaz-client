@@ -1,20 +1,19 @@
 import ArqNav from 'components/ArqNav'
 import client from 'graphql/client'
 import GET_ENSAIOS from 'graphql/queries/getEnsaios'
-import GET_PLUS from 'graphql/queries/getPlus'
+
 import GET_PROJETOS from 'graphql/queries/getProjetos'
 import { GetStaticProps } from 'next'
-import { EnsaiosProps, PlusProps, ProjetosProps } from 'types/api'
+import { EnsaiosProps, ProjetosProps } from 'types/api'
 import Home from '../templates/home'
 
 export default function Inicial({
   ensaios,
-  projetos,
-  plus
-}: ProjetosProps & EnsaiosProps & PlusProps) {
+  projetos
+}: ProjetosProps & EnsaiosProps) {
   return (
     <div>
-      <ArqNav ensaios={ensaios} projetos={projetos} plus={plus} />
+      <ArqNav ensaios={ensaios} projetos={projetos} />
       <Home ensaios={ensaios} projetos={projetos} />
     </div>
   )
@@ -23,13 +22,11 @@ export default function Inicial({
 export const getStaticProps: GetStaticProps = async () => {
   const { projetos } = await client.request(GET_PROJETOS)
   const { ensaios } = await client.request(GET_ENSAIOS)
-  const { plus } = await client.request(GET_PLUS)
 
   return {
     props: {
       ensaios,
-      projetos,
-      plus
+      projetos
     }
   }
 }
