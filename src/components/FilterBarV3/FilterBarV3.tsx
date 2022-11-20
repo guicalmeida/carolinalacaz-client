@@ -297,7 +297,7 @@ const FilterBarV3 = ({ projetos }: ProjetosProps) => {
                                 filterHelper(selectedFilterName, value)
                               }}
                               className={
-                                selectedYears.includes(value) ||
+                                selectedYears.includes(value?.toString()) ||
                                 selectedPlaces.includes(value) ||
                                 selectedTypes.includes(value)
                                   ? 'active'
