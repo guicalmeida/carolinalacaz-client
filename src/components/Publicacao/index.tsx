@@ -6,7 +6,6 @@ import * as S from './styles'
 const Publicacao = ({ publicacoes }: PublicacoesProps) => {
   let color = false
 
-  console.log(publicacoes)
   return (
     <S.PublicacoesWrapper>
       {publicacoes

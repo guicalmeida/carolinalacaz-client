@@ -13,7 +13,6 @@ export const ArqInitialPhoto = React.memo(({ projetos }: ProjetosProps) => {
   projetos.forEach((projeto) => {
     projeto.destaque ? fotosDestaque.push(projeto.capa.url) : null
   })
-  console.log(fotosDestaque)
 
   const randomize = () => {
     return Math.floor(getRandomNumber() * fotosDestaque.length)

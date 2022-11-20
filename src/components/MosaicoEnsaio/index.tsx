@@ -3,7 +3,6 @@ import { EnsaioUnitProps } from 'types/api'
 import * as S from './styles'
 
 const MosaicoEnsaio = ({ EnsaioUnit }: EnsaioUnitProps) => {
-  console.log(EnsaioUnit)
   return (
     <S.Container>
       {EnsaioUnit.galeria?.map((foto) => {
