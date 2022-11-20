@@ -10,11 +10,11 @@ const GET_PROJETOS = /* GraphQL */ `
       }
       slug
       galeria {
-        name
+        fileName
         url
       }
       capa {
-        name
+        fileName
         url
       }
       escritorio {
