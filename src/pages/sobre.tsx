@@ -7,13 +7,23 @@ import GET_SOBRE from 'graphql/queries/getSobre'
 import { GetStaticProps } from 'next'
 import { EnsaiosProps, PlusProps, ProjetosProps, SobreProps } from 'types/api'
 import Sobre from '../templates/sobre/sobre'
+import { CheckCurrentColor, useTheme } from 'hooks/theme'
+import { useEffect } from 'react'
 
-export default function sobre({
+export default function SobrePage({
   sobre,
   ensaios,
   projetos,
   plus
 }: SobreProps & ProjetosProps & EnsaiosProps & PlusProps) {
+  CheckCurrentColor()
+
+  const { turnLight } = useTheme()
+
+  useEffect(() => {
+    turnLight()
+  })
+
   return (
     <div>
       <ArqNav ensaios={ensaios} projetos={projetos} plus={plus} />

@@ -4,6 +4,7 @@ import GET_ENSAIOS from 'graphql/queries/getEnsaios'
 import GET_PLUS from 'graphql/queries/getPlus'
 import GET_PROJETOS from 'graphql/queries/getProjetos'
 import GET_PUBLICACOES from 'graphql/queries/getPublicacoes'
+import { CheckCurrentColor, useTheme } from 'hooks/theme'
 import { GetStaticProps } from 'next'
 import {
   EnsaiosProps,
@@ -12,13 +13,21 @@ import {
   PublicacoesProps
 } from 'types/api'
 import Publicacoes from '../templates/publicacoes/publicacoes'
+import { useEffect } from 'react'
 
-export default function publicacoes({
+export default function PublicacoesPage({
   publicacaos,
   projetos,
   ensaios,
   plus
 }: PublicacoesProps & ProjetosProps & EnsaiosProps & PlusProps) {
+  CheckCurrentColor()
+
+  const { turnLight } = useTheme()
+
+  useEffect(() => {
+    turnLight()
+  })
   return (
     <div>
       <ArqNav ensaios={ensaios} projetos={projetos} plus={plus} />

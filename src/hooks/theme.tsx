@@ -1,4 +1,10 @@
-import { createContext, useCallback, useContext, useState } from 'react'
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState
+} from 'react'
 import { ThemeProvider } from 'styled-components'
 import dark from 'styles/themes/dark'
 import light from 'styles/themes/light'
@@ -23,10 +29,16 @@ export const CustomThemeProvider: React.FC = ({ children }) => {
   }, [theme])
 
   const turnDark = () => {
+    if (typeof window !== undefined) {
+      window.localStorage.setItem('color', 'dark')
+    }
     setTheme(dark)
   }
 
   const turnLight = () => {
+    if (typeof window !== undefined) {
+      window.localStorage.setItem('color', 'light')
+    }
     setTheme(light)
   }
 
@@ -37,4 +49,16 @@ export const CustomThemeProvider: React.FC = ({ children }) => {
   )
 }
 
-export default CustomThemeProvider
+export function CheckCurrentColor() {
+  const { turnDark, turnLight } = useTheme()
+
+  useEffect(() => {
+    const item = window.localStorage.getItem('color')
+
+    if (item === 'dark') {
+      turnDark()
+    } else {
+      turnLight()
+    }
+  })
+}

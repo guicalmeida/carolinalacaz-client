@@ -3,6 +3,7 @@ import client from 'graphql/client'
 import GET_ENSAIOS from 'graphql/queries/getEnsaios'
 import GET_PLUS from 'graphql/queries/getPlus'
 import GET_PROJETOS from 'graphql/queries/getProjetos'
+import { CheckCurrentColor, useTheme } from 'hooks/theme'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import {
   EnsaiosProps,
@@ -10,14 +11,22 @@ import {
   ProjetosProps,
   ProjetoUnitProps
 } from 'types/api'
+import { useEffect } from 'react'
 import Projeto from '../../templates/projeto'
 
-export default function projeto({
+export default function ProjetoPage({
   projetos,
   ensaios,
   ProjetoUnit,
   plus
 }: ProjetosProps & ProjetoUnitProps & EnsaiosProps & PlusProps) {
+  CheckCurrentColor()
+
+  const { turnLight } = useTheme()
+
+  useEffect(() => {
+    turnLight()
+  })
   return (
     <div>
       <ArqNav ensaios={ensaios} projetos={projetos} plus={plus} />
